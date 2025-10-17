@@ -6,16 +6,21 @@ import ExclamationTriangle from "../assets/icons/ExclamationTriangle";
 export default function ResultCard({ cmd }) {
   let StatusIcon;
   let statusColor;
+  let explanationText = cmd.explanation;
 
   if (!cmd.violated) {
     StatusIcon = CheckCircle;
     statusColor = "text-green-500";
+    // No extra explanation
   } else if (cmd.isPrimaryViolation) {
     StatusIcon = AlertTriangle;
     statusColor = "text-red-500";
+    // No extra explanation, just use cmd.explanation
   } else if (cmd.isSecondaryViolation) {
     StatusIcon = ExclamationTriangle;
     statusColor = "text-yellow-500";
+    // Add the James 2:10 explanation ONLY for secondary violations
+    explanationText = `${cmd.explanation} — James 2:10 teaches that breaking one commandment makes us guilty of all, because love fulfills the law (Romans 13:10).`;
   }
 
   const bgClass = cmd.violated
@@ -29,7 +34,7 @@ export default function ResultCard({ cmd }) {
       <StatusIcon className={`w-6 h-6 mr-3 ${statusColor}`} />
       <div>
         <div className="font-semibold">{cmd.text}</div>
-        <div className="text-sm text-gray-700">{cmd.explanation}</div>
+        <div className="text-sm text-gray-700">{explanationText}</div>
       </div>
     </div>
   );
