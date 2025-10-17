@@ -22,7 +22,11 @@ export default function ResultCard({ analysis }) {
 
       <div className="space-y-4">
         {results.map(cmd => (
-          <CommandmentCard key={cmd.id} cmd={cmd} isGloballyViolated={anyViolated} />
+          <CommandmentCard 
+            key={cmd.id} 
+            cmd={cmd} 
+            isGloballyViolated={anyViolated && !cmd.originallyViolated} // Only show yellow badge if it was NOT originally violated but got marked due to global rule
+          />
         ))}
       </div>
     </div>
