@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-sans antialiased;
+}
+
+/* Custom gradient background */
+.bg-gradient-to-br {
+  background: linear-gradient(to bottom right, #f1f5f9, #dbeafe);
+}
