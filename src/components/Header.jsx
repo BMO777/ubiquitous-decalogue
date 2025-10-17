@@ -1,5 +1,5 @@
-import React from 'react';
-import Shield from '../assets/icons/Shield';
+import React from "react";
+import Shield from "../assets/icons/Shield";
 
 export default function Header() {
   return (
@@ -10,8 +10,13 @@ export default function Header() {
             <Shield className="w-8 h-8 text-white" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Ten Commandments Analyzer</h1>
-            <p className="text-gray-600">Evaluate actions against biblical principles with AI-powered insights</p>
+            <h1 className="text-3xl font-bold text-gray-900">
+              Ten Commandments Analyzer
+            </h1>
+            <p className="text-gray-600">
+              Evaluate actions against biblical principles with AI-powered
+              insights
+            </p>
           </div>
         </div>
       </div>

@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import Header from '../components/Header';
-import InputSection from '../components/InputSection';
-import ResultCard from '../components/ResultCard';
-import LoadingSpinner from '../components/LoadingSpinner';
-import ErrorFallback from '../components/ErrorFallback';
-import { commandments } from '../utils/commandments';
-import useLocalStorage from '../hooks/useLocalStorage';
+import React, { useState } from "react";
+import Header from "../components/Header";
+import InputSection from "../components/InputSection";
+import ResultCard from "../components/ResultCard";
+import LoadingSpinner from "../components/LoadingSpinner";
+import ErrorFallback from "../components/ErrorFallback";
+import { commandments } from "../utils/commandments";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 export default function Home() {
-  const [inputText, setInputText] = useState('');
+  const [inputText, setInputText] = useState("");
   const [analysis, setAnalysis] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [history, setHistory] = useLocalStorage('analysisHistory', []);
+  const [history, setHistory] = useLocalStorage("analysisHistory", []);
 
   const analyzeAction = async () => {
     if (!inputText.trim()) return;
@@ -21,27 +21,29 @@ export default function Home() {
     setError(null);
 
     try {
-      const response = await fetch('/api/analyze', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/analyze", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           action: inputText,
-          commandments: commandments.map(c => ({
+          commandments: commandments.map((c) => ({
             id: c.id,
             text: c.text,
-            keyPoints: c.keyPoints
-          }))
-        })
+            keyPoints: c.keyPoints,
+          })),
+        }),
       });
 
-      if (!response.ok) throw new Error('Network response was not ok');
+      if (!response.ok) throw new Error("Network response was not ok");
       const data = await response.json();
 
       // "One violation = all violated" principle
-      const anyViolated = data.results.some(cmd => cmd.violated);
-      const primaryViolations = data.results.filter(cmd => cmd.violated).map(cmd => cmd.id);
+      const anyViolated = data.results.some((cmd) => cmd.violated);
+      const primaryViolations = data.results
+        .filter((cmd) => cmd.violated)
+        .map((cmd) => cmd.id);
 
-      const finalResults = data.results.map(cmd => {
+      const finalResults = data.results.map((cmd) => {
         const isPrimary = primaryViolations.includes(cmd.id);
         const isSecondary = anyViolated && !isPrimary;
 
@@ -52,7 +54,7 @@ export default function Home() {
           isSecondaryViolation: isSecondary,
           explanation: isPrimary
             ? cmd.explanation
-            : `${cmd.explanation} — Though this commandment wasn't directly violated, James 2:10 teaches that breaking one commandment makes us guilty of all, because love fulfills the law (Romans 13:10).`
+            : `${cmd.explanation} — Though this commandment wasn't directly violated, James 2:10 teaches that breaking one commandment makes us guilty of all, because love fulfills the law (Romans 13:10).`,
         };
       });
 
@@ -61,20 +63,19 @@ export default function Home() {
         anyViolated,
         principleOfLove: anyViolated
           ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.'"
-          : "The action aligns with all commandments, reflecting a heart that loves God and neighbor."
+          : "The action aligns with all commandments, reflecting a heart that loves God and neighbor.",
       });
-      setHistory(prev => [data, ...prev.slice(0, 9)]); // Keep last 10
-
+      setHistory((prev) => [data, ...prev.slice(0, 9)]); // Keep last 10
     } catch (err) {
-      console.error('Analysis error:', err);
+      console.error("Analysis error:", err);
 
       // Fallback to local keyword-based analysis
-      const mockResults = commandments.map(cmd => {
-        if (typeof cmd.analyze === 'function') {
+      const mockResults = commandments.map((cmd) => {
+        if (typeof cmd.analyze === "function") {
           const result = cmd.analyze(inputText);
           return {
             ...cmd,
-            ...result
+            ...result,
           };
         }
         // Simple fallback stub
@@ -83,14 +84,16 @@ export default function Home() {
           violated: false,
           explanation: "No AI result available.",
           biblicalReasoning: "",
-          guidance: ""
+          guidance: "",
         };
       });
 
-      const anyViolated = mockResults.some(cmd => cmd.violated);
-      const primaryViolations = mockResults.filter(cmd => cmd.violated).map(cmd => cmd.id);
+      const anyViolated = mockResults.some((cmd) => cmd.violated);
+      const primaryViolations = mockResults
+        .filter((cmd) => cmd.violated)
+        .map((cmd) => cmd.id);
 
-      const finalResults = mockResults.map(cmd => {
+      const finalResults = mockResults.map((cmd) => {
         const isPrimary = primaryViolations.includes(cmd.id);
         const isSecondary = anyViolated && !isPrimary;
 
@@ -101,7 +104,7 @@ export default function Home() {
           isSecondaryViolation: isSecondary,
           explanation: isPrimary
             ? cmd.explanation
-            : `${cmd.explanation} — Though this commandment wasn't directly violated, James 2:10 teaches that breaking one commandment makes us guilty of all, because love fulfills the law (Romans 13:10).`
+            : `${cmd.explanation} — Though this commandment wasn't directly violated, James 2:10 teaches that breaking one commandment makes us guilty of all, because love fulfills the law (Romans 13:10).`,
         };
       });
 
@@ -110,16 +113,16 @@ export default function Home() {
         anyViolated,
         principleOfLove: anyViolated
           ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.'"
-          : "The action aligns with all commandments, reflecting a heart that loves God and neighbor."
+          : "The action aligns with all commandments, reflecting a heart that loves God and neighbor.",
       });
     }
 
     setIsLoading(false);
   };
 
-  const handleInputChange = e => setInputText(e.target.value);
+  const handleInputChange = (e) => setInputText(e.target.value);
 
-  const handleAnalyze = e => {
+  const handleAnalyze = (e) => {
     e.preventDefault();
     analyzeAction();
   };
@@ -145,7 +148,7 @@ export default function Home() {
                 <strong>Theology Note:</strong> {analysis.principleOfLove}
               </div>
             )}
-            {analysis.results.map(cmd => (
+            {analysis.results.map((cmd) => (
               <ResultCard key={cmd.id} cmd={cmd} />
             ))}
           </div>
