@@ -27,5 +27,4 @@ export default function ResultCard({ cmd }) {
     : 'bg-green-50 border-green-200';
 
   return (
-    
-`}> <div className="flex items-start space-x-3"> <StatusIcon className={`w-6 h-6 mt-1 ${statusColor}`} /> <div className="flex-1"> <h3 className="font-bold text-gray-900">{cmd.text}</h3> <p className="text-sm text-gray-600 mt-1">{cmd.keyPoints}</p> {cmd.isSecondaryViolation && ( <div className="mt-2 px-3 py-1 bg-yellow-100 text-yellow-800 text-xs rounded"> Marked due to principle of love (James 2:10) </div> )} <div className="mt-4"> <h4 className="font-semibold text-gray-800">Analysis:</h4> <p className="text-gray-700 mt-2">{cmd.explanation}</p> </div> <div className="mt-4"> <h4 className="font-semibold text-gray-800">Biblical Reasoning:</h4> <p className="text-gray-700 mt-2 italic">{cmd.biblicalReasoning}</p> </div> <div className="mt-4"> <h4 className="font-semibold text-gray-800">Guidance:</h4> <p className="text-gray-700 mt-2">{cmd.guidance}</p> </div> </div> </div> </div> {/* ✅ This closes the outer div */} ); }
+    <div className={`p-6 rounded-lg border ${bgClass} mb-4`}>
