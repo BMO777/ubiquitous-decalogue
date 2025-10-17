@@ -1,7 +1,9 @@
+// src/components/InputSection.jsx
+
 import React from 'react';
 import FileText from '../assets/icons/FileText';
 
-export default function InputSection({ inputText, setInputText, analyzeAction, isLoading }) {
+export default function InputSection({ value, onChange, onAnalyze, loading }) {
   return (
     <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
       <div className="flex items-start space-x-4">
@@ -15,18 +17,18 @@ export default function InputSection({ inputText, setInputText, analyzeAction, i
             Our AI-powered analysis will provide deep insights into how your described scenario aligns with biblical principles.
           </p>
           <textarea
-            value={inputText}
-            onChange={(e) => setInputText(e.target.value)}
+            value={value}
+            onChange={onChange}
             placeholder="Example: 'I lied to my boss about why I was late'"
             className="w-full h-32 p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-            disabled={isLoading}
+            disabled={loading}
           />
           <button
-            onClick={analyzeAction}
-            disabled={isLoading || !inputText.trim()}
+            type="submit"
+            disabled={loading || !value.trim()}
             className="mt-4 px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            {isLoading ? 'Analyzing...' : 'Analyze Action'}
+            {loading ? 'Analyzing...' : 'Analyze Action'}
           </button>
         </div>
       </div>
