@@ -22,7 +22,7 @@ export default function ResultCard({ analysis }) {
 
       <div className="space-y-4">
         {results.map(cmd => (
-          <CommandmentCard key={cmd.id} cmd={cmd} />
+          <CommandmentCard key={cmd.id} cmd={cmd} isGloballyViolated={anyViolated} />
         ))}
       </div>
     </div>

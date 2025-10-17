@@ -33,7 +33,25 @@ export default function Home() {
       if (!response.ok) throw new Error('Network response was not ok');
 
       const data = await response.json();
-      setAnalysis(data);
+
+      // Use the same logic for AI results: apply "One violation = All violated" principle
+      const anyViolated = data.results.some(cmd => cmd.violated);
+
+      const finalResults = anyViolated
+        ? data.results.map(cmd => ({
+            ...cmd,
+            violated: true,
+            explanation: `${cmd.explanation} — Additionally, since any commandment violation breaks the law of love (James 2:10), all commandments are considered violated in principle.`,
+          }))
+        : data.results;
+
+      setAnalysis({
+        results: finalResults,
+        anyViolated,
+        principleOfLove: anyViolated
+          ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.'"
+          : "The action aligns with all commandments, reflecting a heart that loves God and neighbor."
+      });
       setHistory(prev => [data, ...prev.slice(0, 9)]); // Keep last 10
 
     } catch (err) {
@@ -41,8 +59,6 @@ export default function Home() {
 
       // Fallback to local keyword-based analysis
       const mockResults = commandments.map(cmd => {
-        // This requires each commandment object to have an analyze method.
-        // If not present, add a simple keyword matcher or stub here.
         if (typeof cmd.analyze === 'function') {
           const result = cmd.analyze(inputText);
           return {
@@ -62,11 +78,20 @@ export default function Home() {
 
       const anyViolated = mockResults.some(cmd => cmd.violated);
 
+      const finalResults = anyViolated
+        ? mockResults.map(cmd => ({
+            ...cmd,
+            violated: true,
+            explanation: `${cmd.explanation} — Additionally, since any commandment violation breaks the law of love (James 2:10), all commandments are considered violated in principle.`,
+          }))
+        : mockResults;
+
       setAnalysis({
-        results: mockResults,
+        results: finalResults,
         anyViolated,
-        principleOfLove:
-          "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). When we violate any commandment, we break the law of love that underlies all of God's precepts."
+        principleOfLove: anyViolated
+          ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.'"
+          : "The action aligns with all commandments, reflecting a heart that loves God and neighbor."
       });
     } finally {
       setIsLoading(false);
