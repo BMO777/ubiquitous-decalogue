@@ -1,9 +1,7 @@
-// src/components/ResultCard.jsx
-
-import React from 'react';
-import AlertTriangle from '../assets/icons/AlertTriangle';
-import CheckCircle from '../assets/icons/CheckCircle';
-import ExclamationTriangle from '../assets/icons/ExclamationTriangle';
+import React from "react";
+import AlertTriangle from "../assets/icons/AlertTriangle";
+import CheckCircle from "../assets/icons/CheckCircle";
+import ExclamationTriangle from "../assets/icons/ExclamationTriangle";
 
 export default function ResultCard({ cmd }) {
   let StatusIcon;
@@ -11,20 +9,28 @@ export default function ResultCard({ cmd }) {
 
   if (!cmd.violated) {
     StatusIcon = CheckCircle;
-    statusColor = 'text-green-500';
+    statusColor = "text-green-500";
   } else if (cmd.isPrimaryViolation) {
     StatusIcon = AlertTriangle;
-    statusColor = 'text-red-500';
+    statusColor = "text-red-500";
   } else if (cmd.isSecondaryViolation) {
     StatusIcon = ExclamationTriangle;
-    statusColor = 'text-yellow-500';
+    statusColor = "text-yellow-500";
   }
 
   const bgClass = cmd.violated
     ? cmd.isPrimaryViolation
-      ? 'bg-red-50 border-red-200'
-      : 'bg-yellow-50 border-yellow-200'
-    : 'bg-green-50 border-green-200';
+      ? "bg-red-50 border-red-200"
+      : "bg-yellow-50 border-yellow-200"
+    : "bg-green-50 border-green-200";
 
   return (
-    <div className={`p-6 rounded-lg border ${bgClass} mb-4`}>
+    <div className={`p-6 rounded-lg border ${bgClass} mb-4 flex items-center`}>
+      <StatusIcon className={`w-6 h-6 mr-3 ${statusColor}`} />
+      <div>
+        <div className="font-semibold">{cmd.text}</div>
+        <div className="text-sm text-gray-700">{cmd.explanation}</div>
+      </div>
+    </div>
+  );
+}
