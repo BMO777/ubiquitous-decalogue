@@ -45,6 +45,15 @@ npm start
 
 ## 🌐 Deployment
 
+### Deploying to GitHub Pages
+
+1. Update the `base` option in `vite.config.js` to match your repository name
+2. Run `npm run deploy` to deploy to GitHub Pages
+
+Alternatively, you can set up automatic deployment with GitHub Actions:
+1. Create a new workflow file at `.github/workflows/deploy.yml`
+2. The workflow will automatically deploy your site whenever you push to the main branch
+
 ### Deploying to Render
 
 1. Push your code to a GitHub repository
