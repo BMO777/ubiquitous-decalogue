@@ -8,8 +8,11 @@ function App() {
 
   return (
     <div>
-      <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
-      {activeTab === 'analyzer' ? <Home /> : <Education />}
+      {activeTab === 'analyzer' ? (
+        <Home onNavigateToEducation={() => setActiveTab('education')} />
+      ) : (
+        <Education />
+      )}
     </div>
   );
 }

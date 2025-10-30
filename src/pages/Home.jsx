@@ -8,7 +8,7 @@ import { commandments } from '../utils/commandments';
 import useLocalStorage from '../hooks/useLocalStorage';
 
 // ✅ DEFAULT EXPORT — This fixes the build error
-export default function Home() {
+export default function Home({ onNavigateToEducation }) {
   const [inputText, setInputText] = useState('');
   const [analysis, setAnalysis] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -127,7 +127,7 @@ export default function Home() {
 
   return (
     <div>
-      <Header />
+      <Header onNavigateToEducation={onNavigateToEducation} />
       <main className="max-w-2xl mx-auto px-4 py-8">
         <form onSubmit={handleAnalyze}>
           <InputSection
