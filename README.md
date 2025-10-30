@@ -2,6 +2,8 @@
 
 An AI-powered tool to evaluate actions against the Ten Commandments using biblical principles.
 
+![Ten Commandments Visualization](src/assets/images/outputcomm.jpg)
+
 ## 🚀 Features
 
 - Real-time AI analysis via OpenAI GPT-4o
