@@ -1,0 +1,80 @@
+import React from 'react';
+import { commandments } from '../utils/commandments';
+import Header from '../components/Header';
+
+export default function Education() {
+  return (
+    <div>
+      <Header />
+      <main className="max-w-4xl mx-auto px-4 py-8">
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-6">Understanding the Ten Commandments</h1>
+          
+          <div className="prose max-w-none">
+            <p className="text-lg text-gray-700 mb-6">
+              The Ten Commandments, also known as the Decalogue, are divine principles given by God to Moses 
+              on Mount Sinai. These commandments form the foundation of moral and spiritual life in the 
+              Judeo-Christian tradition.
+            </p>
+            
+            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Two Great Commandments</h2>
+            <p className="text-gray-700 mb-4">
+              Jesus summarized the law in two commandments:
+            </p>
+            <ul className="list-disc pl-6 mb-6 text-gray-700">
+              <li className="mb-2">Love the Lord your God with all your heart, soul, and mind (Matthew 22:37-38)</li>
+              <li className="mb-2">Love your neighbor as yourself (Matthew 22:39)</li>
+            </ul>
+            <p className="text-gray-700 mb-6">
+              The first four commandments relate to our relationship with God, while the last six 
+              relate to our relationships with others.
+            </p>
+            
+            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Ten Commandments in Detail</h2>
+          </div>
+          
+          <div className="space-y-6 mt-8">
+            {commandments.map((cmd) => (
+              <div key={cmd.id} className="border-l-4 border-blue-500 pl-4 py-2 bg-gray-50 rounded-r">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {cmd.id}. {cmd.text}
+                </h3>
+                <p className="text-gray-700 mb-3"><strong>Key Points:</strong> {cmd.keyPoints}</p>
+                <div className="bg-white p-4 rounded-lg">
+                  <h4 className="font-bold text-gray-900 mb-2">Biblical Reasoning:</h4>
+                  <p className="text-gray-700">{cmd.analyze("").biblicalReasoning}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="prose max-w-none mt-10">
+            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Unity of the Law</h2>
+            <p className="text-gray-700 mb-4">
+              James 2:10 teaches us that "whoever keeps the whole law but fails in one point has become 
+              guilty of all of it." This doesn't mean that all sins are equally heinous, but rather that 
+              breaking any commandment shows a disregard for the Lawgiver and His perfect standard.
+            </p>
+            <p className="text-gray-700 mb-4">
+              As Jesus explained in Matthew 22:40, "On these two commandments depend all the Law and the Prophets."
+              The law of love underlies all of God's commandments, and when we violate any commandment, we break 
+              this fundamental principle.
+            </p>
+            
+            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Practical Application</h2>
+            <p className="text-gray-700 mb-4">
+              The Ten Commandments are not merely rules to follow but principles that guide us toward a life 
+              of love, integrity, and holiness. They reveal God's character and show us the path to true 
+              fulfillment.
+            </p>
+            <p className="text-gray-700">
+              As you use this analyzer, remember that its purpose is not to condemn but to help us understand 
+              how our actions align with God's perfect standard, leading us to a deeper relationship with Him 
+              and others.
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
