@@ -15,8 +15,7 @@ export default function Header({ onNavigateToEducation }) {
                 Ten Commandments Analyzer
               </h1>
               <p className="text-gray-600">
-                Evaluate actions against biblical principles with AI-powered
-                insights
+                Examine your heart and actions through biblical principles
               </p>
             </div>
           </div>
