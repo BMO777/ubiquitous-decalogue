@@ -11,16 +11,24 @@ export default function ResultCard({ cmd }) {
   if (!cmd.violated) {
     StatusIcon = CheckCircle;
     statusColor = 'text-green-500';
-    // No extra explanation for green
+    // Add heart posture phrase for green commandments
+    explanationText = `${cmd.explanation} — Reflecting a heart that loves God and neighbor.`;
   } else if (cmd.isPrimaryViolation) {
     StatusIcon = AlertTriangle;
     statusColor = 'text-red-500';
-    // No extra explanation for red
+    // Add heart posture comment for primary violations
+    if (cmd.heartPosture) {
+      explanationText = `${cmd.explanation} — Heart posture: ${cmd.heartPosture}`;
+    }
   } else if (cmd.isSecondaryViolation) {
     StatusIcon = ExclamationTriangle;
     statusColor = 'text-yellow-500';
     // Add the James 2:10 explanation ONLY for secondary violations
     explanationText = `${cmd.explanation} — James 2:10 teaches that breaking one commandment makes us guilty of all, because love fulfills the law (Romans 13:10).`;
+    // Add heart posture comment for secondary violations if available
+    if (cmd.heartPosture) {
+      explanationText = `${cmd.explanation} — James 2:10 teaches that breaking one commandment makes us guilty of all, because love fulfills the law (Romans 13:10). Heart posture: ${cmd.heartPosture}`;
+    }
   }
 
   const bgClass = cmd.violated
@@ -35,6 +43,16 @@ export default function ResultCard({ cmd }) {
       <div>
         <div className="font-semibold">{cmd.text}</div>
         <div className="text-sm text-gray-700">{explanationText}</div>
+        {cmd.biblicalReasoning && (
+          <div className="text-sm text-gray-600 mt-2 italic">
+            Biblical reasoning: {cmd.biblicalReasoning}
+          </div>
+        )}
+        {cmd.guidance && (
+          <div className="text-sm text-gray-600 mt-1">
+            Guidance: {cmd.guidance}
+          </div>
+        )}
       </div>
     </div>
   );
