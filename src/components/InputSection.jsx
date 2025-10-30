@@ -1,15 +1,15 @@
-// src/components/InputSection.jsx
-
 import React from "react";
-import FileText from "../assets/icons/FileText";
+import tenCommandmentsImage from "../assets/images/outputcomm.jpg";
 
 export default function InputSection({ value, onChange, onAnalyze, loading }) {
   return (
     <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
       <div className="flex items-start space-x-4">
-        <div className="bg-blue-100 p-3 rounded-lg">
-          <FileText className="w-6 h-6 text-blue-600" />
-        </div>
+        <img 
+          src={tenCommandmentsImage} 
+          alt="Ten Commandments" 
+          className="w-12 h-12 object-contain bg-blue-100 p-2 rounded-lg"
+        />
         <div className="flex-1">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Analyze an Action

@@ -1,22 +1,12 @@
 import React from "react";
-import AlertTriangle from "../assets/icons/AlertTriangle";
-import CheckCircle from "../assets/icons/CheckCircle";
-import ExclamationTriangle from "../assets/icons/ExclamationTriangle";
+import tenCommandmentsImage from "../assets/images/outputcomm.jpg";
 
 export default function CommandmentCard({ cmd }) {
-  let StatusIcon;
-  let statusColor;
-
-  if (!cmd.violated) {
-    StatusIcon = CheckCircle;
-    statusColor = "text-green-500";
-  } else if (cmd.isPrimaryViolation) {
-    StatusIcon = AlertTriangle;
-    statusColor = "text-red-500";
-  } else if (cmd.isSecondaryViolation) {
-    StatusIcon = ExclamationTriangle;
-    statusColor = "text-yellow-500";
-  }
+  const statusColor = cmd.violated
+    ? cmd.isPrimaryViolation
+      ? "text-red-500"
+      : "text-yellow-500"
+    : "text-green-500";
 
   const bgClass = cmd.violated
     ? cmd.isPrimaryViolation
@@ -26,7 +16,11 @@ export default function CommandmentCard({ cmd }) {
 
   return (
     <div className={`p-6 rounded-lg border ${bgClass} mb-4 flex items-center`}>
-      <StatusIcon className={`w-6 h-6 mr-3 ${statusColor}`} />
+      <img 
+        src={tenCommandmentsImage} 
+        alt="Commandment" 
+        className="w-10 h-10 object-contain mr-3 opacity-80"
+      />
       <div>
         <div className="font-semibold">{cmd.text}</div>
         <div className="text-sm text-gray-700">{cmd.explanation}</div>

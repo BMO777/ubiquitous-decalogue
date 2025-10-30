@@ -1,6 +1,7 @@
 import React from 'react';
 import { commandments } from '../utils/commandments';
 import Header from '../components/Header';
+import tenCommandmentsImage from '../assets/images/outputcomm.jpg';
 
 export default function Education() {
   return (
@@ -8,7 +9,14 @@ export default function Education() {
       <Header />
       <main className="max-w-4xl mx-auto px-4 py-8">
         <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-6">Understanding the Ten Commandments</h1>
+          <div className="flex items-center justify-center mb-6">
+            <img 
+              src={tenCommandmentsImage} 
+              alt="Ten Commandments" 
+              className="w-32 h-32 object-contain rounded-lg"
+            />
+          </div>
+          <h1 className="text-3xl font-bold text-center text-gray-900 mb-6">Understanding the Ten Commandments</h1>
           
           <div className="prose max-w-none">
             <p className="text-lg text-gray-700 mb-6">
