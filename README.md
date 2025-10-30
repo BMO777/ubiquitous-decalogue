@@ -8,38 +8,70 @@ An AI-powered tool to evaluate actions against the Ten Commandments using biblic
 - Beautiful, responsive UI with Tailwind CSS
 - Saves history locally
 - Fallback keyword-based analysis if AI fails
+- Educational component about the Ten Commandments
 
 ## 🛠️ Setup
 
-### Frontend
+### Environment Variables
 
-```bash
-cd ten-commandments-analyzer
-npm install
-npm run dev
+Create a `.env` file in the root directory with your OpenAI API key:
+```
+OPENAI_API_KEY=your_openai_api_key_here
+PORT=5000
 ```
 
-### Backend
+### Development
 
 ```bash
-cd server
+# Install dependencies for both frontend and backend
 npm install
-cp .env.example .env
-# Add your OPENAI_API_KEY
+
+# Start the development server
+npm run dev
+
+# Start the backend server (in a separate terminal)
+npm run dev:server
+```
+
+### Production Build
+
+```bash
+# Build the frontend
+npm run build
+
+# Start the production server (serves both frontend and backend)
 npm start
 ```
 
-Ensure frontend connects to http://localhost:5000/api/analyze
+## 🌐 Deployment
 
-🌐 Deployment
+### Deploying to Render
 
-Frontend: Deploy to Vercel  
-Backend: Deploy to Railway or Render  
+1. Push your code to a GitHub repository
+2. Create a new Web Service on Render
+3. Connect your repository
+4. Set the build command to: `npm install && npm run build`
+5. Set the start command to: `npm start`
+6. Add your environment variables in the Render dashboard
 
-🤝 Contributing
+### Deploying to Railway
+
+1. Push your code to a GitHub repository
+2. Create a new project on Railway
+3. Connect your repository
+4. Railway will automatically detect the project and set up the deployment
+5. Add your environment variables in the Railway dashboard
+
+### Deploying to Vercel (Frontend only)
+
+1. Deploy the frontend to Vercel
+2. Set up a separate deployment for the backend on a platform like Render or Railway
+3. Update the API URL in `vite.config.js` to point to your deployed backend
+
+## 🤝 Contributing
 
 PRs welcome! Please open an issue first.
 
-📄 License
+## 📄 License
 
 MIT
