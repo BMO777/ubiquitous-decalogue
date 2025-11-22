@@ -3,18 +3,26 @@ import { commandments } from '../utils/commandments';
 import Header from '../components/Header';
 import tenCommandmentsImage from '../assets/images/outputcomm.jpg';
 
-export default function Education() {
+export default function Education({ onNavigateToAnalyzer }) {
   return (
     <div>
       <Header />
       <main className="max-w-4xl mx-auto px-4 py-8">
         <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <div className="flex items-center justify-center mb-6">
-            <img 
-              src={tenCommandmentsImage} 
-              alt="Ten Commandments" 
-              className="w-32 h-32 object-contain rounded-lg"
-            />
+          <div className="flex justify-between items-center mb-6">
+            <div className="flex items-center">
+              <img 
+                src={tenCommandmentsImage} 
+                alt="Ten Commandments" 
+                className="w-32 h-32 object-contain rounded-lg"
+              />
+            </div>
+            <button
+              onClick={onNavigateToAnalyzer}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            >
+              Back to Analyzer
+            </button>
           </div>
           <h1 className="text-3xl font-bold text-center text-gray-900 mb-6">Understanding the Ten Commandments</h1>
           
