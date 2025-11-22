@@ -61,8 +61,8 @@ export default function Home({ onNavigateToEducation }) {
         results: finalResults,
         anyViolated,
         principleOfLove: anyViolated
-          ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.' True transformation begins with renewing our minds (Romans 12:2) - changing our upstream thinking and attention - before our downstream actions can align with God's will."
-          : "The action aligns with all commandments, reflecting a heart that loves God and neighbor. Remember, maintaining this alignment requires continuous attention to our thoughts and intentions, as they determine our actions."
+          ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.' True transformation begins with renewing our minds (Romans 12:2) - changing our upstream thinking and attention - before our downstream actions can align with God's will. Follow Christ's example in all things."
+          : "The action aligns with all commandments, reflecting a heart that loves God and neighbor. Remember, maintaining this alignment requires continuous attention to our thoughts and intentions, as they determine our actions. Continue to imitate Christ in all things."
       });
       setHistory(prev => [data, ...prev.slice(0, 9)]); // Keep last 10
 
@@ -110,8 +110,8 @@ export default function Home({ onNavigateToEducation }) {
         results: finalResults,
         anyViolated,
         principleOfLove: anyViolated
-          ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.' True transformation begins with renewing our minds (Romans 12:2) - changing our upstream thinking and attention - before our downstream actions can align with God's will."
-          : "The action aligns with all commandments, reflecting a heart that loves God and neighbor. Remember, maintaining this alignment requires continuous attention to our thoughts and intentions, as they determine our actions."
+          ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.' True transformation begins with renewing our minds (Romans 12:2) - changing our upstream thinking and attention - before our downstream actions can align with God's will. Follow Christ's example in all things."
+          : "The action aligns with all commandments, reflecting a heart that loves God and neighbor. Remember, maintaining this alignment requires continuous attention to our thoughts and intentions, as they determine our actions. Continue to imitate Christ in all things."
       });
     }
 

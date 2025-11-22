@@ -42,6 +42,16 @@ export default function Education({ onNavigateToAnalyzer }) {
               </p>
             </div>
             
+            <div className="bg-purple-50 p-4 rounded-lg mb-6">
+              <h3 className="text-lg font-bold text-purple-800 mb-2">Imitating Christ: The Perfect Example</h3>
+              <p className="text-purple-700">
+                Christ Jesus is the perfect embodiment of the Ten Commandments - He is the Word made flesh (John 1:14) who 
+                perfectly lived out every divine principle. To imitate Him is to make the most earnest effort to reflect 
+                His character in our thoughts, words, and deeds. As 1 Peter 2:21 says, "Christ... left us an example, that 
+                you should follow His steps."
+              </p>
+            </div>
+            
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Two Great Commandments</h2>
             <p className="text-gray-700 mb-4">
               Jesus summarized the law in two commandments:
@@ -56,7 +66,7 @@ export default function Education({ onNavigateToAnalyzer }) {
               with changing how we think and where we place our attention.
             </p>
             
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Ten Commandments in Detail</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Ten Commandments</h2>
           </div>
           
           <div className="space-y-6 mt-8">
@@ -102,7 +112,7 @@ export default function Education({ onNavigateToAnalyzer }) {
               As you use this analyzer, remember that its purpose is not to condemn but to help us understand 
               how our actions align with God's perfect standard, leading us to a deeper relationship with Him 
               and others. True transformation begins with renewing our minds and redirecting our attention
-              toward God and His purposes.
+              toward God and His purposes, following the example of Christ who perfectly embodied these divine principles.
             </p>
           </div>
         </div>

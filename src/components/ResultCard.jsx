@@ -8,7 +8,7 @@ export default function ResultCard({ cmd }) {
   if (!cmd.violated) {
     statusColor = 'text-green-500';
     // Add heart posture phrase for green commandments
-    explanationText = `${cmd.explanation} — Reflecting a heart that loves God and neighbor.`;
+    explanationText = `${cmd.explanation} — Reflecting a heart that loves God and neighbor, following Christ's example.`;
   } else if (cmd.isPrimaryViolation) {
     statusColor = 'text-red-500';
     // Add heart posture comment for primary violations
@@ -27,7 +27,7 @@ export default function ResultCard({ cmd }) {
 
   // Add upstream thinking note for violations
   if (cmd.violated) {
-    explanationText += " Remember, lasting change begins with transforming our thoughts and intentions (upstream) before our actions (downstream) can align with God's will.";
+    explanationText += " Remember, lasting change begins with transforming our thoughts and intentions (upstream) before our actions (downstream) can align with God's will. Follow Christ's example in all things.";
   }
 
   const bgClass = cmd.violated
