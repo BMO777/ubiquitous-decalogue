@@ -23,7 +23,7 @@ export const commandments = [
         biblicalReasoning:
           "Exodus 20:3 - 'Thou shalt have no other gods before me.' God alone is entitled to supreme reverence and worship. Anything we cherish that lessens our love for God becomes an idol.",
         guidance:
-          "Cultivate daily practices that honor God as supreme, such as prayer, Scripture study, and acts of service that reflect His priorities.",
+          "Cultivate daily practices that honor God as supreme, such as prayer, Scripture study, and acts of service that reflect His priorities. Remember, true change begins with renewing your mind (Romans 12:2) - redirect your attention and thoughts toward God before expecting changes in actions.",
       };
     },
   },
@@ -48,7 +48,7 @@ export const commandments = [
         biblicalReasoning:
           "Exodus 20:4-5 - 'Thou shalt not make unto thee any graven image.' Attempting to represent the Eternal One by material objects would lower man's conception of God.",
         guidance:
-          "Focus worship on the invisible, incomparable nature of God through spirit and truth, as revealed in Scripture.",
+          "Focus worship on the invisible, incomparable nature of God through spirit and truth, as revealed in Scripture. Transformation begins with renewing your mind to understand God's true nature - this upstream change will naturally lead to appropriate downstream worship practices.",
       };
     },
   },
@@ -75,7 +75,7 @@ export const commandments = [
         biblicalReasoning:
           "Exodus 20:7 - 'Thou shalt not take the name of the Lord thy God in vain.' The thoughtless mention of God in common conversation dishonors Him.",
         guidance:
-          "Cultivate reverence for God's name through mindful speech and meditation on His majestic character as revealed in Scripture.",
+          "Cultivate reverence for God's name through mindful speech and meditation on His majestic character as revealed in Scripture. Remember that lasting change in speech patterns begins with transforming your thoughts and attention toward God's holiness.",
       };
     },
   },
@@ -101,7 +101,7 @@ export const commandments = [
         biblicalReasoning:
           "Exodus 20:8-11 - 'Remember the Sabbath day, to keep it holy.' The Sabbath distinguishes the true God from false gods and is the sign of allegiance to Him.",
         guidance:
-          "Set aside time for worship, rest, and reflection on God's creative and redemptive works, avoiding secular concerns.",
+          "Set aside time for worship, rest, and reflection on God's creative and redemptive works, avoiding secular concerns. True Sabbath observance begins with a heart that values God's purposes over worldly distractions - change your focus upstream before expecting downstream changes in behavior.",
       };
     },
   },
@@ -127,7 +127,7 @@ export const commandments = [
         biblicalReasoning:
           "Exodus 20:12 - 'Honor thy father and thy mother.' Parents stand in God's place during early years, and rejecting their authority rejects God's authority.",
         guidance:
-          "Show respect, love, and care for parents through actions and attitudes that reflect honor and gratitude for their role.",
+          "Show respect, love, and care for parents through actions and attitudes that reflect honor and gratitude for their role. Lasting change in relationships begins with transforming your heart attitude - address upstream issues of resentment or bitterness before expecting downstream changes in behavior.",
       };
     },
   },
@@ -153,7 +153,7 @@ export const commandments = [
         biblicalReasoning:
           "Exodus 20:13 - 'Thou shalt not kill.' The spirit of hatred and revenge, along with any passion leading to harm, violates this commandment.",
         guidance:
-          "Cultivate love for others as yourself, actively seeking their welfare and avoiding all forms of harm, both physical and emotional.",
+          "Cultivate love for others as yourself, actively seeking their welfare and avoiding all forms of harm, both physical and emotional. Remember, transformation begins with addressing upstream issues of anger, bitterness, and unforgiveness before expecting downstream changes in actions.",
       };
     },
   },
@@ -178,7 +178,7 @@ export const commandments = [
         biblicalReasoning:
           "Exodus 20:14 - 'Thou shalt not commit adultery.' Christ taught that evil thoughts and looks are as truly sin as unlawful deeds.",
         guidance:
-          "Guard the heart and mind through purity in media consumption, relationships, and personal conduct that honors marriage covenant.",
+          "Guard the heart and mind through purity in media consumption, relationships, and personal conduct that honors marriage covenant. True purity begins with upstream transformation of thoughts and desires - guard your heart (Proverbs 4:23) before expecting downstream changes in behavior.",
       };
     },
   },
@@ -204,7 +204,7 @@ export const commandments = [
         biblicalReasoning:
           "Exodus 20:15 - 'Thou shalt not steal.' This commandment condemns theft, fraud, and every attempt to advantage oneself by others' misfortune.",
         guidance:
-          "Practice strict integrity in all business dealings, promptly paying debts and wages, and avoiding exploitation of others' weakness.",
+          "Practice strict integrity in all business dealings, promptly paying debts and wages, and avoiding exploitation of others' weakness. Lasting integrity begins with upstream transformation of the heart's desires - address issues of greed and selfishness before expecting downstream changes in actions.",
       };
     },
   },
@@ -230,7 +230,7 @@ export const commandments = [
         biblicalReasoning:
           "Exodus 20:16 - 'Thou shalt not bear false witness.' Every attempt to deceive, including intentional suppression of truth, violates this commandment.",
         guidance:
-          "Cultivate truthfulness in all communication, avoiding exaggeration, deception, and harmful speech about others.",
+          "Cultivate truthfulness in all communication, avoiding exaggeration, deception, and harmful speech about others. True honesty begins with upstream transformation of the heart - address issues of pride, fear, or desire to harm others before expecting downstream changes in speech.",
       };
     },
   },
@@ -256,7 +256,7 @@ export const commandments = [
         biblicalReasoning:
           "Exodus 20:17 - 'Thou shalt not covet.' This commandment strikes at the root of all sin by prohibiting selfish desire that leads to wrongdoing.",
         guidance:
-          "Cultivate contentment with God's provision, rejoicing in others' blessings rather than envying their possessions or relationships.",
+          "Cultivate contentment with God's provision, rejoicing in others' blessings rather than envying their possessions or relationships. Remember, transformation begins upstream - address heart issues of discontentment and comparison before expecting downstream changes in behavior.",
       };
     },
   },

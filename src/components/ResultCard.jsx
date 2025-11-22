@@ -25,6 +25,11 @@ export default function ResultCard({ cmd }) {
     }
   }
 
+  // Add upstream thinking note for violations
+  if (cmd.violated) {
+    explanationText += " Remember, lasting change begins with transforming our thoughts and intentions (upstream) before our actions (downstream) can align with God's will.";
+  }
+
   const bgClass = cmd.violated
     ? cmd.isPrimaryViolation
       ? 'bg-red-50 border-red-200'

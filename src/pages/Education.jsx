@@ -6,7 +6,7 @@ import tenCommandmentsImage from '../assets/images/outputcomm.jpg';
 export default function Education({ onNavigateToAnalyzer }) {
   return (
     <div>
-      <Header />
+      <Header onNavigateToEducation={onNavigateToAnalyzer} />
       <main className="max-w-4xl mx-auto px-4 py-8">
         <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
           <div className="flex justify-between items-center mb-6">
@@ -33,6 +33,15 @@ export default function Education({ onNavigateToAnalyzer }) {
               Judeo-Christian tradition.
             </p>
             
+            <div className="bg-blue-50 p-4 rounded-lg mb-6">
+              <h3 className="text-lg font-bold text-blue-800 mb-2">Transforming Actions Through Renewed Thinking</h3>
+              <p className="text-blue-700">
+                True transformation begins with renewing our minds (Romans 12:2). Before we can change our actions (downstream),
+                we must first transform our thinking and attention (upstream). The condition of our heart determines our actions,
+                and lasting change requires addressing the root issues of our thoughts, desires, and intentions.
+              </p>
+            </div>
+            
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Two Great Commandments</h2>
             <p className="text-gray-700 mb-4">
               Jesus summarized the law in two commandments:
@@ -43,7 +52,8 @@ export default function Education({ onNavigateToAnalyzer }) {
             </ul>
             <p className="text-gray-700 mb-6">
               The first four commandments relate to our relationship with God, while the last six 
-              relate to our relationships with others.
+              relate to our relationships with others. Both require a heart transformation that begins
+              with changing how we think and where we place our attention.
             </p>
             
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Ten Commandments in Detail</h2>
@@ -83,10 +93,16 @@ export default function Education({ onNavigateToAnalyzer }) {
               of love, integrity, and holiness. They reveal God's character and show us the path to true 
               fulfillment.
             </p>
+            <p className="text-gray-700 mb-4">
+              Remember that lasting change requires addressing upstream issues - our thoughts, desires, and intentions -
+              before we can expect downstream changes in our actions. As Proverbs 4:23 says, "Keep your heart with all vigilance,
+              for from it flow the springs of life."
+            </p>
             <p className="text-gray-700">
               As you use this analyzer, remember that its purpose is not to condemn but to help us understand 
               how our actions align with God's perfect standard, leading us to a deeper relationship with Him 
-              and others.
+              and others. True transformation begins with renewing our minds and redirecting our attention
+              toward God and His purposes.
             </p>
           </div>
         </div>
