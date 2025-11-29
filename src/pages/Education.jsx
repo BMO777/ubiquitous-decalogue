@@ -1,7 +1,7 @@
 import React from 'react';
 import { commandments } from '../utils/commandments';
 import Header from '../components/Header';
-import tenCommandmentsImage from '../assets/images/outputcomm.jpg';
+import tenCommandmentsImage from '../assets/images/Ten Commandments Fiery Handwriting.png';
 
 export default function Education({ onNavigateToAnalyzer }) {
   return (
@@ -49,6 +49,21 @@ export default function Education({ onNavigateToAnalyzer }) {
                 perfectly lived out every divine principle. To imitate Him is to make the most earnest effort to reflect 
                 His character in our thoughts, words, and deeds. As 1 Peter 2:21 says, "Christ... left us an example, that 
                 you should follow His steps."
+              </p>
+            </div>
+            
+            <div className="bg-indigo-50 p-4 rounded-lg mb-6">
+              <h3 className="text-lg font-bold text-indigo-800 mb-2">The Third Angel's Message: Revelation 14</h3>
+              <p className="text-indigo-700">
+                The third angel's message in Revelation 14 emphasizes the importance of keeping God's commandments. 
+                Revelation 14:12 says, "Here is the patience of the saints: here are they that keep the commandments 
+                of God, and the faith of Jesus." This message calls God's people to persevere in keeping all of God's 
+                commandments, especially in the face of end-time challenges.
+              </p>
+              <p className="text-indigo-700 mt-2">
+                The third angel's message also warns against worshiping the beast and receiving his mark, which 
+                represents a counterfeit system that opposes God's law. Those who remain faithful to God's commandments 
+                demonstrate their loyalty to the Creator and their faith in Jesus.
               </p>
             </div>
             

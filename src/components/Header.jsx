@@ -1,5 +1,5 @@
 import React from "react";
-import tenCommandmentsImage from "../assets/images/outputcomm.jpg";
+import tenCommandmentsImage from "../assets/images/Ten Commandments Fiery Handwriting.png";
 
 export default function Header({ onNavigateToEducation }) {
   return (
