@@ -2,7 +2,7 @@
 
 An AI-powered tool to evaluate actions against the Ten Commandments using biblical principles.
 
-![Ten Commandments Visualization](src/assets/images/Ten Commandments Fiery Handwriting.png")
+![Ten Commandments Visualization](src/assets/images/Ten Commandments Fiery Handwriting.png)
 
 ## 🚀 Features
 
