@@ -53,7 +53,7 @@ export const commandments = [
       const lowerInput = inputText.toLowerCase();
       
       // Check if the input mentions Friday evening or Saturday specifically
-      const mentionsSabbathTime = lowerInput.includes("friday night") || lowerInput.includes("saturday");
+      const mentionsSabbathTime = lowerInput.includes("friday") || lowerInput.includes("saturday");
       
       // Check if the input mentions work or business activities
       const mentionsWork = lowerInput.includes("work") || 
@@ -80,14 +80,21 @@ export const commandments = [
                                      lowerInput.includes("suffering") || 
                                      lowerInput.includes("emergency") ||
                                      lowerInput.includes("help") ||
-                                     lowerInput.includes("heal");
+                                     lowerInput.includes("heal") ||
+                                     lowerInput.includes("food") ||
+                                     lowerInput.includes("eat") ||
+                                     lowerInput.includes("hunger");
       
       // Check if the input mentions good works that honor God (exceptions)
       const mentionsGoodWorks = lowerInput.includes("worship") || 
                                lowerInput.includes("service") || 
                                lowerInput.includes("pray") ||
                                lowerInput.includes("bible") ||
-                               lowerInput.includes("scripture");
+                               lowerInput.includes("scripture") ||
+                               lowerInput.includes("good") ||
+                               lowerInput.includes("righteous") ||
+                               lowerInput.includes("kind") ||
+                               lowerInput.includes("help");
       
       // Violation occurs when:
       // 1. Sabbath time (Friday evening or Saturday) is mentioned
@@ -103,8 +110,8 @@ export const commandments = [
         explanation: violated ? 
           "The action involves work or worldly concerns on the Sabbath (Friday evening through Saturday evening), failing to honor it as a memorial of creation." : 
           "The action aligns with principles of Sabbath observance and restful worship.",
-        biblicalReasoning: "Exodus 20:8-11 - 'Remember the Sabbath day, to keep it holy.' The seventh day includes Friday evening through Saturday evening. Those who discuss business matters or lay plans on the Sabbath are regarded by God as though engaged in the actual transaction of business. To keep the Sabbath holy, we should not even allow our minds to dwell upon things of a worldly character. However, acts of necessity and mercy are permitted, and the sick and suffering are at all times to be cared for.",
-        guidance: "Set aside Friday evening through Saturday evening entirely for worship, rest, and reflection on God's creative and redemptive works. Avoid all work and worldly concerns except for acts of necessity and mercy. The commandment includes all within our gates - all household members should unite to honor God by willing service upon His holy day. Remember that the sick and suffering are to be cared for at all times, even on the Sabbath.",
+        biblicalReasoning: "Exodus 20:8-11 - 'Remember the Sabbath day, to keep it holy.' The seventh day includes Friday evening through Saturday evening. Those who discuss business matters or lay plans on the Sabbath are regarded by God as though engaged in the actual transaction of business. To keep the Sabbath holy, we should not even allow our minds to dwell upon things of a worldly character. However, acts of necessity and mercy are permitted. Christ Himself did good works on the Sabbath, including healing the sick and even plucking grain for immediate consumption (Matthew 12:1-8), demonstrating that it is lawful to do good on the Sabbath.",
+        guidance: "Set aside Friday evening through Saturday evening entirely for worship, rest, and reflection on God's creative and redemptive works. Avoid all work and worldly concerns except for acts of necessity and mercy. The commandment includes all within our gates - all household members should unite to honor God by willing service upon His holy day. Remember that the sick and suffering are to be cared for at all times, even on the Sabbath. Following Christ's example, acts of compassion, mercy, and meeting immediate needs (like eating when hungry) do not violate the Sabbath but honor its true purpose.",
       };
     },
   },
