@@ -48,26 +48,56 @@ export const commandments = [
   {
     id: 4,
     text: "Remember the Sabbath day, to keep it holy",
-    keyPoints: "Observing the seventh day as a memorial of creation, avoiding unnecessary work and worldly concerns",
+    keyPoints: "Observing the seventh day (Saturday) as a memorial of creation, avoiding all work and worldly concerns",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
       
-      // Only consider it a violation if work is specifically done on the Sabbath
-      const violated = (
-        (lowerInput.includes("saturday") || lowerInput.includes("sunday")) && 
-        (lowerInput.includes("work") || lowerInput.includes("business") || lowerInput.includes("shopping")) &&
-        !lowerInput.includes("worship") && 
-        !lowerInput.includes("service") && 
-        !lowerInput.includes("help") && 
-        !lowerInput.includes("heal") && 
-        !lowerInput.includes("good")
-      );
+      // Check if the input mentions Saturday specifically
+      const mentionsSaturday = lowerInput.includes("saturday");
+      
+      // Check if the input mentions work or business activities
+      const mentionsWork = lowerInput.includes("work") || 
+                          lowerInput.includes("business") || 
+                          lowerInput.includes("shopping") || 
+                          lowerInput.includes("plans") || 
+                          lowerInput.includes("transaction") ||
+                          lowerInput.includes("deal") ||
+                          lowerInput.includes("meeting") ||
+                          lowerInput.includes("project");
+      
+      // Check if the input mentions worldly concerns or activities
+      const mentionsWorldlyConcerns = lowerInput.includes("worldly") || 
+                                     lowerInput.includes("secular") || 
+                                     lowerInput.includes("material") || 
+                                     lowerInput.includes("money") ||
+                                     lowerInput.includes("career") ||
+                                     lowerInput.includes("job");
+      
+      // Check if the input mentions good works that honor God (exceptions)
+      const mentionsGoodWorks = lowerInput.includes("worship") || 
+                               lowerInput.includes("service") || 
+                               lowerInput.includes("help") || 
+                               lowerInput.includes("heal") || 
+                               lowerInput.includes("good") ||
+                               lowerInput.includes("pray") ||
+                               lowerInput.includes("bible") ||
+                               lowerInput.includes("scripture");
+      
+      // Violation occurs when:
+      // 1. Saturday is mentioned
+      // 2. Work or worldly concerns are mentioned
+      // 3. Good works are NOT mentioned as exceptions
+      const violated = mentionsSaturday && 
+                      (mentionsWork || mentionsWorldlyConcerns) && 
+                      !mentionsGoodWorks;
       
       return {
         violated,
-        explanation: violated ? "The action involves inappropriate activities on the Sabbath, failing to honor it as a memorial of creation." : "The action aligns with principles of Sabbath observance and restful worship.",
-        biblicalReasoning: "Exodus 20:8-11 - 'Remember the Sabbath day, to keep it holy.' The Sabbath distinguishes the true God from false gods and is the sign of allegiance to Him. Jesus demonstrated that it is lawful to do good on the Sabbath (Matthew 12:12).",
-        guidance: "Set aside time for worship, rest, and reflection on God's creative and redemptive works, avoiding secular concerns. However, remember that doing good works on the Sabbath, as Jesus did, honors God rather than violates the Sabbath. True Sabbath observance begins with a heart that values God's purposes over worldly distractions - change your focus upstream before expecting downstream changes in behavior.",
+        explanation: violated ? 
+          "The action involves work or worldly concerns on the Sabbath (Saturday), failing to honor it as a memorial of creation." : 
+          "The action aligns with principles of Sabbath observance and restful worship.",
+        biblicalReasoning: "Exodus 20:8-11 - 'Remember the Sabbath day, to keep it holy.' The Sabbath is the seventh day (Saturday), a memorial of creation. Those who discuss business matters or lay plans on the Sabbath are regarded by God as though engaged in the actual transaction of business. To keep the Sabbath holy, we should not even allow our minds to dwell upon things of a worldly character.",
+        guidance: "Set aside Saturday entirely for worship, rest, and reflection on God's creative and redemptive works. Avoid all work, business discussions, and worldly concerns. The commandment includes all within our gates - all household members should unite to honor God by willing service upon His holy day. However, remember that doing good works on the Sabbath, as Jesus did, honors God rather than violates the Sabbath.",
       };
     },
   },
