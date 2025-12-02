@@ -4,11 +4,12 @@
 
 body {
   @apply font-sans antialiased;
-  background: linear-gradient(rgba(255, 100, 10, 0.7), rgba(255, 60, 10, 0.7)), 
-              url('./assets/images/Ten Commandments Fiery Handwriting.png');
-  background-size: cover;
+  background: 
+    linear-gradient(rgba(255, 100, 10, 0.7), rgba(255, 60, 10, 0.7)),
+    url('./assets/images/Ten Commandments Fiery Handwriting.png');
+  background-size: 30%; /* Reduced size to make all elements visible */
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat; /* Changed to repeat to show more of the image */
   background-attachment: fixed;
   min-height: 100vh;
 }
@@ -20,6 +21,7 @@ body {
 
 /* Ensure content is readable over the background */
 .content-overlay {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.92); /* Slightly more opaque for better readability */
   border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
