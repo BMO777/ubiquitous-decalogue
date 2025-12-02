@@ -4,9 +4,22 @@
 
 body {
   @apply font-sans antialiased;
+  background: linear-gradient(rgba(255, 100, 10, 0.7), rgba(255, 60, 10, 0.7)), 
+              url('./assets/images/Ten Commandments Fiery Handwriting.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 /* Custom gradient background */
 .bg-gradient-to-br {
   background: linear-gradient(to bottom right, #f1f5f9, #dbeafe);
+}
+
+/* Ensure content is readable over the background */
+.content-overlay {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 0.5rem;
 }

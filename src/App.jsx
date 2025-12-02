@@ -6,7 +6,7 @@ function App() {
   const [activeTab, setActiveTab] = useState('analyzer');
 
   return (
-    <div>
+    <div className="min-h-screen">
       {activeTab === 'analyzer' ? (
         <Home onNavigateToEducation={() => setActiveTab('education')} />
       ) : (

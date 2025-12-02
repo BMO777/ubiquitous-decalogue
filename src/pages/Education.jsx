@@ -5,92 +5,94 @@ import tenCommandmentsImage from '../assets/images/Ten Commandments Fiery Handwr
 
 export default function Education({ onNavigateToAnalyzer }) {
   return (
-    <div>
-      <Header onNavigateToEducation={onNavigateToAnalyzer} />
-      <main className="max-w-4xl mx-auto px-4 py-8">
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <div className="flex justify-between items-center mb-6">
-            <div className="flex items-center">
-              <img src={tenCommandmentsImage} alt="Ten Commandments" className="w-32 h-32 object-contain rounded-lg" />
-            </div>
-            <button onClick={onNavigateToAnalyzer} className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">
-              Back to Analyzer
-            </button>
-          </div>
-          <h1 className="text-3xl font-bold text-center text-gray-900 mb-6">Understanding the Ten Commandments</h1>
-          <div className="prose max-w-none">
-            <p className="text-lg text-gray-700 mb-6">
-              The Ten Commandments, also known as the Decalogue, are divine principles given by God to Moses on Mount Sinai. These commandments form the foundation of moral and spiritual life in the Judeo-Christian tradition.
-            </p>
-            <div className="bg-blue-50 p-4 rounded-lg mb-6">
-              <h3 className="text-lg font-bold text-blue-800 mb-2">Transforming Actions Through Renewed Thinking</h3>
-              <p className="text-blue-700">
-                True transformation begins with renewing our minds (Romans 12:2). Before we can change our actions (downstream), we must first transform our thinking and attention (upstream). The condition of our heart determines our actions, and lasting change requires addressing the root issues of our thoughts, desires, and intentions.
-              </p>
-            </div>
-            <div className="bg-purple-50 p-4 rounded-lg mb-6">
-              <h3 className="text-lg font-bold text-purple-800 mb-2">Imitating Christ: The Perfect Example</h3>
-              <p className="text-purple-700">
-                Christ Jesus is the perfect embodiment of the Ten Commandments - He is the Word made flesh (John 1:14) who perfectly lived out every divine principle. To imitate Him is to make the most earnest effort to reflect His character in our thoughts, words, and deeds. As 1 Peter 2:21 says, "Christ... left us an example, that you should follow His steps."
-              </p>
-            </div>
-            <div className="bg-indigo-50 p-4 rounded-lg mb-6">
-              <h3 className="text-lg font-bold text-indigo-800 mb-2">The Third Angel's Message: Revelation 14</h3>
-              <p className="text-indigo-700">
-                The third angel's message in Revelation 14 emphasizes the importance of keeping God's commandments. Revelation 14:12 says, "Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus." This message calls God's people to persevere in keeping all of God's commandments, especially in the face of end-time challenges.
-              </p>
-              <p className="text-indigo-700 mt-2">
-                The third angel's message also warns against worshiping the beast and receiving his mark, which represents a counterfeit system that opposes God's law and changes the timing of the 4th commandment in God's example at creation. Those who remain faithful to God's commandments and creation timing demonstrate their loyalty to the Creator and their faith in Jesus.
-              </p>
-            </div>
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Two Great Commandments</h2>
-            <p className="text-gray-700 mb-4">
-              Jesus summarized the law in two commandments:
-            </p>
-            <ul className="list-disc pl-6 mb-6 text-gray-700">
-              <li className="mb-2">Love the Lord your God with all your heart, soul, and mind (Matthew 22:37-38)</li>
-              <li className="mb-2">Love your neighbor as yourself (Matthew 22:39)</li>
-            </ul>
-            <p className="text-gray-700 mb-6">
-              The first four commandments relate to our relationship with God, while the last six relate to our relationships with others. Both require a heart transformation that begins with changing how we think and where we place our attention.
-            </p>
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Ten Commandments</h2>
-          </div>
-          <div className="space-y-6 mt-8">
-            {commandments.map((cmd) => (
-              <div key={cmd.id} className="border-l-4 border-blue-500 pl-4 py-2 bg-gray-50 rounded-r">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {cmd.id}. {cmd.text}
-                </h3>
-                <p className="text-gray-700 mb-3"><strong>Key Points:</strong> {cmd.keyPoints}</p>
-                <div className="bg-white p-4 rounded-lg">
-                  <h4 className="font-bold text-gray-900 mb-2">Biblical Reasoning:</h4>
-                  <p className="text-gray-700">{cmd.analyze("").biblicalReasoning}</p>
-                </div>
+    <div className="min-h-screen">
+      <div className="content-overlay">
+        <Header onNavigateToEducation={onNavigateToAnalyzer} />
+        <main className="max-w-4xl mx-auto px-4 py-8">
+          <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <div className="flex justify-between items-center mb-6">
+              <div className="flex items-center">
+                <img src={tenCommandmentsImage} alt="Ten Commandments" className="w-32 h-32 object-contain rounded-lg" />
               </div>
-            ))}
+              <button onClick={onNavigateToAnalyzer} className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                Back to Analyzer
+              </button>
+            </div>
+            <h1 className="text-3xl font-bold text-center text-gray-900 mb-6">Understanding the Ten Commandments</h1>
+            <div className="prose max-w-none">
+              <p className="text-lg text-gray-700 mb-6">
+                The Ten Commandments, also known as the Decalogue, are divine principles given by God to Moses on Mount Sinai. These commandments form the foundation of moral and spiritual life in the Judeo-Christian tradition.
+              </p>
+              <div className="bg-blue-50 p-4 rounded-lg mb-6">
+                <h3 className="text-lg font-bold text-blue-800 mb-2">Transforming Actions Through Renewed Thinking</h3>
+                <p className="text-blue-700">
+                  True transformation begins with renewing our minds (Romans 12:2). Before we can change our actions (downstream), we must first transform our thinking and attention (upstream). The condition of our heart determines our actions, and lasting change requires addressing the root issues of our thoughts, desires, and intentions.
+                </p>
+              </div>
+              <div className="bg-purple-50 p-4 rounded-lg mb-6">
+                <h3 className="text-lg font-bold text-purple-800 mb-2">Imitating Christ: The Perfect Example</h3>
+                <p className="text-purple-700">
+                  Christ Jesus is the perfect embodiment of the Ten Commandments - He is the Word made flesh (John 1:14) who perfectly lived out every divine principle. To imitate Him is to make the most earnest effort to reflect His character in our thoughts, words, and deeds. As 1 Peter 2:21 says, "Christ... left us an example, that you should follow His steps."
+                </p>
+              </div>
+              <div className="bg-indigo-50 p-4 rounded-lg mb-6">
+                <h3 className="text-lg font-bold text-indigo-800 mb-2">The Third Angel's Message: Revelation 14</h3>
+                <p className="text-indigo-700">
+                  The third angel's message in Revelation 14 emphasizes the importance of keeping God's commandments. Revelation 14:12 says, "Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus." This message calls God's people to persevere in keeping all of God's commandments, especially in the face of end-time challenges.
+                </p>
+                <p className="text-indigo-700 mt-2">
+                  The third angel's message also warns against worshiping the beast and receiving his mark, which represents a counterfeit system that opposes God's law and changes the timing of the 4th commandment in God's example at creation. Those who remain faithful to God's commandments and creation timing demonstrate their loyalty to the Creator and their faith in Jesus.
+                </p>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Two Great Commandments</h2>
+              <p className="text-gray-700 mb-4">
+                Jesus summarized the law in two commandments:
+              </p>
+              <ul className="list-disc pl-6 mb-6 text-gray-700">
+                <li className="mb-2">Love the Lord your God with all your heart, soul, and mind (Matthew 22:37-38)</li>
+                <li className="mb-2">Love your neighbor as yourself (Matthew 22:39)</li>
+              </ul>
+              <p className="text-gray-700 mb-6">
+                The first four commandments relate to our relationship with God, while the last six relate to our relationships with others. Both require a heart transformation that begins with changing how we think and where we place our attention.
+              </p>
+              <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Ten Commandments</h2>
+            </div>
+            <div className="space-y-6 mt-8">
+              {commandments.map((cmd) => (
+                <div key={cmd.id} className="border-l-4 border-blue-500 pl-4 py-2 bg-gray-50 rounded-r">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {cmd.id}. {cmd.text}
+                  </h3>
+                  <p className="text-gray-700 mb-3"><strong>Key Points:</strong> {cmd.keyPoints}</p>
+                  <div className="bg-white p-4 rounded-lg">
+                    <h4 className="font-bold text-gray-900 mb-2">Biblical Reasoning:</h4>
+                    <p className="text-gray-700">{cmd.analyze("").biblicalReasoning}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="prose max-w-none mt-10">
+              <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Unity of the Law</h2>
+              <p className="text-gray-700 mb-4">
+                James 2:10 teaches us that "whoever keeps the whole law but fails in one point has become guilty of all of it." This doesn't mean that all sins are equally heinous, but rather that breaking any commandment shows a disregard for the Lawgiver and His perfect standard.
+              </p>
+              <p className="text-gray-700 mb-4">
+                As Jesus explained in Matthew 22:40, "On these two commandments depend all the Law and the Prophets." The law of love underlies all of God's commandments, and when we violate any commandment, we break this fundamental principle.
+              </p>
+              <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Practical Application</h2>
+              <p className="text-gray-700 mb-4">
+                The Ten Commandments are not merely rules to follow but principles that guide us toward a life of love, integrity, and holiness. They reveal God's character and show us the path to true fulfillment.
+              </p>
+              <p className="text-gray-700 mb-4">
+                Remember that lasting change requires addressing upstream issues - our thoughts, desires, and intentions - before we can expect downstream changes in our actions. As Proverbs 4:23 says, "Keep your heart with all vigilance, for from it flow the springs of life."
+              </p>
+              <p className="text-gray-700">
+                As you use this analyzer, remember that its purpose is not to condemn but to help us understand how our actions align with God's perfect standard, leading us to a deeper relationship with Him and others. True transformation begins with renewing our minds and redirecting our attention toward God and His purposes, following the example of Christ who perfectly embodied these divine principles.
+              </p>
+            </div>
           </div>
-          <div className="prose max-w-none mt-10">
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Unity of the Law</h2>
-            <p className="text-gray-700 mb-4">
-              James 2:10 teaches us that "whoever keeps the whole law but fails in one point has become guilty of all of it." This doesn't mean that all sins are equally heinous, but rather that breaking any commandment shows a disregard for the Lawgiver and His perfect standard.
-            </p>
-            <p className="text-gray-700 mb-4">
-              As Jesus explained in Matthew 22:40, "On these two commandments depend all the Law and the Prophets." The law of love underlies all of God's commandments, and when we violate any commandment, we break this fundamental principle.
-            </p>
-            <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Practical Application</h2>
-            <p className="text-gray-700 mb-4">
-              The Ten Commandments are not merely rules to follow but principles that guide us toward a life of love, integrity, and holiness. They reveal God's character and show us the path to true fulfillment.
-            </p>
-            <p className="text-gray-700 mb-4">
-              Remember that lasting change requires addressing upstream issues - our thoughts, desires, and intentions - before we can expect downstream changes in our actions. As Proverbs 4:23 says, "Keep your heart with all vigilance, for from it flow the springs of life."
-            </p>
-            <p className="text-gray-700">
-              As you use this analyzer, remember that its purpose is not to condemn but to help us understand how our actions align with God's perfect standard, leading us to a deeper relationship with Him and others. True transformation begins with renewing our minds and redirecting our attention toward God and His purposes, following the example of Christ who perfectly embodied these divine principles.
-            </p>
-          </div>
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
   );
 }
