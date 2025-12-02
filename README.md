@@ -9,7 +9,7 @@ An AI-powered tool to evaluate actions against the Ten Commandments using biblic
 - Real-time AI  light shedder via OpenAI GPT-4o
 - Beautiful, responsive UI with Tailwind CSS
 - Saves history locally
-- Fallback keyword-based analysis if AI fails
+- Fallback keyword-based  light shedder if AI fails
 - Educational component about the Ten Commandments
 
 ## 🛠️ Setup
