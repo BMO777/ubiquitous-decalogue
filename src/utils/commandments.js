@@ -48,12 +48,12 @@ export const commandments = [
   {
     id: 4,
     text: "Remember the Sabbath day, to keep it holy",
-    keyPoints: "Observing the seventh day (Saturday) as a memorial of creation, avoiding all work and worldly concerns",
+    keyPoints: "Observing the seventh day (Friday evening through Saturday evening) as a memorial of creation, avoiding all work and worldly concerns except for acts of necessity and mercy",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
       
-      // Check if the input mentions Saturday specifically
-      const mentionsSaturday = lowerInput.includes("saturday");
+      // Check if the input mentions Friday evening or Saturday specifically
+      const mentionsSabbathTime = lowerInput.includes("friday") || lowerInput.includes("saturday");
       
       // Check if the input mentions work or business activities
       const mentionsWork = lowerInput.includes("work") || 
@@ -73,31 +73,38 @@ export const commandments = [
                                      lowerInput.includes("career") ||
                                      lowerInput.includes("job");
       
+      // Check if the input mentions acts of necessity and mercy (exceptions)
+      const mentionsNecessityOrMercy = lowerInput.includes("necessity") || 
+                                     lowerInput.includes("mercy") || 
+                                     lowerInput.includes("sick") || 
+                                     lowerInput.includes("suffering") || 
+                                     lowerInput.includes("emergency") ||
+                                     lowerInput.includes("help") ||
+                                     lowerInput.includes("heal");
+      
       // Check if the input mentions good works that honor God (exceptions)
       const mentionsGoodWorks = lowerInput.includes("worship") || 
                                lowerInput.includes("service") || 
-                               lowerInput.includes("help") || 
-                               lowerInput.includes("heal") || 
-                               lowerInput.includes("good") ||
                                lowerInput.includes("pray") ||
                                lowerInput.includes("bible") ||
                                lowerInput.includes("scripture");
       
       // Violation occurs when:
-      // 1. Saturday is mentioned
+      // 1. Sabbath time (Friday evening or Saturday) is mentioned
       // 2. Work or worldly concerns are mentioned
-      // 3. Good works are NOT mentioned as exceptions
-      const violated = mentionsSaturday && 
+      // 3. Necessity, mercy, or good works are NOT mentioned as exceptions
+      const violated = mentionsSabbathTime && 
                       (mentionsWork || mentionsWorldlyConcerns) && 
+                      !mentionsNecessityOrMercy && 
                       !mentionsGoodWorks;
       
       return {
         violated,
         explanation: violated ? 
-          "The action involves work or worldly concerns on the Sabbath (Saturday), failing to honor it as a memorial of creation." : 
+          "The action involves work or worldly concerns on the Sabbath (Friday evening through Saturday evening), failing to honor it as a memorial of creation." : 
           "The action aligns with principles of Sabbath observance and restful worship.",
-        biblicalReasoning: "Exodus 20:8-11 - 'Remember the Sabbath day, to keep it holy.' The Sabbath is the seventh day (Saturday), a memorial of creation. Those who discuss business matters or lay plans on the Sabbath are regarded by God as though engaged in the actual transaction of business. To keep the Sabbath holy, we should not even allow our minds to dwell upon things of a worldly character.",
-        guidance: "Set aside Saturday entirely for worship, rest, and reflection on God's creative and redemptive works. Avoid all work, business discussions, and worldly concerns. The commandment includes all within our gates - all household members should unite to honor God by willing service upon His holy day. However, remember that doing good works on the Sabbath, as Jesus did, honors God rather than violates the Sabbath.",
+        biblicalReasoning: "Exodus 20:8-11 - 'Remember the Sabbath day, to keep it holy.' The seventh day includes Friday evening through Saturday evening. Those who discuss business matters or lay plans on the Sabbath are regarded by God as though engaged in the actual transaction of business. To keep the Sabbath holy, we should not even allow our minds to dwell upon things of a worldly character. However, acts of necessity and mercy are permitted, and the sick and suffering are at all times to be cared for.",
+        guidance: "Set aside Friday evening through Saturday evening entirely for worship, rest, and reflection on God's creative and redemptive works. Avoid all work and worldly concerns except for acts of necessity and mercy. The commandment includes all within our gates - all household members should unite to honor God by willing service upon His holy day. Remember that the sick and suffering are to be cared for at all times, even on the Sabbath.",
       };
     },
   },
