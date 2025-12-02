@@ -3,8 +3,8 @@ import tenCommandmentsImage from "../assets/images/Ten Commandments Fiery Handwr
 
 export default function InputSection({ value, onChange, onAnalyze, loading }) {
   const handleKeyDown = (e) => {
-    // Allow submission with Ctrl+Enter or Cmd+Enter (for new lines with regular Enter)
-    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+    // Allow submission with Enter key (but still allow Shift+Enter for new lines)
+    if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       if (!loading && value.trim()) {
         onAnalyze();
@@ -39,7 +39,7 @@ export default function InputSection({ value, onChange, onAnalyze, loading }) {
             {loading ? "Analyzing..." : "Analyze Action"}
           </button>
           <p className="text-sm text-gray-500 mt-2">
-            Tip: Press <kbd className="px-1.5 py-0.5 bg-gray-100 rounded border">Ctrl</kbd> + <kbd className="px-1.5 py-0.5 bg-gray-100 rounded border">Enter</kbd> to submit
+            Tip: Press <kbd className="px-1.5 py-0.5 bg-gray-100 rounded border">Enter</kbd> to submit or <kbd className="px-1.5 py-0.5 bg-gray-100 rounded border">Shift</kbd> + <kbd className="px-1.5 py-0.5 bg-gray-100 rounded border">Enter</kbd> for a new line
           </p>
         </div>
       </div>
