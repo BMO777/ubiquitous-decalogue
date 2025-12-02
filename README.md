@@ -1,4 +1,4 @@
-# 📖 Ten Commandments Analyzer
+# 📖 Ten Commandments Light shedder
 
 An AI-powered tool to evaluate actions against the Ten Commandments using biblical principles.
 
@@ -6,7 +6,7 @@ An AI-powered tool to evaluate actions against the Ten Commandments using biblic
 
 ## 🚀 Features
 
-- Real-time AI  light shedder via OpenAI GPT-4o
+- Real-time AI light shedder via OpenAI GPT-4o
 - Beautiful, responsive UI with Tailwind CSS
 - Saves history locally
 - Fallback keyword-based  light shedder if AI fails
