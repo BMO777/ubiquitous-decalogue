@@ -53,7 +53,7 @@ export const commandments = [
       const lowerInput = inputText.toLowerCase();
       
       // Check if the input mentions Friday evening or Saturday specifically
-      const mentionsSabbathTime = lowerInput.includes("friday") || lowerInput.includes("saturday");
+      const mentionsSabbathTime = lowerInput.includes("friday night") || lowerInput.includes("saturday");
       
       // Check if the input mentions work or business activities
       const mentionsWork = lowerInput.includes("work") || 
