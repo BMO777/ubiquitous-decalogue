@@ -51,74 +51,28 @@ export const commandments = [
     keyPoints: "Observing the seventh day (Friday evening through Saturday evening) as a memorial of creation, avoiding all work and worldly concerns except for acts of necessity and mercy",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      
       // Check if the input mentions Friday evening specifically (not just Friday)
-      const mentionsFridayNight = lowerInput.includes("friday night") || 
-                                 lowerInput.includes("friday evening") || 
-                                 lowerInput.includes("friday sundown") ||
-                                 lowerInput.includes("saturday morning");
-      
+      const mentionsFridayNight = lowerInput.includes("friday night") || lowerInput.includes("friday evening") || lowerInput.includes("friday sundown") || lowerInput.includes("saturday morning");
       // Check if the input mentions Saturday specifically
       const mentionsSaturday = lowerInput.includes("saturday");
-      
       // Sabbath time is either Friday night/evening or Saturday
       const mentionsSabbathTime = mentionsFridayNight || mentionsSaturday;
-      
       // Check if the input mentions work or business activities
-      const mentionsWork = lowerInput.includes("work") || 
-                          lowerInput.includes("business") || 
-                          lowerInput.includes("shopping") || 
-                          lowerInput.includes("plans") || 
-                          lowerInput.includes("transaction") ||
-                          lowerInput.includes("deal") ||
-                          lowerInput.includes("meeting") ||
-                          lowerInput.includes("project");
-      
+      const mentionsWork = lowerInput.includes("work") || lowerInput.includes("business") || lowerInput.includes("shopping") || lowerInput.includes("plans") || lowerInput.includes("transaction") || lowerInput.includes("deal") || lowerInput.includes("meeting") || lowerInput.includes("project");
       // Check if the input mentions worldly concerns or activities
-      const mentionsWorldlyConcerns = lowerInput.includes("worldly") || 
-                                     lowerInput.includes("secular") || 
-                                     lowerInput.includes("material") || 
-                                     lowerInput.includes("money") ||
-                                     lowerInput.includes("career") ||
-                                     lowerInput.includes("job");
-      
+      const mentionsWorldlyConcerns = lowerInput.includes("worldly") || lowerInput.includes("secular") || lowerInput.includes("material") || lowerInput.includes("money") || lowerInput.includes("career") || lowerInput.includes("job");
       // Check if the input mentions acts of necessity and mercy (exceptions)
-      const mentionsNecessityOrMercy = lowerInput.includes("necessity") || 
-                                     lowerInput.includes("mercy") || 
-                                     lowerInput.includes("sick") || 
-                                     lowerInput.includes("suffering") || 
-                                     lowerInput.includes("emergency") ||
-                                     lowerInput.includes("help") ||
-                                     lowerInput.includes("heal") ||
-                                     lowerInput.includes("food") ||
-                                     lowerInput.includes("eat") ||
-                                     lowerInput.includes("hunger");
-      
+      const mentionsNecessityOrMercy = lowerInput.includes("necessity") || lowerInput.includes("mercy") || lowerInput.includes("sick") || lowerInput.includes("suffering") || lowerInput.includes("emergency") || lowerInput.includes("help") || lowerInput.includes("heal") || lowerInput.includes("food") || lowerInput.includes("eat") || lowerInput.includes("hunger");
       // Check if the input mentions good works that honor God (exceptions)
-      const mentionsGoodWorks = lowerInput.includes("worship") || 
-                               lowerInput.includes("service") || 
-                               lowerInput.includes("pray") ||
-                               lowerInput.includes("bible") ||
-                               lowerInput.includes("scripture") ||
-                               lowerInput.includes("good") ||
-                               lowerInput.includes("righteous") ||
-                               lowerInput.includes("kind") ||
-                               lowerInput.includes("help");
-      
+      const mentionsGoodWorks = lowerInput.includes("worship") || lowerInput.includes("service") || lowerInput.includes("pray") || lowerInput.includes("bible") || lowerInput.includes("scripture") || lowerInput.includes("good") || lowerInput.includes("righteous") || lowerInput.includes("kind") || lowerInput.includes("help");
       // Violation occurs when:
       // 1. Sabbath time (Friday evening or Saturday) is mentioned
       // 2. Work or worldly concerns are mentioned
       // 3. Necessity, mercy, or good works are NOT mentioned as exceptions
-      const violated = mentionsSabbathTime && 
-                      (mentionsWork || mentionsWorldlyConcerns) && 
-                      !mentionsNecessityOrMercy && 
-                      !mentionsGoodWorks;
-      
+      const violated = mentionsSabbathTime && (mentionsWork || mentionsWorldlyConcerns) && !mentionsNecessityOrMercy && !mentionsGoodWorks;
       return {
         violated,
-        explanation: violated ? 
-          "The action involves work or worldly concerns on the Sabbath (Friday evening through Saturday evening), failing to honor it as a memorial of creation." : 
-          "The action aligns with principles of Sabbath observance and restful worship.",
+        explanation: violated ? "The action involves work or worldly concerns on the Sabbath (Friday evening through Saturday evening), failing to honor it as a memorial of creation." : "The action aligns with principles of Sabbath observance and restful worship.",
         biblicalReasoning: "Exodus 20:8-11 - 'Remember the Sabbath day, to keep it holy.' The seventh day includes Friday evening through Saturday evening. Those who discuss business matters or lay plans on the Sabbath are regarded by God as though engaged in the actual transaction of business. To keep the Sabbath holy, we should not even allow our minds to dwell upon things of a worldly character. However, acts of necessity and mercy are permitted. Christ Himself did good works on the Sabbath, including healing the sick and even plucking grain for immediate consumption (Matthew 12:1-8), demonstrating that it is lawful to do good on the Sabbath.",
         guidance: "Set aside Friday evening through Saturday evening entirely for worship, rest, and reflection on God's creative and redemptive works. Avoid all work and worldly concerns except for acts of necessity and mercy. The commandment includes all within our gates - all household members should unite to honor God by willing service upon His holy day. Remember that the sick and suffering are to be cared for at all times, even on the Sabbath. Following Christ's example, acts of compassion, mercy, and meeting immediate needs (like eating when hungry) do not violate the Sabbath but honor its true purpose.",
       };
@@ -157,15 +111,37 @@ export const commandments = [
   {
     id: 7,
     text: "Thou shalt not commit adultery",
-    keyPoints: "Maintaining purity in thoughts, desires, and actions regarding marriage relationships",
+    keyPoints: "Maintaining purity in thoughts, desires, and actions regarding marriage relationships. This commandment forbids not only acts of impurity, but sensual thoughts and desires, or any practice that tends to excite them. Also anything that is fatal to the sacredness and peace of the family relation.",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      const violated = lowerInput.includes("adultery") || lowerInput.includes("lust") || lowerInput.includes("divorce") || lowerInput.includes("unfaithful");
+      const violated = 
+        lowerInput.includes("adultery") || 
+        lowerInput.includes("lust") || 
+        lowerInput.includes("divorce") || 
+        lowerInput.includes("unfaithful") ||
+        lowerInput.includes("sensual") ||
+        lowerInput.includes("impure") ||
+        lowerInput.includes("porn") ||
+        lowerInput.includes("fornication") ||
+        lowerInput.includes("incest") ||
+        lowerInput.includes("prostitution") ||
+        lowerInput.includes("seduce") ||
+        lowerInput.includes("seduction") ||
+        lowerInput.includes("harlot") ||
+        lowerInput.includes("whore") ||
+        lowerInput.includes("immoral") ||
+        lowerInput.includes("lewd") ||
+        lowerInput.includes("indecent") ||
+        lowerInput.includes("family discord") ||
+        lowerInput.includes("family conflict") ||
+        lowerInput.includes("marital strife") ||
+        lowerInput.includes("neglect family") ||
+        lowerInput.includes("abandon family");
       return {
         violated,
-        explanation: violated ? "The action involves impurity in thoughts, desires, or actions regarding marriage relationships." : "The action maintains purity in relationships according to God's design for marriage.",
-        biblicalReasoning: "Exodus 20:14 - 'Thou shalt not commit adultery.' Christ taught that evil thoughts and looks are as truly sin as unlawful deeds.",
-        guidance: "Guard the heart and mind through purity in media consumption, relationships, and personal conduct that honors marriage covenant. True purity begins with upstream transformation of thoughts and desires - guard your heart (Proverbs 4:23) before expecting downstream changes in behavior.",
+        explanation: violated ? "The action involves impurity in thoughts, desires, or actions regarding marriage relationships, or practices that harm the sacredness and peace of family relationships." : "The action maintains purity in relationships according to God's design for marriage and family.",
+        biblicalReasoning: "Exodus 20:14 - 'Thou shalt not commit adultery.' Christ taught that evil thoughts and looks are as truly sin as unlawful deeds. This commandment forbids not only acts of impurity, but sensual thoughts and desires, or any practice that tends to excite them. It also prohibits anything that is fatal to the sacredness and peace of the family relation.",
+        guidance: "Guard the heart and mind through purity in media consumption, relationships, and personal conduct that honors marriage covenant. True purity begins with upstream transformation of thoughts and desires - guard your heart (Proverbs 4:23) before expecting downstream changes in behavior. Foster peace and unity within the family, avoiding all practices that could harm the sacred bonds of marriage and family relationships.",
       };
     },
   },
