@@ -10,15 +10,15 @@ export default function Education({ onNavigateToAnalyzer }) {
         <Header onNavigateToEducation={onNavigateToAnalyzer} />
         <main className="max-w-4xl mx-auto px-4 py-8">
           <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-            <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
-              <div className="flex items-center mb-4 sm:mb-0">
+            <div className="flex justify-between items-center mb-6">
+              <div className="flex items-center">
                 <img src={tenCommandmentsImage} alt="Ten Commandments" className="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-lg" />
               </div>
               <button
                 onClick={onNavigateToAnalyzer}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
               >
-                Back to Analyzer
+                Back to Light Shedder
               </button>
             </div>
             <h1 className="text-3xl font-bold text-center text-gray-900 mb-6">Understanding the Ten Commandments</h1>
