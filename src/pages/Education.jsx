@@ -26,6 +26,21 @@ export default function Education({ onNavigateToLightshedder }) {
               <p className="text-lg text-gray-700 mb-6">
                 The Ten Commandments, also known as the Decalogue, are divine principles given by God to Moses on Mount Sinai. These commandments form the foundation of moral and spiritual life through reason, or tradition, or the written word.
               </p>
+
+              {/* Moved "The Two Great Commandments" section here */}
+              <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Two Great Commandments</h2>
+              <p className="text-gray-700 mb-4">
+                Jesus summarized the law in two commandments:
+              </p>
+              <ul className="list-disc pl-6 mb-6 text-gray-700">
+                <li className="mb-2">Love the Lord your God with all your heart, soul, and mind (Matthew 22:37-38)</li>
+                <li className="mb-2">Love your neighbor as yourself (Matthew 22:39)</li>
+              </ul>
+              <p className="text-gray-700 mb-6">
+                The first four commandments relate to our relationship with God, while the last six relate to our relationships with others. Both require a heart transformation that begins with changing how we think and where we place our attention.
+              </p>
+              {/* End of moved section */}
+
               <div className="bg-blue-50 p-4 rounded-lg mb-6">
                 <h3 className="text-lg font-bold text-blue-800 mb-2">Transforming Actions Through Renewed Thinking</h3>
                 <p className="text-blue-700">
@@ -47,17 +62,6 @@ export default function Education({ onNavigateToLightshedder }) {
                   The third angel's message also warns against worshiping the beast and receiving his mark, which represents a counterfeit system that opposes God's law and changes the timing of the 4th commandment in God's example at creation. Those who remain faithful to God's commandments and creation timing demonstrate their loyalty to the Creator and their faith in Jesus.
                 </p>
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Two Great Commandments</h2>
-              <p className="text-gray-700 mb-4">
-                Jesus summarized the law in two commandments:
-              </p>
-              <ul className="list-disc pl-6 mb-6 text-gray-700">
-                <li className="mb-2">Love the Lord your God with all your heart, soul, and mind (Matthew 22:37-38)</li>
-                <li className="mb-2">Love your neighbor as yourself (Matthew 22:39)</li>
-              </ul>
-              <p className="text-gray-700 mb-6">
-                The first four commandments relate to our relationship with God, while the last six relate to our relationships with others. Both require a heart transformation that begins with changing how we think and where we place our attention.
-              </p>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Ten Commandments</h2>
             </div>
             <div className="space-y-6 mt-8">
