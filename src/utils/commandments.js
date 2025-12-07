@@ -140,7 +140,7 @@ export const commandments = [
       return {
         violated,
         explanation: violated ? "The action involves impurity in thoughts, desires, or actions regarding marriage relationships, or practices that harm the sacredness and peace of family relationships." : "The action maintains purity in relationships according to God's design for marriage and family.",
-        biblicalReasoning: "Exodus 20:14 - 'Thou shalt not commit adultery.' Christ taught that evil thoughts and looks are as truly sin as unlawful deeds. This commandment forbids acts of impurity, sensual thoughts and desires, or any practice that tends to excite them, and anything fatal to the sacredness and peace of the family relation.",
+        biblicalReasoning: "Exodus 20:14 - 'Thou shalt not commit adultery.' Christ taught that evil thoughts and looks are as truly sin as unlawful deeds.",
         guidance: "Guard the heart and mind through purity in media consumption, relationships, and personal conduct that honors marriage covenant. True purity begins with upstream transformation of thoughts and desires - guard your heart (Proverbs 4:23) before expecting downstream changes in behavior. Foster peace and unity within the family, avoiding all practices that could harm the sacred bonds of marriage and family relationships.",
       };
     },
@@ -155,7 +155,7 @@ export const commandments = [
       return {
         violated,
         explanation: violated ? "The action involves taking what doesn't belong to you, whether physically or through deception." : "The action respects others' property and demonstrates integrity in all dealings.",
-        biblicalReasoning: "Exodus 20:15 - 'Thou shalt not steal.' This commandment condemns manstealing, slave dealing, wars of conquest, theft, robbery, overreaching in trade, and non-payment of just debts or wages. It demands strict integrity in all affairs of life, condemning fraud and every attempt to advantage oneself by others' misfortune.",
+        biblicalReasoning: "Exodus 20:15 - 'Thou shalt not steal.' This commandment demands strict integrity in all affairs of life, condemning fraud and every attempt to advantage oneself by others' misfortune.",
         guidance: "Practice strict integrity in all business dealings, promptly paying debts and wages, and avoiding exploitation of others' weakness. Lasting integrity begins with upstream transformation of the heart's desires - address issues of greed and selfishness before expecting downstream changes in actions.",
       };
     },
