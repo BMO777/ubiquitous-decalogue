@@ -6,17 +6,17 @@ export default function ResultCard({ cmd }) {
   let explanationText = cmd.explanation;
 
   if (!cmd.violated) {
-    statusColor = 'text-green-600'; // Slightly darker green for icon
+    statusColor = 'text-green-700'; // Slightly darker green for icon
     // Add heart posture phrase for green commandments
     explanationText = `${cmd.explanation} — Reflecting a heart that loves God and neighbor, following Christ's example.`;
   } else if (cmd.isPrimaryViolation) {
-    statusColor = 'text-red-600'; // Slightly darker red for icon
+    statusColor = 'text-red-700'; // Slightly darker red for icon
     // Add heart posture comment for primary violations
     if (cmd.heartPosture) {
       explanationText = `${cmd.explanation} — Heart posture: ${cmd.heartPosture}`;
     }
   } else if (cmd.isSecondaryViolation) {
-    statusColor = 'text-yellow-600'; // Slightly darker yellow for icon
+    statusColor = 'text-yellow-700'; // Slightly darker yellow for icon
     // Add the James 2:10 explanation ONLY for secondary violations
     explanationText = `${cmd.explanation} — James 2:10 teaches that breaking one commandment makes us guilty of all, because love fulfills the law (Romans 13:10).`;
     // Add heart posture comment for secondary violations if available
@@ -32,9 +32,9 @@ export default function ResultCard({ cmd }) {
 
   const bgClass = cmd.violated
     ? cmd.isPrimaryViolation
-      ? 'bg-red-100 border-red-300' // More remarkable red
-      : 'bg-yellow-100 border-yellow-300' // More remarkable yellow
-    : 'bg-green-100 border-green-300'; // More remarkable green
+      ? 'bg-red-200 border-red-400' // Even redder
+      : 'bg-yellow-200 border-yellow-400' // Even yellower
+    : 'bg-green-200 border-green-400'; // Even greener
 
   return (
     <div className={`p-6 rounded-lg border ${bgClass} mb-4 flex items-center`}>
