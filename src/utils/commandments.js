@@ -148,14 +148,14 @@ export const commandments = [
   {
     id: 8,
     text: "Thou shalt not steal",
-    keyPoints: "Respecting others' property, avoiding fraud, deception, and exploitation in all forms",
+    keyPoints: "Respecting others' property, avoiding fraud, deception, and exploitation in all forms. This includes manstealing, slave dealing, wars of conquest, theft, robbery, overreaching in trade, and non-payment of just debts or wages.",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
       const violated = lowerInput.includes("steal") || lowerInput.includes("take") || lowerInput.includes("fraud") || lowerInput.includes("deceive") || lowerInput.includes("cheat");
       return {
         violated,
         explanation: violated ? "The action involves taking what doesn't belong to you, whether physically or through deception." : "The action respects others' property and demonstrates integrity in all dealings.",
-        biblicalReasoning: "Exodus 20:15 - 'Thou shalt not steal.' This commandment condemns theft, fraud, and every attempt to advantage oneself by others' misfortune.",
+        biblicalReasoning: "Exodus 20:15 - 'Thou shalt not steal.' Both public and private sins are included in this prohibition. The eighth commandment condemns manstealing and slave dealing, and forbids wars of conquest. It condemns theft and robbery. It demands strict integrity in the minutest details of the affairs of life. It forbids overreaching in trade, and requires the payment of just debts or wages. This commandment condemns theft, fraud, and every attempt to advantage oneself by others' misfortune.",
         guidance: "Practice strict integrity in all business dealings, promptly paying debts and wages, and avoiding exploitation of others' weakness. Lasting integrity begins with upstream transformation of the heart's desires - address issues of greed and selfishness before expecting downstream changes in actions.",
       };
     },
