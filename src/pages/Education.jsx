@@ -3,11 +3,11 @@ import { commandments } from '../utils/commandments';
 import Header from '../components/Header';
 import tenCommandmentsImage from '../assets/images/Ten Commandments Fiery Handwriting.png';
 
-export default function Education({ onNavigateToAnalyzer }) {
+export default function Education({ onNavigateToLightshedder }) {
   return (
     <div className="min-h-screen">
       <div className="content-overlay">
-        <Header onNavigateToEducation={onNavigateToAnalyzer} />
+        <Header onNavigateToEducation={onNavigateToLightshedder} />
         <main className="max-w-4xl mx-auto px-4 py-8">
           <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
             <div className="flex justify-between items-center mb-6">
@@ -15,7 +15,7 @@ export default function Education({ onNavigateToAnalyzer }) {
                 <img src={tenCommandmentsImage} alt="Ten Commandments" className="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-lg" />
               </div>
               <button
-                onClick={onNavigateToAnalyzer}
+                onClick={onNavigateToLightshedder}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
               >
                 Back to Light Shedder
@@ -90,7 +90,7 @@ export default function Education({ onNavigateToAnalyzer }) {
                 Remember that lasting change requires addressing upstream issues - our thoughts, desires, and intentions - before we can expect downstream changes in our actions. As Proverbs 4:23 says, "Keep your heart with all vigilance, for from it flow the springs of life."
               </p>
               <p className="text-gray-700">
-                As you use this analyzer, remember that its purpose is not to condemn but to help us understand how our actions align with God's perfect standard, leading us to a deeper relationship with Him and others. True transformation begins with renewing our minds and redirecting our attention toward God and His purposes, following the example of Christ who perfectly embodied these divine principles.
+                As you use this light shedder, remember that its purpose is not to condemn but to help us understand how our actions align with God's perfect standard, leading us to a deeper relationship with Him and others. True transformation begins with renewing our minds and redirecting our attention toward God and His purposes, following the example of Christ who perfectly embodied these divine principles.
               </p>
             </div>
           </div>

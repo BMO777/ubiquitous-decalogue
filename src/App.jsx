@@ -3,14 +3,14 @@ import Home from "./pages/Home";
 import Education from "./pages/Education";
 
 function App() {
-  const [activeTab, setActiveTab] = useState('analyzer');
+  const [activeTab, setActiveTab] = useState('lightshedder');
 
   return (
     <div className="min-h-screen">
-      {activeTab === 'analyzer' ? (
+      {activeTab === 'lightshedder' ? (
         <Home onNavigateToEducation={() => setActiveTab('education')} />
       ) : (
-        <Education onNavigateToAnalyzer={() => setActiveTab('analyzer')} />
+        <Education onNavigateToLightshedder={() => setActiveTab('lightshedder')} />
       )}
     </div>
   );

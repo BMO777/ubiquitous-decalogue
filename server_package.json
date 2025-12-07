@@ -1,7 +1,7 @@
 {
-  "name": "ten-commandments-analyzer-server",
+  "name": "ten-commandments-light-shedder-server",
   "version": "1.0.0",
-  "description": "Backend API for Ten Commandments Analyzer",
+  "description": "Backend API for Ten Commandments Light Shedder",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
