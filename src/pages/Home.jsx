@@ -7,7 +7,6 @@ import ErrorFallback from '../components/ErrorFallback';
 import { commandments } from '../utils/commandments';
 import useLocalStorage from '../hooks/useLocalStorage';
 
-// ✅ DEFAULT EXPORT — This fixes the build error
 export default function Home({ onNavigateToEducation }) {
   const [inputText, setInputText] = useState('');
   const [analysis, setAnalysis] = useState(null);
@@ -39,26 +38,25 @@ export default function Home({ onNavigateToEducation }) {
       if (!response.ok) throw new Error('Network response was not ok');
       const data = await response.json();
 
-      // "One violation = all violated" principle
-      const anyViolated = data.results.some(cmd => cmd.violated);
-      const primaryViolations = data.results.filter(cmd => cmd.violated).map(cmd => cmd.id);
+      // Determine if *any* commandment was violated by the AI's direct assessment
+      const anyViolatedByAI = data.results.some(cmd => cmd.violated);
       
       const finalResults = data.results.map(cmd => {
-        const isPrimary = primaryViolations.includes(cmd.id);
-        const isSecondary = anyViolated && !isPrimary;
+        const isPrimary = cmd.violated; // This commandment was directly violated by the action
+        const isSecondary = anyViolatedByAI && !isPrimary; // Any commandment was violated, but not this one directly
+        
         return {
           ...cmd,
-          violated: anyViolated,
+          violated: isPrimary || isSecondary, // Mark as violated if primary or secondary
           isPrimaryViolation: isPrimary,
           isSecondaryViolation: isSecondary,
-          explanation: isPrimary ? cmd.explanation : cmd.explanation // Don't append James 2:10 here; handled in ResultCard.jsx
         };
       });
 
       setAnalysis({
         results: finalResults,
-        anyViolated,
-        principleOfLove: anyViolated 
+        anyViolated: anyViolatedByAI, // Use the AI's direct assessment for the overall flag
+        principleOfLove: anyViolatedByAI 
           ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.' True transformation begins with renewing our minds (Romans 12:2) - changing our upstream thinking and attention - before our downstream actions can align with God's will. Follow Christ's example in all things."
           : "The action aligns with all commandments, reflecting a heart that loves God and neighbor. Remember, maintaining this alignment requires continuous attention to our thoughts and intentions, as they determine our actions. Continue to imitate Christ in all things."
       });
@@ -85,25 +83,23 @@ export default function Home({ onNavigateToEducation }) {
         };
       });
 
-      const anyViolated = mockResults.some(cmd => cmd.violated);
-      const primaryViolations = mockResults.filter(cmd => cmd.violated).map(cmd => cmd.id);
+      const anyViolatedByFallback = mockResults.some(cmd => cmd.violated);
       
       const finalResults = mockResults.map(cmd => {
-        const isPrimary = primaryViolations.includes(cmd.id);
-        const isSecondary = anyViolated && !isPrimary;
+        const isPrimary = cmd.violated; // This commandment was directly violated by the action
+        const isSecondary = anyViolatedByFallback && !isPrimary; // Any commandment was violated, but not this one directly
         return {
           ...cmd,
-          violated: anyViolated,
+          violated: isPrimary || isSecondary, // Mark as violated if primary or secondary
           isPrimaryViolation: isPrimary,
           isSecondaryViolation: isSecondary,
-          explanation: isPrimary ? cmd.explanation : cmd.explanation // Don't append James 2:10 here; handled in ResultCard.jsx
         };
       });
 
       setAnalysis({
         results: finalResults,
-        anyViolated,
-        principleOfLove: anyViolated 
+        anyViolated: anyViolatedByFallback, // Use the fallback's direct assessment for the overall flag
+        principleOfLove: anyViolatedByFallback 
           ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.' True transformation begins with renewing our minds (Romans 12:2) - changing our upstream thinking and attention - before our downstream actions can align with God's will. Follow Christ's example in all things."
           : "The action aligns with all commandments, reflecting a heart that loves God and neighbor. Remember, maintaining this alignment requires continuous attention to our thoughts and intentions, as they determine our actions. Continue to imitate Christ in all things."
       });
