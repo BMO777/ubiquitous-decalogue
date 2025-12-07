@@ -155,7 +155,7 @@ export const commandments = [
       return {
         violated,
         explanation: violated ? "The action involves taking what doesn't belong to you, whether physically or through deception." : "The action respects others' property and demonstrates integrity in all dealings.",
-        biblicalReasoning: "Exodus 20:15 - 'Thou shalt not steal.' This commandment demands strict integrity in all affairs of life, condemning fraud and every attempt to advantage oneself by others' misfortune.",
+        biblicalReasoning: "Exodus 20:15 - 'Thou shalt not steal.' This commandment demands strict integrity in all affairs of life, condemning fraud and every attempt to advantage oneself by others' misfortune. Both public and private sins are included in this prohibition.",
         guidance: "Practice strict integrity in all business dealings, promptly paying debts and wages, and avoiding exploitation of others' weakness. Lasting integrity begins with upstream transformation of the heart's desires - address issues of greed and selfishness before expecting downstream changes in actions.",
       };
     },
