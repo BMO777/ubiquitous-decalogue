@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import Education from "./pages/Education";
 
 function App() {
-  const [activeTab, setActiveTab] = useState('lightshedder');
+  const [activeTab, setActiveTab] = useState('education'); // Changed default to 'education'
 
   return (
     <div className="min-h-screen">
