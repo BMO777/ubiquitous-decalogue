@@ -18,7 +18,7 @@ export default function Education({ onNavigateToAnalyzer }) {
                 onClick={onNavigateToAnalyzer}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
               >
-                Back to Light Shedder
+                Back to Analyzer
               </button>
             </div>
             <h1 className="text-3xl font-bold text-center text-gray-900 mb-6">Understanding the Ten Commandments</h1>
