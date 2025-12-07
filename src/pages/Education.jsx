@@ -24,7 +24,7 @@ export default function Education({ onNavigateToAnalyzer }) {
             <h1 className="text-3xl font-bold text-center text-gray-900 mb-6">Understanding the Ten Commandments</h1>
             <div className="prose max-w-none">
               <p className="text-lg text-gray-700 mb-6">
-                The Ten Commandments, also known as the Decalogue, are divine principles given by God to Moses on Mount Sinai. These commandments form the foundation of moral and spiritual life in the Judeo-Christian tradition.
+                The Ten Commandments, also known as the Decalogue, are divine principles given by God to Moses on Mount Sinai. These commandments form the foundation of moral and spiritual life through reason, or tradition, or the written word.
               </p>
               <div className="bg-blue-50 p-4 rounded-lg mb-6">
                 <h3 className="text-lg font-bold text-blue-800 mb-2">Transforming Actions Through Renewed Thinking</h3>
@@ -77,7 +77,7 @@ export default function Education({ onNavigateToAnalyzer }) {
             <div className="prose max-w-none mt-10">
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Unity of the Law</h2>
               <p className="text-gray-700 mb-4">
-                James 2:10 teaches us that "whoever keeps the whole law but fails in one point has become guilty of all of it." This doesn't mean that all sins are equally heinous, but rather that breaking any commandment shows a disregard for the Lawgiver and His perfect standard.
+                James 2:10 teaches us that "Whoever keeps the whole law but fails in one point has become guilty of all of it." This doesn't mean that all sins are equally heinous, but rather that breaking any commandment shows a disregard for the Lawgiver and His perfect standard.
               </p>
               <p className="text-gray-700 mb-4">
                 As Jesus explained in Matthew 22:40, "On these two commandments depend all the Law and the Prophets." The law of love underlies all of God's commandments, and when we violate any commandment, we break this fundamental principle.
