@@ -4,7 +4,7 @@ import dyadComponentTagger from '@dyad-sh/react-vite-component-tagger';
 
 export default defineConfig({
   plugins: [dyadComponentTagger(), react()],
-  base: '/ubiquitous-decalogue/', // This should match your GitHub repo name
+  base: process.env.VITE_APP_BASE_PATH || '/', // Dynamic base path
   server: {
     proxy: {
       '/api': 'http://localhost:5000'

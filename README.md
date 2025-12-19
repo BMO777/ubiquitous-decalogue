@@ -49,12 +49,20 @@ npm start
 
 ### Deploying to GitHub Pages
 
-1. Update the `base` option in `vite.config.js` to match your repository name
-2. Run `npm run deploy` to deploy to GitHub Pages
+1.  Update the `base` option in `vite.config.js` to match your repository name
+    *Self-correction: The `base` option is now dynamic. For GitHub Pages, you'll need to set the `VITE_APP_BASE_PATH` environment variable during the build.*
+2.  When deploying to GitHub Pages, ensure you set the `VITE_APP_BASE_PATH` environment variable to `/${{ github.event.repository.name }}/` during the build process. For example, in your GitHub Actions workflow, you would add:
+    ```yaml
+    - name: Build
+      run: npm run build
+      env:
+        VITE_APP_BASE_PATH: /${{ github.event.repository.name }}/
+    ```
+3.  Run `npm run deploy` to deploy to GitHub Pages
 
 Alternatively, you can set up automatic deployment with GitHub Actions:
-1. Create a new workflow file at `.github/workflows/deploy.yml`
-2. The workflow will automatically deploy your site whenever you push to the main branch
+1.  Create a new workflow file at `.github/workflows/deploy.yml`
+2.  The workflow will automatically deploy your site whenever you push to the main branch
 
 ### Deploying to Render
 
@@ -75,7 +83,7 @@ Alternatively, you can set up automatic deployment with GitHub Actions:
 
 ### Deploying to Vercel (Frontend only)
 
-1. Deploy the frontend to Vercel
+1. Deploy the frontend to Vercel. No special `VITE_APP_BASE_PATH` environment variable is needed for Vercel, as it defaults to `/`.
 2. Set up a separate deployment for the backend on a platform like Render or Railway
 3. Update the API URL in `vite.config.js` to point to your deployed backend
 
