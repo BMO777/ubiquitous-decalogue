@@ -6,6 +6,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import ErrorFallback from '../components/ErrorFallback';
 import { commandments } from '../utils/commandments';
 import useLocalStorage from '../hooks/useLocalStorage';
+import OfflineIndicator from '../components/OfflineIndicator';
 
 export default function Home({ onNavigateToEducation }) {
   const [inputText, setInputText] = useState('');
@@ -117,6 +118,7 @@ export default function Home({ onNavigateToEducation }) {
 
   return (
     <div className="min-h-screen">
+      <OfflineIndicator />
       <div className="content-overlay">
         <Header onNavigateToEducation={onNavigateToEducation} />
         

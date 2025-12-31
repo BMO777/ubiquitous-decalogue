@@ -2,10 +2,12 @@ import React from 'react';
 import { commandments } from '../utils/commandments';
 import Header from '../components/Header';
 import tenCommandmentsImage from '../assets/images/Ten Commandments Fiery Handwriting.png';
+import OfflineIndicator from '../components/OfflineIndicator';
 
 export default function Education({ onNavigateToLightshedder }) {
   return (
     <div className="min-h-screen">
+      <OfflineIndicator />
       <div className="content-overlay">
         <Header onNavigateToEducation={onNavigateToLightshedder} />
         
