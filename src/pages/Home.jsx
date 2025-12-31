@@ -34,10 +34,10 @@ export default function Home({ onNavigateToEducation }) {
           }))
         })
       });
-
+      
       if (!response.ok) throw new Error('Network response was not ok');
       const data = await response.json();
-
+      
       // Determine if *any* commandment was violated by the AI's direct assessment
       const anyViolatedByAI = data.results.some(cmd => cmd.violated);
       
@@ -52,7 +52,7 @@ export default function Home({ onNavigateToEducation }) {
           isSecondaryViolation: isSecondary,
         };
       });
-
+      
       setAnalysis({
         results: finalResults,
         anyViolated: anyViolatedByAI, // Use the AI's direct assessment for the overall flag
@@ -82,12 +82,13 @@ export default function Home({ onNavigateToEducation }) {
           guidance: ""
         };
       });
-
+      
       const anyViolatedByFallback = mockResults.some(cmd => cmd.violated);
       
       const finalResults = mockResults.map(cmd => {
         const isPrimary = cmd.violated; // This commandment was directly violated by the action
         const isSecondary = anyViolatedByFallback && !isPrimary; // Any commandment was violated, but not this one directly
+        
         return {
           ...cmd,
           violated: isPrimary || isSecondary, // Mark as violated if primary or secondary
@@ -95,7 +96,7 @@ export default function Home({ onNavigateToEducation }) {
           isSecondaryViolation: isSecondary,
         };
       });
-
+      
       setAnalysis({
         results: finalResults,
         anyViolated: anyViolatedByFallback, // Use the fallback's direct assessment for the overall flag
@@ -118,7 +119,8 @@ export default function Home({ onNavigateToEducation }) {
     <div className="min-h-screen">
       <div className="content-overlay">
         <Header onNavigateToEducation={onNavigateToEducation} />
-        <main className="max-w-2xl mx-auto px-4 py-8">
+        
+        <main className="max-w-4xl mx-auto px-4 py-8">
           <form onSubmit={handleAnalyze}>
             <InputSection 
               value={inputText} 
@@ -129,29 +131,35 @@ export default function Home({ onNavigateToEducation }) {
           </form>
           
           {isLoading && <LoadingSpinner />}
+          
           {error && <ErrorFallback error={error} />}
           
           {analysis && (
-            <div>
+            <section className="mt-10">
               {analysis.anyViolated && analysis.principleOfLove && (
-                <div className="my-4 p-4 rounded bg-yellow-100 border-l-4 border-yellow-400 text-yellow-800">
-                  <strong>Theology Note:</strong> {analysis.principleOfLove}
+                <div className="my-6 p-5 rounded-lg bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800">
+                  <h3 className="font-bold text-lg mb-2">Theology Note:</h3>
+                  <p className="text-lg">{analysis.principleOfLove}</p>
                 </div>
               )}
-              {analysis.results.map(cmd => (
-                <ResultCard key={cmd.id} cmd={cmd} />
-              ))}
-            </div>
+              
+              <div className="mt-8">
+                <h2 className="text-2xl sm:text-3xl mb-6">Analysis Results</h2>
+                {analysis.results.map(cmd => (
+                  <ResultCard key={cmd.id} cmd={cmd} />
+                ))}
+              </div>
+            </section>
           )}
           
           {history.length > 0 && (
-            <section className="mt-8">
-              <h2 className="text-xl font-bold mb-2">Analysis History</h2>
-              <ul>
+            <section className="mt-12 pt-8 border-t border-gray-200">
+              <h2 className="text-2xl font-bold mb-4">Analysis History</h2>
+              <ul className="space-y-3">
                 {history.map((item, idx) => (
-                  <li key={idx} className="mb-2">
+                  <li key={idx}>
                     <button 
-                      className="text-blue-600 underline" 
+                      className="text-blue-600 hover:text-blue-800 underline text-lg"
                       onClick={() => setAnalysis(item)}
                     >
                       {item.action || `Analysis #${idx + 1}`}
