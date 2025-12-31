@@ -10,7 +10,7 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       devOptions: {
-        enabled: true
+        enabled: false // Disable in development to avoid conflicts
       },
       manifest: {
         name: 'Ten Commandments Light Shedder',
@@ -38,7 +38,7 @@ export default defineConfig({
             name: 'Learn Commandments',
             short_name: 'Learn',
             description: 'Study the Ten Commandments',
-            url: '/',
+            url: '/education',
             icons: [
               {
                 src: 'src/assets/images/Ten Commandments Fiery Handwriting.png',

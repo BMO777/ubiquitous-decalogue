@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 
-// Register the service worker for PWA support
-if ('serviceWorker' in navigator) {
+// Register the service worker for PWA support (only in production)
+if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js')
       .then((registration) => {
