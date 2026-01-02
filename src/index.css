@@ -4,7 +4,7 @@
 
 body {
   @apply font-sans antialiased;
-  background: linear-gradient(rgba(255, 100, 10, 0.4), rgba(255, 60, 10, 0.4)), url('./assets/images/Ten Commandments Fiery Handwriting.png');
+  background: url('./assets/images/Ten Commandments Fiery Handwriting.png');
   background-size: 30%;
   background-position: center;
   background-repeat: repeat;
@@ -15,7 +15,7 @@ body {
 
 /* Dark mode styles for the body background */
 .dark body {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./assets/images/Ten Commandments Fiery Handwriting.png');
+  background: url('./assets/images/Ten Commandments Fiery Handwriting.png');
   background-size: 30%;
   background-position: center;
   background-repeat: repeat;
