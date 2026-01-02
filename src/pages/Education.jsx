@@ -40,7 +40,7 @@ export default function Education({ onNavigateToLightshedder }) {
                   <li>Love your neighbor as yourself (Matthew 22:39)</li>
                 </ul>
                 <p className="text-lg">
-                  The first four commandments relate to our relationship with God, while the last six relate to our relationships with others. In all our dealings with others, we should follow the Golden Rule: "Therefore all things whatsoever ye would that men should do to you, do ye even so to them: for this is the law and the prophets" (Matthew 7:12). The last six relate to our relationships with others.
+                  The first four commandments relate to our relationship with God, while the last six relate to our relationships with others. In all our dealings with others, we should follow the Golden Rule: "Therefore all things whatsoever ye would that men should do to you, do ye even so to them: for this is the law and the prophets" (Matthew 7:12).
                 </p>
               </section>
               <section className="mb-12">
