@@ -70,7 +70,7 @@ export default function Education({ onNavigateToLightshedder }) {
                 <h2 className="text-2xl sm:text-3xl mb-8 text-gray-900 dark:text-white">The Ten Commandments</h2>
                 <div className="space-y-8 mt-10">
                   {commandments.map((cmd) => (
-                    <div key={cmd.id} className="border-l-4 border-blue-500 dark:border-blue-700 pl-6 py-4 bg-gray-50 dark:bg-gray-700 rounded-r-lg">
+                    <div key={cmd.id} className="border-l-4 border-blue-500 dark:border-blue-700 pl-6 py-4 bg-blue-50 dark:bg-blue-900 rounded-r-lg">
                       <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">
                         {cmd.id}. {cmd.text}
                       </h3>
