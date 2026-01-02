@@ -139,14 +139,14 @@ export default function Home({ onNavigateToEducation }) {
           {analysis && (
             <section className="mt-10">
               {analysis.anyViolated && analysis.principleOfLove && (
-                <div className="my-6 p-5 rounded-lg bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800">
+                <div className="my-6 p-5 rounded-lg bg-yellow-50 border-l-4 border-yellow-400 dark:bg-yellow-950 dark:border-yellow-700 text-yellow-800 dark:text-yellow-300">
                   <h3 className="font-bold text-lg mb-2">Theology Note:</h3>
                   <p className="text-lg">{analysis.principleOfLove}</p>
                 </div>
               )}
               
               <div className="mt-8">
-                <h2 className="text-2xl sm:text-3xl mb-6">Analysis Results</h2>
+                <h2 className="text-2xl sm:text-3xl mb-6 text-gray-900 dark:text-white">Analysis Results</h2>
                 {analysis.results.map(cmd => (
                   <ResultCard key={cmd.id} cmd={cmd} />
                 ))}
@@ -155,13 +155,13 @@ export default function Home({ onNavigateToEducation }) {
           )}
           
           {history.length > 0 && (
-            <section className="mt-12 pt-8 border-t border-gray-200">
-              <h2 className="text-2xl font-bold mb-4">Analysis History</h2>
+            <section className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+              <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Analysis History</h2>
               <ul className="space-y-3">
                 {history.map((item, idx) => (
                   <li key={idx}>
                     <button 
-                      className="text-blue-600 hover:text-blue-800 underline text-lg"
+                      className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline text-lg"
                       onClick={() => setAnalysis(item)}
                     >
                       {item.action || `Analysis #${idx + 1}`}
