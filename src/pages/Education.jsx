@@ -10,34 +10,26 @@ export default function Education({ onNavigateToLightshedder }) {
       <OfflineIndicator />
       <div className="content-overlay">
         <Header onNavigateToEducation={onNavigateToLightshedder} />
-        
         <main className="max-w-4xl mx-auto px-4 py-8">
           <div className="card bg-white">
             <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-8">
               <div className="flex items-center">
-                <img 
-                  src={tenCommandmentsImage} 
-                  alt="Ten Commandments" 
-                  className="w-28 h-28 sm:w-36 sm:h-36 object-contain rounded-lg"
-                />
+                <img src={tenCommandmentsImage} alt="Ten Commandments" className="w-28 h-28 sm:w-36 sm:h-36 object-contain rounded-lg" />
               </div>
-              <button 
+              <button
                 onClick={onNavigateToLightshedder}
                 className="btn btn-primary text-lg px-6 py-3"
               >
                 Go to Light Shedder
               </button>
             </div>
-            
             <h1 className="text-3xl sm:text-4xl text-center mb-8">
               Understanding the Ten Commandments
             </h1>
-            
             <div className="prose max-w-none">
               <p className="text-lg mb-8">
                 The Ten Commandments, also known as the Decalogue, are divine principles spoken out loud for multitudes to hear before being given by God to Moses on Mount Sinai. These commandments form the foundation of moral and spiritual life through reason, or tradition, or the written word.
               </p>
-              
               <section className="mb-12">
                 <h2 className="text-2xl sm:text-3xl mb-6">The Two Great Commandments</h2>
                 <p className="text-lg mb-6">
@@ -48,10 +40,9 @@ export default function Education({ onNavigateToLightshedder }) {
                   <li>Love your neighbor as yourself (Matthew 22:39)</li>
                 </ul>
                 <p className="text-lg">
-                  The first four commandments relate to our relationship with God, while the last six relate to our relationships with others. Both require a heart transformation that begins with changing how we think and where we place our attention.
+                  The first four commandments relate to our relationship with God, while the last six relate to our relationships with others. In all our dealings with others, we should follow the Golden Rule: "Therefore all things whatsoever ye would that men should do to you, do ye even so to them: for this is the law and the prophets" (Matthew 7:12). The last six relate to our relationships with others.
                 </p>
               </section>
-              
               <section className="mb-12">
                 <div className="bg-blue-50 p-6 rounded-xl mb-8">
                   <h3 className="text-xl font-bold text-blue-800 mb-4">Transforming Actions Through Renewed Thinking</h3>
@@ -59,14 +50,12 @@ export default function Education({ onNavigateToLightshedder }) {
                     True transformation begins with renewing our minds (Romans 12:2). Before we can change our actions (downstream), we must first transform our thinking and attention (upstream). The condition of our heart determines our actions, and lasting change requires addressing the root issues of our thoughts, desires, and intentions.
                   </p>
                 </div>
-                
                 <div className="bg-purple-50 p-6 rounded-xl mb-8">
                   <h3 className="text-xl font-bold text-purple-800 mb-4">Imitating Christ: The Perfect Example</h3>
                   <p className="text-purple-700 text-lg">
                     Christ Jesus is the perfect embodiment of the Ten Commandments - He is the Word made flesh (John 1:14) who perfectly lived out every divine principle. To imitate Him is to make the most earnest effort to reflect His character in our thoughts, words, and deeds. As 1 Peter 2:21 says, "Christ... left us an example, that you should follow His steps."
                   </p>
                 </div>
-                
                 <div className="bg-indigo-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-indigo-800 mb-4">The Third Angel's Message: Revelation 14</h3>
                   <p className="text-indigo-700 text-lg mb-4">
@@ -77,10 +66,8 @@ export default function Education({ onNavigateToLightshedder }) {
                   </p>
                 </div>
               </section>
-              
               <section>
                 <h2 className="text-2xl sm:text-3xl mb-8">The Ten Commandments</h2>
-                
                 <div className="space-y-8 mt-10">
                   {commandments.map((cmd) => (
                     <div key={cmd.id} className="border-l-4 border-blue-500 pl-6 py-4 bg-gray-50 rounded-r-lg">
@@ -96,7 +83,6 @@ export default function Education({ onNavigateToLightshedder }) {
                   ))}
                 </div>
               </section>
-              
               <section className="mt-16">
                 <h2 className="text-2xl sm:text-3xl mb-6">The Unity of the Law</h2>
                 <p className="text-lg mb-6">
@@ -105,7 +91,6 @@ export default function Education({ onNavigateToLightshedder }) {
                 <p className="text-lg mb-6">
                   As Jesus explained in Matthew 22:40, "On these two commandments depend all the Law and the Prophets." The law of love underlies all of God's commandments, and when we violate any commandment, we break this fundamental principle.
                 </p>
-                
                 <h2 className="text-2xl sm:text-3xl mt-10 mb-6">Practical Application</h2>
                 <p className="text-lg mb-6">
                   The Ten Commandments are not merely rules to follow but principles that guide us toward a life of love, integrity, and holiness. They reveal God's character and show us the path to true fulfillment.
