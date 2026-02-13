@@ -51,13 +51,13 @@ export default function Education({ onNavigateToLightshedder }) {
                 <div className="bg-indigo-50 dark:bg-indigo-950 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-indigo-800 dark:text-indigo-200 mb-4">The Third Angel's Message: Revelation 14</h3>
                   <p className="text-indigo-700 dark:text-indigo-300 text-lg mb-4">
-                    The third angel's message in Revelation 14 emphasizes the importance of the truth that Christ is God's law. Revelation 14:12 says, "Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus." This message calls God's people to persevere in keeping all of God's commandments, especially in the face of end-time challenges.
+                    The third angel's message in Revelation 14 emphasizes the importance of keeping God's commandments like Christ. Revelation 14:12 says, "Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus." This message calls God's people to persevere in keeping all of God's commandments, especially in the face of end-time challenges.
                   </p>
                   <p className="text-indigo-700 dark:text-indigo-300 text-lg mb-4">
                     The third angel's message also warns against worshiping the beast and receiving his mark, which represents a counterfeit system that opposes God's law and changes the timing of the 4th commandment in God's example at creation. Those who remain faithful to keeping God's commandments like Christ and creation timing demonstrate their loyalty to the Creator and their faith in Jesus.
                   </p>
                   <p className="text-indigo-700 dark:text-indigo-300 text-lg">
-                    Bible prophecy also points to a time when laws in America (the lamb-like beast with two horns) will be used to pressure people into following man-made rules instead of God's original plan for the week. When human laws make it hard or impossible to follow the truth that Christ is God's law, we have to decide who we are really loyal to. Since every week we live is a copy of the very first week God created, staying true to His Sabbath is a way of showing our loyalty to Him. Soon, everyone will have to make a clear choice: will we follow the rules of men, or will we stay faithful to keeping God's commandments like Christ?
+                    Bible prophecy also points to a time when laws in America (the lamb-like beast with two horns) will be used to pressure people into following man-made rules instead of God's original plan for the week. When human laws make it hard or impossible to follow the truth of Christ in God's law, we have to decide who we are really loyal to. Since every week we live is a copy of the very first week God created, staying true to His Sabbath is a way of showing our loyalty to Him. Soon, everyone will have to make a clear choice: will we follow the rules of men, or will we stay faithful to keeping God's commandments like Christ?
                   </p>
                 </div>
               </section>
