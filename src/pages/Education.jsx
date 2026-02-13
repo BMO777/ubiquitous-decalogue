@@ -57,7 +57,7 @@ export default function Education({ onNavigateToLightshedder }) {
                     The third angel's message also warns against worshiping the beast and receiving his mark, which represents a counterfeit system that opposes God's law and changes the timing of the 4th commandment in God's example at creation. Those who remain faithful to God's commandments and creation timing demonstrate their loyalty to the Creator and their faith in Jesus.
                   </p>
                   <p className="text-indigo-700 dark:text-indigo-300 text-lg">
-                    Bible prophecy also points to a time when laws in America (the second beast) will be used to pressure people into following man-made rules instead of God's original plan for the week. Since every week we live is a copy of the very first week God created, staying true to His Sabbath is a way of showing who we are really loyal to. Soon, everyone will have to make a clear choice: will we follow the laws of men, or will we stay faithful to the laws of God?
+                    Bible prophecy also points to a time when laws in America (the second beast) will be used to pressure people into following man-made rules instead of God's original plan for the week. When human laws make it hard or impossible to keep God's laws, we have to decide who we are really loyal to. Since every week we live is a copy of the very first week God created, staying true to His Sabbath is a way of showing our loyalty to Him. Soon, everyone will have to make a clear choice: will we follow the rules of men, or will we stay faithful to the laws of God?
                   </p>
                 </div>
               </section>
