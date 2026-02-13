@@ -49,15 +49,15 @@ export default function Education({ onNavigateToLightshedder }) {
                   </p>
                 </div>
                 <div className="bg-indigo-50 dark:bg-indigo-950 p-6 rounded-xl">
-                  <h3 className="text-xl font-bold text-indigo-800 dark:text-indigo-200 mb-4">The Third Angel's Message: Revelation 14</h3>
+                  <h3 className="text-xl font-bold text-indigo-800 dark:text-indigo-200 mb-4">The Third Angel's Message: A Call to Faithfulness</h3>
                   <p className="text-indigo-700 dark:text-indigo-300 text-lg mb-4">
-                    The third angel's message in Revelation 14 emphasizes the importance of God's laws with Christ in them. Revelation 14:12 says, "Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus." This message calls God's people to persevere in keeping all of God's commandments, especially in the face of end-time challenges.
+                    The "Third Angel's Message" from Revelation 14 is a special call to stay faithful to God. Revelation 14:12 describes a group of people who are patient and keep God's commandments because they have a deep faith in Jesus.
                   </p>
                   <p className="text-indigo-700 dark:text-indigo-300 text-lg mb-4">
-                    The third angel's message also warns against worshiping the beast and receiving his mark, which represents a counterfeit system that opposes God's law and changes the timing of the 4th commandment in God's example at creation. Those who remain faithful to God's laws with Christ in them and creation timing demonstrate their loyalty to the Creator and their faith in Jesus.
+                    This message warns us not to follow systems that try to replace God's laws with human ones. A key part of this is the 4th commandment—the Sabbath. God's original design for the week includes a specific day of rest that honors Him as our Creator.
                   </p>
                   <p className="text-indigo-700 dark:text-indigo-300 text-lg">
-                    Bible prophecy also points to a time when laws in America (the second beast) will be used to pressure people into following man-made rules instead of God's original plan for the week. When human laws make it hard or impossible to follow God's laws with Christ in them, we have to decide who we are really loyal to. Since every week we live is a copy of the very first week God created, staying true to His Sabbath is a way of showing our loyalty to Him. Soon, everyone will have to make a clear choice: will we follow the rules of men, or will we stay faithful to God's laws with Christ in them?
+                    Bible prophecy suggests a time is coming when human laws will pressure people to follow man-made rules instead of God's original plan. When this happens, we face a choice: will we follow the rules of men, or will we stay loyal to God's laws with Christ in them? Choosing to keep the Sabbath as God intended is a powerful way to show our loyalty to Him as the one who created us.
                   </p>
                 </div>
               </section>
