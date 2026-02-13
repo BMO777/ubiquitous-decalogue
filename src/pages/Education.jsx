@@ -51,7 +51,7 @@ export default function Education({ onNavigateToLightshedder }) {
                 <div className="bg-indigo-50 dark:bg-indigo-950 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-indigo-800 dark:text-indigo-200 mb-4">The Third Angel's Message: Revelation 14</h3>
                   <p className="text-indigo-700 dark:text-indigo-300 text-lg mb-4">
-                    The third angel's message in Revelation 14 emphasizes the importance of God's laws with Christ in them. Revelation 14:12 says, "Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus." This message calls God's people to persevere in God's laws with Christ in them, especially in the face of end-time challenges.
+                    The third angel's message in Revelation 14 emphasizes the importance of God's laws with Christ in them. Revelation 14:12 says, "Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus." This message calls God's people to persevere in keeping all of God's commandments, especially in the face of end-time challenges.
                   </p>
                   <p className="text-indigo-700 dark:text-indigo-300 text-lg mb-4">
                     The third angel's message also warns against worshiping the beast and receiving his mark, which represents a counterfeit system that opposes God's law and changes the timing of the 4th commandment in God's example at creation. Those who remain faithful to God's laws with Christ in them and creation timing demonstrate their loyalty to the Creator and their faith in Jesus.
