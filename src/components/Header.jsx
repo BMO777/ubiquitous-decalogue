@@ -1,8 +1,8 @@
 import React from "react";
 import tenCommandmentsImage from "../assets/images/Ten Commandments Fiery Handwriting.png";
-import DarkModeToggle from "./DarkModeToggle"; // Import the new component
+import DarkModeToggle from "./DarkModeToggle";
 
-export default function Header({ onNavigateToEducation }) {
+export default function Header({ activeTab, onToggleTab }) {
   return (
     <header className="bg-white shadow-sm border-b dark:bg-gray-800 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
@@ -22,13 +22,13 @@ export default function Header({ onNavigateToEducation }) {
               </p>
             </div>
           </div>
-          <div className="flex items-center space-x-4"> {/* Added a div for alignment */}
-            <DarkModeToggle /> {/* Add the DarkModeToggle here */}
+          <div className="flex items-center space-x-4">
+            <DarkModeToggle />
             <button 
-              onClick={onNavigateToEducation}
+              onClick={onToggleTab}
               className="btn btn-primary text-base sm:text-lg px-5 py-3"
             >
-              Learn About Commandments
+              {activeTab === 'lightshedder' ? 'Learn About Commandments' : 'Go to Light Shedder'}
             </button>
           </div>
         </div>

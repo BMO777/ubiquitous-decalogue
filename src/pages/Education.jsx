@@ -9,19 +9,11 @@ export default function Education({ onNavigateToLightshedder }) {
     <div className="min-h-screen">
       <OfflineIndicator />
       <div className="content-overlay">
-        <Header onNavigateToEducation={onNavigateToLightshedder} />
+        <Header activeTab="education" onToggleTab={onNavigateToLightshedder} />
         <main className="max-w-4xl mx-auto px-4 py-8">
           <div className="card bg-white dark:bg-gray-800">
-            <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-8">
-              <div className="flex items-center">
-                <img src={tenCommandmentsImage} alt="Ten Commandments" className="w-28 h-28 sm:w-36 sm:h-36 object-contain rounded-lg" />
-              </div>
-              <button
-                onClick={onNavigateToLightshedder}
-                className="btn btn-primary text-lg px-6 py-3"
-              >
-                Go to Light Shedder
-              </button>
+            <div className="flex flex-col lg:flex-row justify-center items-center gap-8 mb-8">
+              <img src={tenCommandmentsImage} alt="Ten Commandments" className="w-28 h-28 sm:w-36 sm:h-36 object-contain rounded-lg" />
             </div>
             <h1 className="text-3xl sm:text-4xl text-center mb-8 text-gray-900 dark:text-white">
               Understanding the Ten Commandments

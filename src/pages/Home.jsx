@@ -39,16 +39,15 @@ export default function Home({ onNavigateToEducation }) {
       if (!response.ok) throw new Error('Network response was not ok');
       const data = await response.json();
       
-      // Determine if *any* commandment was violated by the AI's direct assessment
       const anyViolatedByAI = data.results.some(cmd => cmd.violated);
       
       const finalResults = data.results.map(cmd => {
-        const isPrimary = cmd.violated; // This commandment was directly violated by the action
-        const isSecondary = anyViolatedByAI && !isPrimary; // Any commandment was violated, but not this one directly
+        const isPrimary = cmd.violated;
+        const isSecondary = anyViolatedByAI && !isPrimary;
         
         return {
           ...cmd,
-          violated: isPrimary || isSecondary, // Mark as violated if primary or secondary
+          violated: isPrimary || isSecondary,
           isPrimaryViolation: isPrimary,
           isSecondaryViolation: isSecondary,
         };
@@ -56,16 +55,15 @@ export default function Home({ onNavigateToEducation }) {
       
       setAnalysis({
         results: finalResults,
-        anyViolated: anyViolatedByAI, // Use the AI's direct assessment for the overall flag
+        anyViolated: anyViolatedByAI,
         principleOfLove: anyViolatedByAI 
           ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.' True transformation begins with renewing our minds (Romans 12:2) - changing our upstream thinking and attention - before our downstream actions can align with God's will. Follow Christ's example in all things."
           : "The action aligns with all commandments, reflecting a heart that loves God and neighbor. Remember, maintaining this alignment requires continuous attention to our thoughts and intentions, as they determine our actions. Continue to imitate Christ in all things."
       });
       
-      setHistory(prev => [data, ...prev.slice(0, 9)]); // Keep last 10
+      setHistory(prev => [data, ...prev.slice(0, 9)]);
     } catch (err) {
       console.error('Analysis error:', err);
-      // Fallback to local keyword-based analysis
       const mockResults = commandments.map(cmd => {
         if (typeof cmd.analyze === 'function') {
           const result = cmd.analyze(inputText);
@@ -74,7 +72,6 @@ export default function Home({ onNavigateToEducation }) {
             ...result
           };
         }
-        // Simple fallback stub
         return {
           ...cmd,
           violated: false,
@@ -87,12 +84,12 @@ export default function Home({ onNavigateToEducation }) {
       const anyViolatedByFallback = mockResults.some(cmd => cmd.violated);
       
       const finalResults = mockResults.map(cmd => {
-        const isPrimary = cmd.violated; // This commandment was directly violated by the action
-        const isSecondary = anyViolatedByFallback && !isPrimary; // Any commandment was violated, but not this one directly
+        const isPrimary = cmd.violated;
+        const isSecondary = anyViolatedByFallback && !isPrimary;
         
         return {
           ...cmd,
-          violated: isPrimary || isSecondary, // Mark as violated if primary or secondary
+          violated: isPrimary || isSecondary,
           isPrimaryViolation: isPrimary,
           isSecondaryViolation: isSecondary,
         };
@@ -100,7 +97,7 @@ export default function Home({ onNavigateToEducation }) {
       
       setAnalysis({
         results: finalResults,
-        anyViolated: anyViolatedByFallback, // Use the fallback's direct assessment for the overall flag
+        anyViolated: anyViolatedByFallback,
         principleOfLove: anyViolatedByFallback 
           ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.' True transformation begins with renewing our minds (Romans 12:2) - changing our upstream thinking and attention - before our downstream actions can align with God's will. Follow Christ's example in all things."
           : "The action aligns with all commandments, reflecting a heart that loves God and neighbor. Remember, maintaining this alignment requires continuous attention to our thoughts and intentions, as they determine our actions. Continue to imitate Christ in all things."
@@ -120,7 +117,7 @@ export default function Home({ onNavigateToEducation }) {
     <div className="min-h-screen">
       <OfflineIndicator />
       <div className="content-overlay">
-        <Header onNavigateToEducation={onNavigateToEducation} />
+        <Header activeTab="lightshedder" onToggleTab={onNavigateToEducation} />
         
         <main className="max-w-4xl mx-auto px-4 py-8">
           <form onSubmit={handleAnalyze}>
