@@ -86,7 +86,7 @@ export default function Education({ onNavigateToLightshedder }) {
                 <div className="bg-red-50 dark:bg-red-950 p-6 rounded-xl mb-8 border-l-4 border-red-500">
                   <h3 className="text-xl font-bold text-red-800 dark:text-red-200 mb-4">Love and the Decalogue</h3>
                   <p className="text-red-700 dark:text-red-300 text-lg">
-                    Love, defined as self-sacrifice for the best of others, is not possible without rejoicing in the absence of the sinful behavior that the Ten Commandments forbid. True love does not rejoice in wrongdoing but rejoices with the truth (1 Corinthians 13:6). Therefore, to love truly is to uphold the moral standards God has set forth in His law.
+                    Love, defined as self-sacrifice for the best of others, is not possible without rejoicing in the absence of the cherished sinful thought processes that lead to the behaviors the Ten Commandments forbid. True love does not rejoice in wrongdoing but rejoices with the truth (1 Corinthians 13:6). Therefore, to love truly is to uphold the moral standards God has set forth in His law.
                   </p>
                 </div>
                 <h2 className="text-2xl sm:text-3xl mt-10 mb-6 text-gray-900 dark:text-white">Practical Application</h2>
