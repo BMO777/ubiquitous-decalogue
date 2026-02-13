@@ -53,8 +53,11 @@ export default function Education({ onNavigateToLightshedder }) {
                   <p className="text-indigo-700 dark:text-indigo-300 text-lg mb-4">
                     The third angel's message in Revelation 14 emphasizes the importance of keeping God's commandments. Revelation 14:12 says, "Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus." This message calls God's people to persevere in keeping all of God's commandments, especially in the face of end-time challenges.
                   </p>
-                  <p className="text-indigo-700 dark:text-indigo-300 text-lg">
+                  <p className="text-indigo-700 dark:text-indigo-300 text-lg mb-4">
                     The third angel's message also warns against worshiping the beast and receiving his mark, which represents a counterfeit system that opposes God's law and changes the timing of the 4th commandment in God's example at creation. Those who remain faithful to God's commandments and creation timing demonstrate their loyalty to the Creator and their faith in Jesus.
+                  </p>
+                  <p className="text-indigo-700 dark:text-indigo-300 text-lg">
+                    Bible prophecy also points to a time when laws in America (the second beast) will be used to pressure people into following man-made rules instead of God's original plan for the week. Since every week we live is a copy of the very first week God created, staying true to His Sabbath is a way of showing who we are really loyal to. Soon, everyone will have to make a clear choice: will we follow the laws of men, or will we stay faithful to the laws of God?
                   </p>
                 </div>
               </section>
