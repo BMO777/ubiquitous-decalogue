@@ -28,7 +28,7 @@ export default function Education({ onNavigateToLightshedder }) {
             </h1>
             <div className="prose max-w-none">
               <p className="text-lg mb-8 text-gray-700 dark:text-gray-300">
-                The Ten Commandments, also known as the Decalogue, are divine principles spoken out loud for multitudes to hear before being given by God to Moses on Mount Sinai. These commandments form the foundation of moral and spiritual life through reason, or tradition, or the written word.
+                The Ten Commandments, also known as the Decalogue, are divine principles spoken out loud for multitudes to hear before being given by God to Moses on Mount Sinai. As timeless guides for conduct, the 10 commandments are worthy of human attention and form the foundation of moral and spiritual life through reason, tradition, or the written word.
               </p>
               <section className="mb-12">
                 <h2 className="text-2xl sm:text-3xl mb-6 text-gray-900 dark:text-white">The Two Great Commandments</h2>
