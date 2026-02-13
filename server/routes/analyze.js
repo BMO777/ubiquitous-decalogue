@@ -1,15 +1,23 @@
 import OpenAI from "openai";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
 export default async function analyzeHandler(req, res) {
   const { action, commandments } = req.body;
 
   if (!action) {
     return res.status(400).json({ error: "Action is required" });
   }
+
+  // Initialize OpenAI inside the handler to ensure process.env is populated
+  const apiKey = process.env.OPENAI_API_KEY;
+  
+  if (!apiKey) {
+    console.error("Missing OPENAI_API_KEY environment variable");
+    return res.status(500).json({ error: "AI configuration error: Missing API Key" });
+  }
+
+  const openai = new OpenAI({
+    apiKey: apiKey,
+  });
 
   const prompt = `
 You are a biblical ethics advisor. Analyze the following action against each of the Ten Commandments.
