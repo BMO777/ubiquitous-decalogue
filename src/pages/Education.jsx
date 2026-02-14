@@ -25,7 +25,7 @@ export default function Education({ onNavigateToLightshedder }) {
               <section className="mb-12">
                 <h2 className="text-2xl sm:text-3xl mb-6 text-gray-900 dark:text-white">The Two Great Commandments</h2>
                 <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
-                  Jesus summarized the law in two commandments:
+                  Jesus summarized the 10 commandments in two commandments:
                 </p>
                 <ul className="list-disc pl-6 mb-8 text-lg space-y-3 text-gray-700 dark:text-gray-300">
                   <li>Love the Lord your God with all your heart, soul, and mind (Matthew 22:37-38)</li>
