@@ -94,7 +94,7 @@ export default function Education({ onNavigateToLightshedder }) {
                 </div>
                 <h2 className="text-2xl sm:text-3xl mt-10 mb-6 text-gray-900 dark:text-white">Practical Application</h2>
                 <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
-                  Every commandment is an expression of love and mercy from God. They are a saving power designed to protect us and secure our well-being, both now and forever.
+                  Every commandment is an expression of love and mercy from God. They flow as a saving power designed to protect us and secure our well-being, both now and forever.
                 </p>
                 <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
                   The Ten Commandments are not merely rules to follow but principles that guide us toward a life of love, integrity, and holiness. They reveal God's character and show us the path to true fulfillment.
