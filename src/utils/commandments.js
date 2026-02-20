@@ -9,7 +9,7 @@ export const commandments = [
       const violated = lowerInput.includes("money") || lowerInput.includes("wealth") || lowerInput.includes("career") || lowerInput.includes("success") || lowerInput.includes("idol");
       return {
         violated,
-        explanation: violated ? "The action appears to place temporal concerns above divine priorities, violating the principle of exclusive devotion to God." : "The action demonstrates proper prioritization of God above all earthly concerns.",
+        explanation: violated ? "The underlying priority appears to place temporal concerns above divine priorities, violating the principle of exclusive devotion to God." : "The heart posture demonstrates proper prioritization of God above all earthly concerns.",
         biblicalReasoning: "Exodus 20:3 - 'Thou shalt have no other gods before me.' God alone is entitled to supreme reverence and worship. Anything we cherish that lessens our love for God becomes an idol.",
         guidance: "Cultivate daily practices that honor God as supreme, such as prayer, Scripture study, and acts of service that reflect His priorities. Remember, true change begins with renewing your mind (Romans 12:2) - redirect your attention and thoughts toward God before expecting changes in actions.",
       };
@@ -24,7 +24,7 @@ export const commandments = [
       const violated = lowerInput.includes("image") || lowerInput.includes("statue") || lowerInput.includes("worship") || lowerInput.includes("idol");
       return {
         violated,
-        explanation: violated ? "The use of physical representations in worship may lead to a diminished understanding of God's infinite nature." : "The action respects the prohibition against representing the infinite God through finite means.",
+        explanation: violated ? "The internal conception of God may be diminished by relying on physical representations, leading to a limited understanding of His infinite nature." : "The heart posture respects the prohibition against representing the infinite God through finite means.",
         biblicalReasoning: "Exodus 20:4-5 - 'Thou shalt not make unto thee any graven image.' Attempting to represent the Eternal One by material objects would lower man's conception of God.",
         guidance: "Focus worship on the invisible, incomparable nature of God through spirit and truth, as revealed in Scripture. Transformation begins with renewing your mind to understand God's true nature - this upstream change will naturally lead to appropriate downstream worship practices.",
       };
@@ -39,7 +39,7 @@ export const commandments = [
       const violated = (lowerInput.includes("god") || lowerInput.includes("lord")) && (lowerInput.includes("curse") || lowerInput.includes("swear") || lowerInput.includes("casual") || lowerInput.includes("damn") || lowerInput.includes("hell"));
       return {
         violated,
-        explanation: violated ? "The use of God's name in casual or irreverent contexts dishonors His holy character." : "The action demonstrates appropriate reverence for the holiness of God's name.",
+        explanation: violated ? "The internal attitude toward God's name lacks the necessary reverence, treating His holy character as common or trivial." : "The heart posture demonstrates appropriate reverence for the holiness of God's name.",
         biblicalReasoning: "Exodus 20:7 - 'Thou shalt not take the name of the Lord thy God in vain.' The thoughtless mention of God in common conversation dishonors Him.",
         guidance: "Cultivate reverence for God's name through mindful speech and meditation on His majestic character as revealed in Scripture. Remember that lasting change in speech patterns begins with transforming your thoughts and attention toward God's holiness.",
       };
@@ -51,28 +51,17 @@ export const commandments = [
     keyPoints: "Observing the seventh day (Friday evening through Saturday evening) as a memorial of creation, following God's example at creation, avoiding all work and worldly concerns except for acts of necessity and mercy",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      // Check if the input mentions Friday evening specifically (not just Friday)
       const mentionsFridayNight = lowerInput.includes("friday night") || lowerInput.includes("friday evening") || lowerInput.includes("friday sundown") || lowerInput.includes("saturday morning");
-      // Check if the input mentions Saturday specifically
       const mentionsSaturday = lowerInput.includes("saturday");
-      // Sabbath time is either Friday night/evening or Saturday
       const mentionsSabbathTime = mentionsFridayNight || mentionsSaturday;
-      // Check if the input mentions work or business activities
       const mentionsWork = lowerInput.includes("work") || lowerInput.includes("business") || lowerInput.includes("shopping") || lowerInput.includes("plans") || lowerInput.includes("transaction") || lowerInput.includes("deal") || lowerInput.includes("meeting") || lowerInput.includes("project");
-      // Check if the input mentions worldly concerns or activities
       const mentionsWorldlyConcerns = lowerInput.includes("worldly") || lowerInput.includes("secular") || lowerInput.includes("material") || lowerInput.includes("money") || lowerInput.includes("career") || lowerInput.includes("job");
-      // Check if the input mentions acts of necessity and mercy (exceptions)
       const mentionsNecessityOrMercy = lowerInput.includes("necessity") || lowerInput.includes("mercy") || lowerInput.includes("sick") || lowerInput.includes("suffering") || lowerInput.includes("emergency") || lowerInput.includes("help") || lowerInput.includes("heal") || lowerInput.includes("food") || lowerInput.includes("eat") || lowerInput.includes("hunger");
-      // Check if the input mentions good works that honor God (exceptions)
       const mentionsGoodWorks = lowerInput.includes("worship") || lowerInput.includes("service") || lowerInput.includes("pray") || lowerInput.includes("bible") || lowerInput.includes("scripture") || lowerInput.includes("good") || lowerInput.includes("righteous") || lowerInput.includes("kind") || lowerInput.includes("help");
-      // Violation occurs when:
-      // 1. Sabbath time (Friday evening or Saturday) is mentioned
-      // 2. Work or worldly concerns are mentioned
-      // 3. Necessity, mercy, or good works are NOT mentioned as exceptions
       const violated = mentionsSabbathTime && (mentionsWork || mentionsWorldlyConcerns) && !mentionsNecessityOrMercy && !mentionsGoodWorks;
       return {
         violated,
-        explanation: violated ? "The action involves work or worldly concerns on the Sabbath (Friday evening through Saturday evening), failing to honor it as a memorial of creation." : "The action aligns with principles of Sabbath observance and restful worship.",
+        explanation: violated ? "The internal focus remains on work or worldly concerns during the Sabbath, failing to honor it as a sacred memorial of creation." : "The heart posture aligns with principles of Sabbath observance and restful worship.",
         biblicalReasoning: "Exodus 20:8-11 - 'Remember the Sabbath day, to keep it holy.' The seventh day includes Friday evening through Saturday evening. Those who discuss business matters or lay plans on the Sabbath are regarded by God as though engaged in the actual transaction of business. To keep the Sabbath holy, we should not even allow our minds to dwell upon things of a worldly character. However, acts of necessity and mercy are permitted. Christ Himself did good works on the Sabbath, including healing the sick and even plucking grain for immediate consumption (Matthew 12:1-8), demonstrating that it is lawful to do good on the Sabbath. For in six days the Lord made heaven and earth, the sea, and all that in them is, and rested the seventh day: wherefore the Lord blessed the Sabbath day, and hallowed it.",
         guidance: "Set aside Friday evening through Saturday evening entirely for worship, rest, and reflection on God's creative and redemptive works. Avoid all work and worldly concerns except for acts of necessity and mercy. The commandment includes all within our gates - all household members should unite to honor God by willing service upon His holy day. Remember that the sick and suffering are to be cared for at all times, even on the Sabbath. Following Christ's example, acts of compassion, mercy, and meeting immediate needs (like eating when hungry) do not violate the Sabbath but honor its true purpose.",
       };
@@ -87,7 +76,7 @@ export const commandments = [
       const violated = lowerInput.includes("parent") || lowerInput.includes("father") || lowerInput.includes("mother") || lowerInput.includes("disrespect") || lowerInput.includes("ignore");
       return {
         violated,
-        explanation: violated ? "The action involves disrespect or neglect toward parental authority, violating the command to honor parents." : "The action demonstrates proper respect for parental and delegated authority.",
+        explanation: violated ? "The heart posture involves disrespect or neglect toward parental authority, failing to honor the divine order of respect." : "The internal orientation demonstrates proper respect for parental and delegated authority.",
         biblicalReasoning: "Exodus 20:12 - 'Honor thy father and thy mother.' Parents stand in God's place during early years, and rejecting their authority rejects God's authority.",
         guidance: "Show respect, love, and care for parents through actions and attitudes that reflect honor and gratitude for their role. Lasting change in relationships begins with transforming your heart attitude - address upstream issues of resentment or bitterness before expecting downstream changes in behavior.",
       };
@@ -102,7 +91,7 @@ export const commandments = [
       const violated = lowerInput.includes("kill") || lowerInput.includes("harm") || lowerInput.includes("hatred") || lowerInput.includes("anger") || lowerInput.includes("abuse");
       return {
         violated,
-        explanation: violated ? "The action involves physical or emotional harm to others, or harbors hatred which is equivalent to murder in God's sight." : "The action preserves and respects the sanctity of human life created in God's image.",
+        explanation: violated ? "The internal state harbors hatred, anger, or a disregard for the sanctity of life, which is equivalent to murder in God's sight." : "The heart posture preserves and respects the sanctity of human life created in God's image.",
         biblicalReasoning: "Exodus 20:13 - 'Thou shalt not kill.' The spirit of hatred and revenge, along with any passion leading to harm, violates this commandment.",
         guidance: "Cultivate love for others as yourself, actively seeking their welfare and avoiding all forms of harm, both physical and emotional. Remember, transformation begins with addressing upstream issues of anger, bitterness, and unforgiveness before expecting downstream changes in actions.",
       };
@@ -139,7 +128,7 @@ export const commandments = [
         lowerInput.includes("abandon family");
       return {
         violated,
-        explanation: violated ? "The action involves impurity in thoughts, desires, or actions regarding marriage relationships, or practices that harm the sacredness and peace of family relationships." : "The action maintains purity in relationships according to God's design for marriage and family.",
+        explanation: violated ? "The internal desire involves impurity or a lack of commitment to the sacredness of marriage and family relationships." : "The heart posture maintains purity in relationships according to God's design for marriage and family.",
         biblicalReasoning: "Exodus 20:14 - 'Thou shalt not commit adultery.' Christ taught that evil thoughts and looks are as truly sin as unlawful deeds.",
         guidance: "Guard the heart and mind through purity in media consumption, relationships, and personal conduct that honors marriage covenant. True purity begins with upstream transformation of thoughts and desires - guard your heart (Proverbs 4:23) before expecting downstream changes in behavior. Foster peace and unity within the family, avoiding all practices that could harm the sacred bonds of marriage and family relationships.",
       };
@@ -154,7 +143,7 @@ export const commandments = [
       const violated = lowerInput.includes("steal") || lowerInput.includes("take") || lowerInput.includes("fraud") || lowerInput.includes("deceive") || lowerInput.includes("cheat");
       return {
         violated,
-        explanation: violated ? "The action involves taking what doesn't belong to you, whether physically or through deception." : "The action respects others' property and demonstrates integrity in all dealings.",
+        explanation: violated ? "The underlying intent involves taking what belongs to another, reflecting a heart posture of greed or exploitation." : "The heart posture respects others' property and demonstrates integrity in all dealings.",
         biblicalReasoning: "Exodus 20:15 - 'Thou shalt not steal.' This commandment demands strict integrity in all affairs of life, condemning fraud and every attempt to advantage oneself by others' misfortune. Both public and private sins are included in this prohibition.",
         guidance: "Practice strict integrity in all business dealings, promptly paying debts and wages, and avoiding exploitation of others' weakness. Lasting integrity begins with upstream transformation of the heart's desires - address issues of greed and selfishness before expecting downstream changes in actions.",
       };
@@ -169,7 +158,7 @@ export const commandments = [
       const violated = lowerInput.includes("lie") || lowerInput.includes("false") || lowerInput.includes("deceive") || lowerInput.includes("slander") || lowerInput.includes("gossip");
       return {
         violated,
-        explanation: violated ? "The action involves deception, misrepresentation, or spreading falsehoods about others." : "The action demonstrates truthfulness and honesty in dealings with others.",
+        explanation: violated ? "The internal orientation involves deception or a willingness to misrepresent the truth for selfish gain or to harm others." : "The heart posture demonstrates truthfulness and honesty in dealings with others.",
         biblicalReasoning: "Exodus 20:16 - 'Thou shalt not bear false witness.' Every attempt to deceive, including intentional suppression of truth, violates this commandment.",
         guidance: "Cultivate truthfulness in all communication, avoiding exaggeration, deception, and harmful speech about others. True honesty begins with upstream transformation of the heart - address issues of pride, fear, or desire to harm others before expecting downstream changes in speech.",
       };
@@ -184,7 +173,7 @@ export const commandments = [
       const violated = lowerInput.includes("want") || lowerInput.includes("envy") || lowerInput.includes("desire") || lowerInput.includes("jealous") || lowerInput.includes("covet");
       return {
         violated,
-        explanation: violated ? "The action stems from or encourages covetous desires for what belongs to others." : "The action reflects contentment and respect for others' possessions and relationships.",
+        explanation: violated ? "The internal desire stems from discontentment and a selfish longing for what belongs to others, striking at the root of all sin." : "The heart posture reflects contentment and respect for others' possessions and relationships.",
         biblicalReasoning: "Exodus 20:17 - 'Thou shalt not covet.' This commandment strikes at the root of all sin by prohibiting selfish desire that leads to wrongdoing.",
         guidance: "Cultivate contentment with God's provision, rejoicing in others' blessings rather than envying their possessions or relationships. Remember, transformation begins upstream - address heart issues of discontentment and comparison before expecting downstream changes in behavior.",
       };

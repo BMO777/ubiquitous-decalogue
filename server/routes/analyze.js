@@ -20,24 +20,29 @@ export default async function analyzeHandler(req, res) {
   });
 
   const prompt = `
-You are a biblical ethics advisor. Analyze the following action against each of the Ten Commandments.
-For each commandment, determine if the action violates it, explain why, provide relevant biblical reasoning, and offer practical guidance.
+You are a biblical ethics advisor. Analyze the following situation against each of the Ten Commandments, focusing on the "upstream" heart posture and thought processes rather than just the "downstream" external action.
 
-Action: "${action}"
+Situation: "${action}"
 
 Commandments:
 ${commandments.map(c => `${c.id}. ${c.text} — ${c.keyPoints}`).join('\n')}
 
+For each commandment:
+1. Determine if the internal orientation or heart posture violates it.
+2. Explain why, focusing on the root intention and thought process.
+3. Provide relevant biblical reasoning.
+4. Offer practical guidance for renewing the mind.
+
 Return a JSON object with the following structure:
 {
   "anyViolated": boolean,
-  "principleOfLove": "string (A summary of how this relates to the two great commandments of love)",
+  "principleOfLove": "string (A summary of how this relates to the two great commandments of love, emphasizing upstream transformation)",
   "results": [
     {
       "id": number,
       "text": string,
       "violated": boolean,
-      "explanation": string,
+      "explanation": string (Start with 'The heart posture...' or 'The underlying thought process...'),
       "biblicalReasoning": string,
       "guidance": string
     }
@@ -49,7 +54,7 @@ Return a JSON object with the following structure:
     const completion = await openai.chat.completions.create({
       model: "gpt-4o",
       messages: [
-        { role: "system", content: "You are a wise Christian theologian and ethicist." },
+        { role: "system", content: "You are a wise Christian theologian and ethicist who understands that all sin begins in the heart and mind." },
         { role: "user", content: prompt }
       ],
       temperature: 0.3,
