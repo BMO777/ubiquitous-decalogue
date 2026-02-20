@@ -7,7 +7,6 @@ export default async function analyzeHandler(req, res) {
     return res.status(400).json({ error: "Action is required" });
   }
 
-  // Initialize OpenAI inside the handler to ensure process.env is populated
   const apiKey = process.env.OPENAI_API_KEY;
   
   if (!apiKey) {
@@ -17,6 +16,7 @@ export default async function analyzeHandler(req, res) {
 
   const openai = new OpenAI({
     apiKey: apiKey,
+    timeout: 30000, // 30 second timeout
   });
 
   const prompt = `
@@ -67,6 +67,9 @@ Return a JSON object with the following structure:
 
   } catch (error) {
     console.error("AI Error:", error);
+    if (error.name === 'OpenAIConnectionError') {
+      return res.status(504).json({ error: "The AI service took too long to respond. Please try again." });
+    }
     res.status(500).json({ error: "Failed to analyze action" });
   }
 }
