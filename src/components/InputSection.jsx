@@ -1,9 +1,8 @@
 import React from "react";
 import tenCommandmentsImage from "../assets/images/Ten Commandments Fiery Handwriting.png";
 
-export default function InputSection({ value, onChange, onAnalyze, loading }) {
+export default function InputSection({ value, onChange, onAnalyze, loading, selectedModel, onModelChange, availableModels = [] }) {
   const handleKeyDown = (e) => {
-    // Allow submission with Enter key (but still allow Shift+Enter for new lines)
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       if (!loading && value.trim()) {
@@ -20,7 +19,7 @@ export default function InputSection({ value, onChange, onAnalyze, loading }) {
           alt="Ten Commandments" 
           className="w-14 h-14 object-contain bg-blue-100 dark:bg-blue-900 p-3 rounded-lg flex-shrink-0"
         />
-        <div className="flex-1">
+        <div className="flex-1 w-full">
           <h2 className="text-2xl sm:text-3xl mb-4 text-gray-900 dark:text-white">
             Shed Light on an Action
           </h2>
@@ -36,6 +35,27 @@ export default function InputSection({ value, onChange, onAnalyze, loading }) {
               <li>Christ's example of doing good on Sabbath (including meeting immediate needs) is considered</li>
             </ul>
           </div>
+
+          {availableModels.length > 0 && (
+            <div className="form-group mb-6">
+              <label htmlFor="modelSelect" className="form-label text-lg">
+                Select AI Model:
+              </label>
+              <select
+                id="modelSelect"
+                value={selectedModel}
+                onChange={(e) => onModelChange(e.target.value)}
+                className="form-input text-lg"
+                disabled={loading}
+              >
+                {availableModels.map(model => (
+                  <option key={model.id} value={model.id}>
+                    {model.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
           
           <div className="form-group">
             <label htmlFor="actionInput" className="form-label text-lg">

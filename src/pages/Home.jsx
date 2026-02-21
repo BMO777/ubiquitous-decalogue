@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import InputSection from '../components/InputSection';
 import ResultCard from '../components/ResultCard';
@@ -10,10 +10,30 @@ import OfflineIndicator from '../components/OfflineIndicator';
 
 export default function Home({ onNavigateToEducation }) {
   const [inputText, setInputText] = useState('');
+  const [availableModels, setAvailableModels] = useState([]);
+  const [selectedModel, setSelectedModel] = useState('gpt-4o');
   const [analysis, setAnalysis] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [history, setHistory] = useLocalStorage('analysisHistory', []);
+
+  useEffect(() => {
+    const fetchModels = async () => {
+      try {
+        const response = await fetch('/api/models');
+        if (response.ok) {
+          const models = await response.json();
+          setAvailableModels(models);
+          if (models.length > 0 && !models.find(m => m.id === selectedModel)) {
+            setSelectedModel(models[0].id);
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch models:", err);
+      }
+    };
+    fetchModels();
+  }, []);
 
   const analyzeAction = async () => {
     if (!inputText.trim()) return;
@@ -28,6 +48,7 @@ export default function Home({ onNavigateToEducation }) {
         },
         body: JSON.stringify({
           action: inputText,
+          model: selectedModel,
           commandments: commandments.map(c => ({
             id: c.id,
             text: c.text,
@@ -36,7 +57,11 @@ export default function Home({ onNavigateToEducation }) {
         })
       });
       
-      if (!response.ok) throw new Error('Network response was not ok');
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Network response was not ok');
+      }
+      
       const data = await response.json();
       
       const anyViolatedByAI = data.results.some(cmd => cmd.violated);
@@ -53,24 +78,26 @@ export default function Home({ onNavigateToEducation }) {
         };
       });
       
-      setAnalysis({
+      const analysisResult = {
+        action: inputText,
         results: finalResults,
         anyViolated: anyViolatedByAI,
         principleOfLove: anyViolatedByAI 
           ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). Love, defined as self-sacrifice for the best of others, is not possible without rejoicing in the absence of the cherished sinful thought processes that lead to the transgressions the Ten Commandments forbid. When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.' True transformation begins with renewing our minds (Romans 12:2) - changing our upstream thinking and attention - before our downstream actions can align with God's will. Follow Christ's example in all things."
           : "The action aligns with all commandments, reflecting a heart that loves God and neighbor. Remember, love as self-sacrifice for the best of others is only possible when we rejoice in the absence of the cherished sinful thought processes that lead to the transgressions the Ten Commandments forbid. Maintaining this alignment requires continuous attention to our thoughts and intentions, as they determine our actions. Continue to imitate Christ in all things."
-      });
+      };
       
-      setHistory(prev => [data, ...prev.slice(0, 9)]);
+      setAnalysis(analysisResult);
+      setHistory(prev => [analysisResult, ...prev.slice(0, 9)]);
     } catch (err) {
       console.error('Analysis error:', err);
+      setError(err.message);
+      
+      // Fallback logic remains the same
       const mockResults = commandments.map(cmd => {
         if (typeof cmd.analyze === 'function') {
           const result = cmd.analyze(inputText);
-          return {
-            ...cmd,
-            ...result
-          };
+          return { ...cmd, ...result };
         }
         return {
           ...cmd,
@@ -82,11 +109,9 @@ export default function Home({ onNavigateToEducation }) {
       });
       
       const anyViolatedByFallback = mockResults.some(cmd => cmd.violated);
-      
       const finalResults = mockResults.map(cmd => {
         const isPrimary = cmd.violated;
         const isSecondary = anyViolatedByFallback && !isPrimary;
-        
         return {
           ...cmd,
           violated: isPrimary || isSecondary,
@@ -96,6 +121,7 @@ export default function Home({ onNavigateToEducation }) {
       });
       
       setAnalysis({
+        action: inputText,
         results: finalResults,
         anyViolated: anyViolatedByFallback,
         principleOfLove: anyViolatedByFallback 
@@ -125,13 +151,16 @@ export default function Home({ onNavigateToEducation }) {
               value={inputText} 
               onChange={handleInputChange} 
               onAnalyze={analyzeAction} 
-              loading={isLoading} 
+              loading={isLoading}
+              selectedModel={selectedModel}
+              onModelChange={setSelectedModel}
+              availableModels={availableModels}
             />
           </form>
           
           {isLoading && <LoadingSpinner />}
           
-          {error && <ErrorFallback error={error} />}
+          {error && <ErrorFallback onRetry={analyzeAction} />}
           
           {analysis && (
             <section className="mt-10">
