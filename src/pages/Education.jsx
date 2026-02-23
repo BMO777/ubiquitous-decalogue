@@ -42,20 +42,12 @@ export default function Education({ onNavigateToLightshedder }) {
                     True transformation begins with renewing our minds (Romans 12:2). Before we can change our actions (downstream), we must first transform our thinking and attention (upstream). The condition of our heart determines our actions, and lasting change requires addressing the root issues of our thoughts, desires, and intentions.
                   </p>
                 </div>
-                
                 <div className="bg-purple-50 dark:bg-purple-950 p-6 rounded-xl mb-8">
-                  <h3 className="text-xl font-bold text-purple-800 dark:text-purple-200 mb-4">Living Like Jesus: More Than Just a Sacrifice</h3>
-                  <p className="text-purple-700 dark:text-purple-300 text-lg mb-4">
-                    Being saved is about more than just knowing Jesus died for us. It means making His life our life and His character our own. We are called to do more than just believe; we are called to follow His steps every single day.
-                  </p>
-                  <p className="text-purple-700 dark:text-purple-300 text-lg mb-4">
-                    This means saying "no" to our own natural feelings or habits when they don't match how Jesus lived. Instead of following our own way, we choose to work for Him and trust completely in His love and care for us.
-                  </p>
+                  <h3 className="text-xl font-bold text-purple-800 dark:text-purple-200 mb-4">Imitating Christ: The Perfect Example</h3>
                   <p className="text-purple-700 dark:text-purple-300 text-lg">
-                    There is a special joy in this life—the joy of helping others find this same path. When we win souls for Him, we are sharing the greatest gift we have ever received and showing our love for Him through our actions.
+                    Christ Jesus is the perfect embodiment of the Ten Commandments - He is the Word made flesh (John 1:14) who perfectly lived out every divine principle. To imitate Him is to make the most earnest effort to reflect His character in our thoughts, words, and deeds. As 1 Peter 2:21 says, "Christ... left us an example, that you should follow His steps."
                   </p>
                 </div>
-
                 <div className="bg-indigo-50 dark:bg-indigo-950 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-indigo-800 dark:text-indigo-200 mb-4">The Third Angel's Message: Revelation 14</h3>
                   <p className="text-indigo-700 dark:text-indigo-300 text-lg mb-4">
