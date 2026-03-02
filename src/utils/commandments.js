@@ -36,7 +36,7 @@ export const commandments = [
     keyPoints: "Respectful and reverent use of God's name, avoiding careless or trivial mention",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      const violated = (lowerInput.includes("god") || lowerInput.includes("lord")) && (lowerInput.includes("curse") || lowerInput.includes("swear") || lowerInput.includes("casual") || lowerInput.includes("damn") || lowerInput.includes("hell"));
+      const violated = (lowerInput.includes("god") || lowerInput.includes("lord")) && (lowerInput.includes("curse") || lowerInput.includes("swear") || lowerInput.includes("swore") || lowerInput.includes("sworn") || lowerInput.includes("casual") || lowerInput.includes("damn") || lowerInput.includes("hell"));
       return {
         violated,
         explanation: violated ? "The internal attitude toward God's name lacks the necessary reverence, treating His holy character as common or trivial." : "The heart posture demonstrates appropriate reverence for the holiness of God's name.",
@@ -54,9 +54,9 @@ export const commandments = [
       const mentionsFridayNight = lowerInput.includes("friday night") || lowerInput.includes("friday evening") || lowerInput.includes("friday sundown") || lowerInput.includes("saturday morning");
       const mentionsSaturday = lowerInput.includes("saturday");
       const mentionsSabbathTime = mentionsFridayNight || mentionsSaturday;
-      const mentionsWork = lowerInput.includes("work") || lowerInput.includes("business") || lowerInput.includes("shopping") || lowerInput.includes("plans") || lowerInput.includes("transaction") || lowerInput.includes("deal") || lowerInput.includes("meeting") || lowerInput.includes("project");
+      const mentionsWork = lowerInput.includes("work") || lowerInput.includes("business") || lowerInput.includes("shopping") || lowerInput.includes("shop") || lowerInput.includes("plans") || lowerInput.includes("plan") || lowerInput.includes("transaction") || lowerInput.includes("deal") || lowerInput.includes("dealt") || lowerInput.includes("meeting") || lowerInput.includes("project");
       const mentionsWorldlyConcerns = lowerInput.includes("worldly") || lowerInput.includes("secular") || lowerInput.includes("material") || lowerInput.includes("money") || lowerInput.includes("career") || lowerInput.includes("job");
-      const mentionsNecessityOrMercy = lowerInput.includes("necessity") || lowerInput.includes("mercy") || lowerInput.includes("sick") || lowerInput.includes("suffering") || lowerInput.includes("emergency") || lowerInput.includes("help") || lowerInput.includes("heal") || lowerInput.includes("food") || lowerInput.includes("eat") || lowerInput.includes("hunger");
+      const mentionsNecessityOrMercy = lowerInput.includes("necessity") || lowerInput.includes("mercy") || lowerInput.includes("sick") || lowerInput.includes("suffering") || lowerInput.includes("emergency") || lowerInput.includes("help") || lowerInput.includes("heal") || lowerInput.includes("food") || lowerInput.includes("eat") || lowerInput.includes("ate") || lowerInput.includes("eaten") || lowerInput.includes("hunger");
       const mentionsGoodWorks = lowerInput.includes("worship") || lowerInput.includes("service") || lowerInput.includes("pray") || lowerInput.includes("bible") || lowerInput.includes("scripture") || lowerInput.includes("good") || lowerInput.includes("righteous") || lowerInput.includes("kind") || lowerInput.includes("help");
       const violated = mentionsSabbathTime && (mentionsWork || mentionsWorldlyConcerns) && !mentionsNecessityOrMercy && !mentionsGoodWorks;
       return {
@@ -140,7 +140,7 @@ export const commandments = [
     keyPoints: "Respecting others' property, avoiding fraud, deception, and exploitation in all forms. This includes manstealing, slave dealing, wars of conquest, theft, robbery, overreaching in trade, and non-payment of just debts or wages.",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      const violated = lowerInput.includes("steal") || lowerInput.includes("take") || lowerInput.includes("fraud") || lowerInput.includes("deceive") || lowerInput.includes("cheat");
+      const violated = lowerInput.includes("steal") || lowerInput.includes("stole") || lowerInput.includes("stolen") || lowerInput.includes("take") || lowerInput.includes("took") || lowerInput.includes("taken") || lowerInput.includes("fraud") || lowerInput.includes("deceive") || lowerInput.includes("cheat");
       return {
         violated,
         explanation: violated ? "The underlying intent involves taking what belongs to another, reflecting a heart posture of greed or exploitation." : "The heart posture respects others' property and demonstrates integrity in all dealings.",
@@ -155,7 +155,7 @@ export const commandments = [
     keyPoints: "Truthfulness in all dealings, avoiding deception, slander, and misrepresentation",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      const violated = lowerInput.includes("lie") || lowerInput.includes("false") || lowerInput.includes("deceive") || lowerInput.includes("slander") || lowerInput.includes("gossip");
+      const violated = lowerInput.includes("lie") || lowerInput.includes("lied") || lowerInput.includes("false") || lowerInput.includes("deceive") || lowerInput.includes("slander") || lowerInput.includes("gossip");
       return {
         violated,
         explanation: violated ? "The internal orientation involves deception or a willingness to misrepresent the truth for selfish gain or to harm others." : "The heart posture demonstrates truthfulness and honesty in dealings with others.",
@@ -170,7 +170,7 @@ export const commandments = [
     keyPoints: "Avoiding selfish desire for others' possessions, guarding the heart against envy",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      const violated = lowerInput.includes("want") || lowerInput.includes("envy") || lowerInput.includes("desire") || lowerInput.includes("jealous") || lowerInput.includes("covet");
+      const violated = lowerInput.includes("want") || lowerInput.includes("wanted") || lowerInput.includes("envy") || lowerInput.includes("envied") || lowerInput.includes("desire") || lowerInput.includes("jealous") || lowerInput.includes("covet");
       return {
         violated,
         explanation: violated ? "The internal desire stems from discontentment and a selfish longing for what belongs to others, striking at the root of all sin." : "The heart posture reflects contentment and respect for others' possessions and relationships.",
