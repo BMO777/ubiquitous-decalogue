@@ -3,9 +3,6 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "workspaces": [
-    "server"
-  ],
   "scripts": {
     "dev": "vite",
     "build": "npx vite build",
