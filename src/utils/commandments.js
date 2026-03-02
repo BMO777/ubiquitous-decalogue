@@ -88,7 +88,7 @@ export const commandments = [
     keyPoints: "Preserving life, avoiding hatred, revenge, and actions that harm others physically or emotionally",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      const violated = lowerInput.includes("kill") || lowerInput.includes("harm") || lowerInput.includes("hatred") || lowerInput.includes("anger") || lowerInput.includes("abuse");
+      const violated = lowerInput.includes("kill") || lowerInput.includes("murder") || lowerInput.includes("harm") || lowerInput.includes("hatred") || lowerInput.includes("anger") || lowerInput.includes("abuse");
       return {
         violated,
         explanation: violated ? "The internal state harbors hatred, anger, or a disregard for the sanctity of life, which is equivalent to murder in God's sight." : "The heart posture preserves and respects the sanctity of human life created in God's image.",
