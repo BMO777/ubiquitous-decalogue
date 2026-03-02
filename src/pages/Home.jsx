@@ -15,6 +15,7 @@ export default function Home({ onNavigateToEducation }) {
   const [analysis, setAnalysis] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [isUsingFallback, setIsUsingFallback] = useState(false);
   const [history, setHistory] = useLocalStorage('analysisHistory', []);
 
   useEffect(() => {
@@ -39,6 +40,7 @@ export default function Home({ onNavigateToEducation }) {
     if (!inputText.trim()) return;
     setIsLoading(true);
     setError(null);
+    setIsUsingFallback(false);
     
     try {
       const response = await fetch('/api/analyze', {
@@ -63,7 +65,6 @@ export default function Home({ onNavigateToEducation }) {
       }
       
       const data = await response.json();
-      
       const anyViolatedByAI = data.results.some(cmd => cmd.violated);
       
       const finalResults = data.results.map(cmd => {
@@ -91,9 +92,15 @@ export default function Home({ onNavigateToEducation }) {
       setHistory(prev => [analysisResult, ...prev.slice(0, 9)]);
     } catch (err) {
       console.error('Analysis error:', err);
-      setError(err.message);
       
-      // Fallback logic remains the same
+      // If it's a configuration error (like missing API key), show the error
+      if (err.message.includes('API Key') || err.message.includes('configuration')) {
+        setError(err.message);
+      } else {
+        // For other errors, use fallback and show a notice
+        setIsUsingFallback(true);
+      }
+      
       const mockResults = commandments.map(cmd => {
         if (typeof cmd.analyze === 'function') {
           const result = cmd.analyze(inputText);
@@ -120,14 +127,16 @@ export default function Home({ onNavigateToEducation }) {
         };
       });
       
-      setAnalysis({
+      const fallbackResult = {
         action: inputText,
         results: finalResults,
         anyViolated: anyViolatedByFallback,
         principleOfLove: anyViolatedByFallback 
           ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). Love, defined as self-sacrifice for the best of others, is not possible without rejoicing in the absence of the cherished sinful thought processes that lead to the transgressions the Ten Commandments forbid. When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.' True transformation begins with renewing our minds (Romans 12:2) - changing our upstream thinking and attention - before our downstream actions can align with God's will. Follow Christ's example in all things."
           : "The action aligns with all commandments, reflecting a heart that loves God and neighbor. Remember, love as self-sacrifice for the best of others is only possible when we rejoice in the absence of the cherished sinful thought processes that lead to the transgressions the Ten Commandments forbid. Maintaining this alignment requires continuous attention to our thoughts and intentions, as they determine our actions. Continue to imitate Christ in all things."
-      });
+      };
+      
+      setAnalysis(fallbackResult);
     }
     
     setIsLoading(false);
@@ -162,6 +171,13 @@ export default function Home({ onNavigateToEducation }) {
           
           {error && <ErrorFallback onRetry={analyzeAction} />}
           
+          {isUsingFallback && (
+            <div className="my-6 p-4 bg-blue-50 border-l-4 border-blue-400 dark:bg-blue-950 dark:border-blue-700 text-blue-800 dark:text-blue-300 rounded-r-lg">
+              <p className="font-medium">Notice: Using local analysis engine.</p>
+              <p className="text-sm">The AI service is currently unavailable, so we're using our built-in keyword-based analysis to provide immediate insights.</p>
+            </div>
+          )}
+          
           {analysis && (
             <section className="mt-10">
               {analysis.anyViolated && analysis.principleOfLove && (
@@ -188,7 +204,11 @@ export default function Home({ onNavigateToEducation }) {
                   <li key={idx}>
                     <button 
                       className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline text-lg"
-                      onClick={() => setAnalysis(item)}
+                      onClick={() => {
+                        setAnalysis(item);
+                        setError(null);
+                        setIsUsingFallback(false);
+                      }}
                     >
                       {item.action || `Analysis #${idx + 1}`}
                     </button>
