@@ -1,4 +1,5 @@
 import express from 'express';
+import helmet from 'helmet';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -8,6 +9,18 @@ import routes from './routes/index.js';
 dotenv.config();
 
 const app = express();
+
+// Use helmet for security headers
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+      "img-src": ["'self'", "data:", "https:"],
+      "script-src": ["'self'", "'unsafe-inline'"], // Allow inline scripts for Vite/PWA
+    },
+  },
+}));
+
 app.use(express.json());
 
 const analyzeLimiter = rateLimit({
@@ -29,7 +42,6 @@ if (process.env.NODE_ENV === 'production') {
 app.use('/api', routes);
 
 // Apply rate limit specifically to the analyze endpoint within the router
-// Note: In a real app, you'd apply this inside the router or here
 app.use('/api/analyze', analyzeLimiter);
 
 if (process.env.NODE_ENV === 'production') {
