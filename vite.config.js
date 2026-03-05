@@ -9,9 +9,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      devOptions: {
-        enabled: false // Disable in development to avoid conflicts
-      },
+      includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
         name: 'Ten Commandments Light Shedder',
         short_name: 'Light Shedder',
@@ -19,32 +17,16 @@ export default defineConfig({
         theme_color: '#2563eb',
         background_color: '#ffffff',
         display: 'standalone',
-        icon: 'src/assets/images/Ten Commandments Fiery Handwriting.png',
-        start_url: '/',
-        shortcuts: [
+        icons: [
           {
-            name: 'Light Shedder',
-            short_name: 'Shedder',
-            description: 'Analyze actions against the Ten Commandments',
-            url: '/',
-            icons: [
-              {
-                src: 'src/assets/images/Ten Commandments Fiery Handwriting.png',
-                sizes: '192x192'
-              }
-            ]
+            src: 'src/assets/images/Ten Commandments Fiery Handwriting.png',
+            sizes: '192x192',
+            type: 'image/png'
           },
           {
-            name: 'Learn Commandments',
-            short_name: 'Learn',
-            description: 'Study the Ten Commandments',
-            url: '/education',
-            icons: [
-              {
-                src: 'src/assets/images/Ten Commandments Fiery Handwriting.png',
-                sizes: '192x192'
-              }
-            ]
+            src: 'src/assets/images/Ten Commandments Fiery Handwriting.png',
+            sizes: '512x512',
+            type: 'image/png'
           }
         ]
       },
@@ -58,7 +40,7 @@ export default defineConfig({
               cacheName: 'google-fonts-cache',
               expiration: {
                 maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+                maxAgeSeconds: 60 * 60 * 24 * 365
               },
               cacheableResponse: {
                 statuses: [0, 200]
@@ -72,10 +54,21 @@ export default defineConfig({
               cacheName: 'gstatic-fonts-cache',
               expiration: {
                 maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+                maxAgeSeconds: 60 * 60 * 24 * 365
               },
               cacheableResponse: {
                 statuses: [0, 200]
+              }
+            }
+          },
+          {
+            urlPattern: /\.(?:png|jpg|jpeg|svg|gif)$/,
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'image-cache',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24 * 30
               }
             }
           }
@@ -83,6 +76,23 @@ export default defineConfig({
       }
     })
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    }
+  },
   base: process.env.VITE_APP_BASE_PATH || '/',
   server: {
     proxy: {
