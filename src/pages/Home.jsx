@@ -235,7 +235,7 @@ export default function Home({ onNavigateToEducation }) {
               
               <div className="mt-8">
                 <h2 className="text-2xl sm:text-3xl mb-6 text-gray-900 dark:text-white">Analysis Results</h2>
-                <ResultCard isSummary={true} cmd={{ text: "Action Analyzed", explanation: analysis.action, violated: false }} />
+                <ResultCard isSummary={true} cmd={{ text: "Upstream/Downstream Analysis", explanation: analysis.action, violated: false }} />
                 {analysis.results.map(cmd => (
                   <ResultCard key={cmd.id} cmd={cmd} />
                 ))}
