@@ -16,7 +16,7 @@ export default function Home({ onNavigateToEducation }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isUsingFallback, setIsUsingFallback] = useState(false);
-  const [isPrivateMode, setIsPrivateMode] = useState(false);
+  const [isPrivateMode, setIsPrivateMode] = useState(true); // Changed default to true
   const [history, setHistory] = useLocalStorage('analysisHistory', []);
 
   useEffect(() => {
