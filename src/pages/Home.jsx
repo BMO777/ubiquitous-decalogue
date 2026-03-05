@@ -4,7 +4,6 @@ import InputSection from '../components/InputSection';
 import ResultCard from '../components/ResultCard';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ErrorFallback from '../components/ErrorFallback';
-import HistoryCard from '../components/HistoryCard';
 import { commandments } from '../utils/commandments';
 import useLocalStorage from '../hooks/useLocalStorage';
 import OfflineIndicator from '../components/OfflineIndicator';
@@ -203,6 +202,14 @@ export default function Home({ onNavigateToEducation }) {
               }}
               historyPassword={historyPassword}
               onPasswordChange={setHistoryPassword}
+              history={history}
+              onRestoreHistory={(restored) => {
+                setAnalysis(restored);
+                setInputText(restored.action);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              onDeleteHistory={deleteHistoryItem}
+              onClearHistory={clearHistory}
             />
           </form>
           
@@ -233,51 +240,6 @@ export default function Home({ onNavigateToEducation }) {
                   <ResultCard key={cmd.id} cmd={cmd} />
                 ))}
               </div>
-            </section>
-          )}
-          
-          {!isPrivateMode && (
-            <section className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Analysis History</h2>
-                {history.length > 0 && (
-                  <button 
-                    onClick={clearHistory}
-                    className="text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 text-sm font-medium flex items-center gap-1"
-                  >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                    </svg>
-                    Clear History
-                  </button>
-                )}
-              </div>
-              
-              {history.length > 0 ? (
-                <div className="space-y-4">
-                  {history.map((item, idx) => (
-                    <HistoryCard 
-                      key={idx} 
-                      item={item} 
-                      index={idx} 
-                      onRestore={(restored) => {
-                        setAnalysis(restored);
-                        setInputText(restored.action);
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                      }}
-                      onDelete={deleteHistoryItem}
-                    />
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-12 bg-gray-50 dark:bg-gray-800/50 rounded-xl border-2 border-dashed border-gray-200 dark:border-gray-700">
-                  <p className="text-gray-500 dark:text-gray-400 text-lg">
-                    {historyPassword 
-                      ? "No history found for this password. Ensure your password is correct." 
-                      : "Enter your password above to view your encrypted history."}
-                  </p>
-                </div>
-              )}
             </section>
           )}
         </main>

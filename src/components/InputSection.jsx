@@ -1,6 +1,7 @@
 import React from "react";
 import tenCommandmentsImage from "../assets/images/Ten Commandments Fiery Handwriting.png";
 import Shield from "../assets/icons/Shield";
+import HistoryCard from "./HistoryCard";
 
 export default function InputSection({ 
   value, 
@@ -13,7 +14,11 @@ export default function InputSection({
   isPrivateMode,
   onTogglePrivateMode,
   historyPassword,
-  onPasswordChange
+  onPasswordChange,
+  history = [],
+  onRestoreHistory,
+  onDeleteHistory,
+  onClearHistory
 }) {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -97,23 +102,66 @@ export default function InputSection({
           </div>
 
           {!isPrivateMode && (
-            <div className="form-group animate-fade-in">
-              <label htmlFor="historyPassword" className="form-label text-lg">
-                History Encryption Password:
-              </label>
-              <input
-                type="password"
-                id="historyPassword"
-                value={historyPassword}
-                onChange={(e) => onPasswordChange(e.target.value)}
-                placeholder="Enter a password to encrypt/decrypt your history"
-                className="form-input text-lg"
-                disabled={loading}
-              />
-              <p className="text-xs text-gray-500 mt-2">
-                This password is required to view or save your history. If you forget it, your history cannot be recovered.
-              </p>
-            </div>
+            <>
+              <div className="form-group animate-fade-in">
+                <label htmlFor="historyPassword" className="form-label text-lg">
+                  History Encryption Password:
+                </label>
+                <input
+                  type="password"
+                  id="historyPassword"
+                  value={historyPassword}
+                  onChange={(e) => onPasswordChange(e.target.value)}
+                  placeholder="Enter a password to encrypt/decrypt your history"
+                  className="form-input text-lg"
+                  disabled={loading}
+                />
+                <p className="text-xs text-gray-500 mt-2">
+                  This password is required to view or save your history. If you forget it, your history cannot be recovered.
+                </p>
+              </div>
+
+              {/* Analysis History Section moved here */}
+              <div className="mt-6 mb-8 pt-6 border-t border-gray-200 dark:border-gray-700 animate-fade-in">
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Analysis History</h3>
+                  {history.length > 0 && (
+                    <button 
+                      type="button"
+                      onClick={onClearHistory}
+                      className="text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 text-sm font-medium flex items-center gap-1"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                      </svg>
+                      Clear History
+                    </button>
+                  )}
+                </div>
+                
+                {history.length > 0 ? (
+                  <div className="space-y-4 max-h-96 overflow-y-auto pr-2 custom-scrollbar">
+                    {history.map((item, idx) => (
+                      <HistoryCard 
+                        key={idx} 
+                        item={item} 
+                        index={idx} 
+                        onRestore={onRestoreHistory}
+                        onDelete={onDeleteHistory}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-8 bg-gray-50 dark:bg-gray-800/50 rounded-xl border-2 border-dashed border-gray-200 dark:border-gray-700">
+                    <p className="text-gray-500 dark:text-gray-400 text-base">
+                      {historyPassword 
+                        ? "No history found for this password." 
+                        : "Enter your password above to view your encrypted history."}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </>
           )}
           
           <div className="form-group">
