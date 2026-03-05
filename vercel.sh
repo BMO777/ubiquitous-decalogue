@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# This script is used by Vercel to determine if a build should proceed.
-# It checks if the current branch is 'gh-pages'.
+echo "VERCEL_GIT_COMMIT_REF: $VERCEL_GIT_COMMIT_REF"
 
-if [[ "$VERCEL_GIT_COMMIT_REF" == "gh-pages" ]] ; then
+if [[ "$VERCEL_GIT_COMMIT_REF" == "main" || "$VERCEL_GIT_COMMIT_REF" == "staging"  ]] ; then
   # Proceed with the build
-  echo "✅ - Build can proceed"
+    echo "✅ - Build can proceed"
   exit 1;
+
 else
   # Don't build
   echo "🛑 - Build cancelled"
