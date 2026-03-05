@@ -44,7 +44,6 @@ export default function InputSection({
               <li>Sabbath analysis focuses on Friday evening through Saturday evening activities</li>
               <li>Work and worldly concerns during Sabbath hours are flagged (exceptions: necessity, mercy, good works)</li>
               <li>Christ's example of doing good on Sabbath (including meeting immediate needs) is considered</li>
-              <li><strong>Disclaimer:</strong> This tool focuses on "upstream" heart postures. Because internal motivations are broad and deeply personal, the light shedder may not flag every possible violation. It is intended as a guide for self-reflection.</li>
             </ul>
           </div>
 
@@ -94,7 +93,7 @@ export default function InputSection({
             </div>
           </div>
           
-          <div className="form-group">
+          <div className="form-group mb-2">
             <label htmlFor="actionInput" className="form-label text-lg">
               Describe your action or situation:
             </label>
@@ -103,10 +102,16 @@ export default function InputSection({
               value={value}
               onChange={onChange}
               onKeyDown={handleKeyDown}
-              placeholder="Example: 'I felt bitter and resentful when my friend succeeded, and I've been dwelling on their flaws to feel better about myself.'"
+              placeholder="Example: 'I spent my entire Saturday working on a side project to make more money, ignoring my family's needs and feeling jealous of my neighbor's new car.'"
               className="form-input h-40 text-lg"
               disabled={loading}
             />
+          </div>
+
+          <div className="mb-6 p-3 bg-gray-50 dark:bg-gray-700/50 rounded border border-gray-200 dark:border-gray-600">
+            <p className="text-sm text-gray-600 dark:text-gray-400 italic">
+              <strong>Disclaimer:</strong> This tool focuses on "upstream" heart postures. Because internal motivations are broad and deeply personal, the light shedder may not flag every possible violation. It is intended as a guide for self-reflection.
+            </p>
           </div>
           
           <button 
