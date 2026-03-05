@@ -1,7 +1,18 @@
 import React from "react";
 import tenCommandmentsImage from "../assets/images/Ten Commandments Fiery Handwriting.png";
+import Shield from "../assets/icons/Shield";
 
-export default function InputSection({ value, onChange, onAnalyze, loading, selectedModel, onModelChange, availableModels = [] }) {
+export default function InputSection({ 
+  value, 
+  onChange, 
+  onAnalyze, 
+  loading, 
+  selectedModel, 
+  onModelChange, 
+  availableModels = [],
+  isPrivateMode,
+  onTogglePrivateMode
+}) {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
@@ -36,26 +47,51 @@ export default function InputSection({ value, onChange, onAnalyze, loading, sele
             </ul>
           </div>
 
-          {availableModels.length > 0 && (
-            <div className="form-group mb-6">
-              <label htmlFor="modelSelect" className="form-label text-lg">
-                Select AI Model:
-              </label>
-              <select
-                id="modelSelect"
-                value={selectedModel}
-                onChange={(e) => onModelChange(e.target.value)}
-                className="form-input text-lg"
-                disabled={loading}
-              >
-                {availableModels.map(model => (
-                  <option key={model.id} value={model.id}>
-                    {model.name}
-                  </option>
-                ))}
-              </select>
+          <div className="bg-yellow-50 dark:bg-yellow-900/30 p-4 rounded-lg mb-6 border-l-4 border-yellow-400">
+            <div className="flex items-center gap-2 text-yellow-800 dark:text-yellow-200 mb-2">
+              <Shield className="w-5 h-5" />
+              <span className="font-bold">Privacy Notice:</span>
             </div>
-          )}
+            <p className="text-sm text-yellow-700 dark:text-yellow-300">
+              By default, your analysis history is saved locally on this device for your convenience. It is not encrypted. Use Private Mode if you do not want your input to be saved.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-6 mb-6">
+            {availableModels.length > 0 && (
+              <div className="flex-1 min-w-[200px]">
+                <label htmlFor="modelSelect" className="form-label text-lg">
+                  Select AI Model:
+                </label>
+                <select
+                  id="modelSelect"
+                  value={selectedModel}
+                  onChange={(e) => onModelChange(e.target.value)}
+                  className="form-input text-lg"
+                  disabled={loading}
+                >
+                  {availableModels.map(model => (
+                    <option key={model.id} value={model.id}>
+                      {model.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+            <div className="flex items-center gap-3 pt-6">
+              <label className="relative inline-flex items-center cursor-pointer">
+                <input 
+                  type="checkbox" 
+                  className="sr-only peer" 
+                  checked={isPrivateMode}
+                  onChange={onTogglePrivateMode}
+                />
+                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <span className="ml-3 text-lg font-medium text-gray-900 dark:text-gray-300">Private Mode</span>
+              </label>
+            </div>
+          </div>
           
           <div className="form-group">
             <label htmlFor="actionInput" className="form-label text-lg">
