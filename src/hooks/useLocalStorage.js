@@ -7,27 +7,33 @@ export default function useLocalStorage(key, initialValue, encryptionKey = null)
   useEffect(() => {
     try {
       const item = window.localStorage.getItem(key);
-      if (item) {
-        if (encryptionKey) {
-          const decrypted = decryptData(item, encryptionKey);
-          if (decrypted) {
-            setStoredValue(decrypted);
-          } else {
-            // If decryption fails, we don't update the state with potentially corrupt data
-            setStoredValue(initialValue);
-          }
+      if (!item) {
+        setStoredValue(initialValue);
+        return;
+      }
+
+      if (encryptionKey) {
+        const decrypted = decryptData(item, encryptionKey);
+        if (decrypted) {
+          setStoredValue(decrypted);
         } else {
-          try {
-            // Try to parse as plaintext JSON if no key is provided
-            setStoredValue(JSON.parse(item));
-          } catch (e) {
-            // If it's not valid JSON, it's likely encrypted
-            setStoredValue(initialValue);
-          }
+          // If decryption fails, we keep the initial value (empty list)
+          // but we don't overwrite the actual localStorage
+          setStoredValue(initialValue);
+        }
+      } else {
+        try {
+          // Try to parse as plaintext JSON if no key is provided
+          const parsed = JSON.parse(item);
+          setStoredValue(parsed);
+        } catch (e) {
+          // If it's not valid JSON, it's likely encrypted and we can't read it yet
+          setStoredValue(initialValue);
         }
       }
     } catch (error) {
       console.error("Error reading localStorage:", error);
+      setStoredValue(initialValue);
     }
   }, [key, encryptionKey, initialValue]);
 
