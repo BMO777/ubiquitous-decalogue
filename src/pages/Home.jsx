@@ -194,12 +194,6 @@ export default function Home({ onNavigateToEducation }) {
           
           {analysis && (
             <section className="mt-10">
-              <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl border border-gray-200 dark:border-gray-600">
-                <p className="text-sm text-gray-600 dark:text-gray-400 italic mb-0">
-                  <strong>Disclaimer:</strong> This tool focuses on "upstream" heart postures that may be traced to downstream violations. Because internal motivations are broad and deeply personal, the light shedder may not flag every possible violation. It is intended as a guide for self-reflection.
-                </p>
-              </div>
-
               {analysis.anyViolated && analysis.principleOfLove && (
                 <div className="my-6 p-5 rounded-lg bg-yellow-50 border-l-4 border-yellow-400 dark:bg-yellow-950 dark:border-yellow-700 text-yellow-800 dark:text-yellow-300">
                   <h3 className="font-bold text-lg mb-2">Theology Note:</h3>
