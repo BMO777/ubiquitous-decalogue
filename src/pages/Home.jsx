@@ -7,7 +7,6 @@ import ErrorFallback from '../components/ErrorFallback';
 import { commandments } from '../utils/commandments';
 import useLocalStorage from '../hooks/useLocalStorage';
 import OfflineIndicator from '../components/OfflineIndicator';
-import HistoryCard from '../components/HistoryCard';
 
 export default function Home({ onNavigateToEducation }) {
   const [inputText, setInputText] = useState('');
@@ -18,7 +17,7 @@ export default function Home({ onNavigateToEducation }) {
   const [error, setError] = useState(null);
   const [isUsingFallback, setIsUsingFallback] = useState(false);
   const [isPrivateMode, setIsPrivateMode] = useState(true);
-  const [history, setHistory, clearHistory] = useLocalStorage('analysisHistory', []);
+  const [history, setHistory] = useLocalStorage('analysisHistory', []);
 
   useEffect(() => {
     const fetchModels = async () => {
@@ -38,18 +37,10 @@ export default function Home({ onNavigateToEducation }) {
     fetchModels();
   }, []);
 
-  const deleteHistoryItem = (indexToDelete) => {
-    if (window.confirm("Delete this analysis from history?")) {
-      setHistory(prev => prev.filter((_, index) => index !== indexToDelete));
+  const clearHistory = () => {
+    if (window.confirm("Are you sure you want to clear your entire analysis history? This cannot be undone.")) {
+      setHistory([]);
     }
-  };
-
-  const restoreHistoryItem = (item) => {
-    setAnalysis(item);
-    setError(null);
-    setIsUsingFallback(false);
-    // Scroll to top to show the restored analysis
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const analyzeAction = async () => {
@@ -96,7 +87,6 @@ export default function Home({ onNavigateToEducation }) {
       });
       
       const analysisResult = {
-        timestamp: Date.now(),
         action: inputText,
         results: finalResults,
         anyViolated: anyViolatedByAI,
@@ -108,7 +98,7 @@ export default function Home({ onNavigateToEducation }) {
       setAnalysis(analysisResult);
       
       if (!isPrivateMode) {
-        setHistory(prev => [analysisResult, ...prev.slice(0, 19)]); // Keep up to 20 items
+        setHistory(prev => [analysisResult, ...prev.slice(0, 9)]);
       }
     } catch (err) {
       console.error('Analysis error:', err);
@@ -146,7 +136,6 @@ export default function Home({ onNavigateToEducation }) {
       });
       
       const fallbackResult = {
-        timestamp: Date.now(),
         action: inputText,
         results: finalResults,
         anyViolated: anyViolatedByFallback,
@@ -158,7 +147,7 @@ export default function Home({ onNavigateToEducation }) {
       setAnalysis(fallbackResult);
       
       if (!isPrivateMode) {
-        setHistory(prev => [fallbackResult, ...prev.slice(0, 19)]); // Keep up to 20 items
+        setHistory(prev => [fallbackResult, ...prev.slice(0, 9)]);
       }
     }
     
@@ -192,45 +181,6 @@ export default function Home({ onNavigateToEducation }) {
             />
           </form>
           
-          {/* History section next to Private Mode toggle */}
-          {history.length > 0 && (
-            <section className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Analysis History</h2>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    {history.length} saved {history.length === 1 ? 'analysis' : 'analyses'} (up to 20 stored)
-                  </p>
-                </div>
-                <button 
-                  onClick={clearHistory}
-                  className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-red-500"
-                >
-                  Clear All History
-                </button>
-              </div>
-              
-              <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2">
-                {history.map((item, idx) => (
-                  <HistoryCard 
-                    key={idx} 
-                    item={item} 
-                    index={idx}
-                    onRestore={restoreHistoryItem}
-                    onDelete={deleteHistoryItem}
-                  />
-                ))}
-              </div>
-              
-              <div className="mt-4 p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg border border-gray-200 dark:border-gray-600">
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  <strong>💡 Tip:</strong> Click "View" to restore any past analysis. History is stored locally in your browser and is not synced across devices. 
-                  {isPrivateMode && " Turn off Private Mode to automatically save your analyses."}
-                </p>
-              </div>
-            </section>
-          )}
-          
           {isLoading && <LoadingSpinner />}
           
           {error && <ErrorFallback onRetry={analyzeAction} />}
@@ -257,6 +207,39 @@ export default function Home({ onNavigateToEducation }) {
                   <ResultCard key={cmd.id} cmd={cmd} />
                 ))}
               </div>
+            </section>
+          )}
+          
+          {history.length > 0 && (
+            <section className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Analysis History</h2>
+                <button 
+                  onClick={clearHistory}
+                  className="text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 text-sm font-medium flex items-center gap-1"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                  Clear History
+                </button>
+              </div>
+              <ul className="space-y-3">
+                {history.map((item, idx) => (
+                  <li key={idx}>
+                    <button 
+                      className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline text-lg text-left"
+                      onClick={() => {
+                        setAnalysis(item);
+                        setError(null);
+                        setIsUsingFallback(false);
+                      }}
+                    >
+                      {item.action || `Analysis #${idx + 1}`}
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </section>
           )}
         </main>
