@@ -53,7 +53,7 @@ export default function InputSection({
               <span className="font-bold">Privacy Notice:</span>
             </div>
             <p className="text-sm text-yellow-700 dark:text-yellow-300">
-              By default, your analysis history is saved locally on this device for your convenience. It is not encrypted. Use Private Mode if you do not want your input to be saved.
+              By default, Private Mode is enabled and your analysis history is NOT saved. If you wish to save your history locally on this device, you can disable Private Mode. Note that local history is not encrypted.
             </p>
           </div>
 
