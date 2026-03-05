@@ -13,59 +13,6 @@ body {
   line-height: 1.6;
 }
 
-/* Advent Movement Brand Colors */
-.bg-advent-primary {
-  background-color: #2563eb;
-}
-
-.bg-advent-primary:hover {
-  background-color: #1d4ed8; /* Darker shade for hover */
-}
-
-.bg-advent-secondary {
-  background-color: #f7f8fa;
-}
-
-.bg-advent-light {
-  background-color: #f1f5f9;
-}
-
-.bg-advent-dark {
-  background-color: #1e293b;
-}
-
-.text-advent-primary {
-  color: #2563eb;
-}
-
-.text-advent-secondary {
-  color: #f7f8fa;
-}
-
-.text-advent-light {
-  color: #f1f5f9;
-}
-
-.text-advent-dark {
-  color: #1e293b;
-}
-
-.border-advent-primary {
-  border-color: #2563eb;
-}
-
-.border-advent-secondary {
-  border-color: #f7f8fa;
-}
-
-.border-advent-light {
-  border-color: #f1f5f9;
-}
-
-.border-advent-dark {
-  border-color: #1e293b;
-}
-
 /* Dark mode styles for the body background */
 .dark body {
   background: url('./assets/images/Ten Commandments Fiery Handwriting.png');
@@ -82,7 +29,7 @@ body {
 
 /* Ensure content is readable over the background */
 .content-overlay {
-  background-color: rgba(255, 255, 255, 0.7); /* Adjusted for better visibility in light mode */
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 0.75rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 2rem;
@@ -90,7 +37,7 @@ body {
 
 /* Dark mode styles for the content overlay */
 .dark .content-overlay {
-  background-color: rgba(31, 41, 55, 0.95); /* dark gray */
+  background-color: rgba(31, 41, 55, 0.95);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -135,7 +82,7 @@ section {
 }
 
 .btn-primary {
-  @apply bg-advent-primary text-white hover:bg-advent-primary focus:ring-advent-primary;
+  @apply bg-advent-primary text-white hover:bg-advent-primary/90 focus:ring-advent-primary;
 }
 
 .btn-secondary {
