@@ -43,8 +43,8 @@ export default function PWAInstallPrompt() {
     <div className="fixed bottom-4 right-4 left-4 md:left-auto md:w-96 bg-white rounded-lg shadow-xl p-4 border border-gray-200 z-50">
       <div className="flex items-start">
         <div className="flex-1">
-          <h3 className="font-bold text-lg text-gray-900">Install App</h3>
-          <p className="text-gray-600 mt-1">
+          <h3 className="font-bold text-lg text-advent-primary dark:text-advent-secondary">Install App</h3>
+          <p className="text-gray-600 dark:text-gray-300 mt-1">
             Install this application on your device for a better experience
           </p>
         </div>
@@ -60,7 +60,7 @@ export default function PWAInstallPrompt() {
       <div className="mt-4 flex space-x-3">
         <button
           onClick={handleInstallClick}
-          className="flex-1 bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          className="flex-1 bg-advent-primary text-white px-4 py-2 rounded-md font-medium hover:bg-advent-primary/90 focus:outline-none focus:ring-2 focus:ring-advent-primary focus:ring-offset-2"
         >
           Install
         </button>

@@ -28,7 +28,7 @@ export default function HistoryCard({ item, index, onRestore, onDelete }) {
     <div className={`p-4 rounded-lg border ${getStatusColor()} mb-3 hover:shadow-md transition-shadow`}>
       <div className="flex justify-between items-start gap-3">
         <div className="flex-1 min-w-0">
-          <p className="font-medium text-gray-900 dark:text-white truncate mb-2">
+          <p className="font-medium text-advent-primary dark:text-advent-secondary truncate mb-2">
             {item.action || `Analysis #${index + 1}`}
           </p>
           <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
@@ -52,7 +52,7 @@ export default function HistoryCard({ item, index, onRestore, onDelete }) {
         <div className="flex gap-2 flex-shrink-0">
           <button
             onClick={() => onRestore(item)}
-            className="px-3 py-1.5 text-sm bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-3 py-1.5 text-sm bg-advent-primary text-white rounded hover:bg-advent-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-advent-primary"
             title="View this analysis"
           >
             View

@@ -45,19 +45,19 @@ export default function ResultCard({ cmd }) {
           className={`w-10 h-10 object-contain flex-shrink-0 mt-1 ${statusColor} opacity-80`} 
         />
         <div>
-          <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">{cmd.text}</h3>
+          <h3 className="text-xl font-bold mb-3 text-advent-primary dark:text-advent-secondary">{cmd.text}</h3>
           <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg">{explanationText}</p>
           
           {cmd.biblicalReasoning && (
             <div className="bg-white dark:bg-gray-700 p-4 rounded-lg mb-4">
-              <h4 className="font-bold text-gray-900 dark:text-white mb-2">Biblical Reasoning:</h4>
+              <h4 className="font-bold text-advent-primary dark:text-advent-secondary mb-2">Biblical Reasoning:</h4>
               <p className="text-gray-700 dark:text-gray-300">{cmd.biblicalReasoning}</p>
             </div>
           )}
           
           {cmd.guidance && (
             <div className="bg-white dark:bg-gray-700 p-4 rounded-lg">
-              <h4 className="font-bold text-gray-900 dark:text-white mb-2">Guidance:</h4>
+              <h4 className="font-bold text-advent-primary dark:text-advent-secondary mb-2">Guidance:</h4>
               <p className="text-gray-700 dark:text-gray-300">{cmd.guidance}</p>
             </div>
           )}

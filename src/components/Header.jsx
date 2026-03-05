@@ -14,7 +14,7 @@ export default function Header({ activeTab, onToggleTab }) {
               className="w-16 h-16 sm:w-20 sm:h-20 object-contain rounded-lg"
             />
             <div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 dark:text-white">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl text-advent-primary dark:text-advent-secondary">
                 Ten Commandments Light Shedder
               </h1>
               <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mt-2">

@@ -31,7 +31,7 @@ export default function InputSection({
           className="w-14 h-14 object-contain bg-blue-100 dark:bg-blue-900 p-3 rounded-lg flex-shrink-0"
         />
         <div className="flex-1 w-full">
-          <h2 className="text-2xl sm:text-3xl mb-4 text-gray-900 dark:text-white">
+          <h2 className="text-2xl sm:text-3xl mb-4 text-advent-primary dark:text-advent-secondary">
             Shed Light on an Action
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg">
@@ -93,7 +93,7 @@ export default function InputSection({
             </div>
           </div>
           
-          <div className="form-group mb-2">
+          <div className="form-group">
             <label htmlFor="actionInput" className="form-label text-lg">
               Describe your action or situation:
             </label>
@@ -107,7 +107,7 @@ export default function InputSection({
               disabled={loading}
             />
           </div>
-
+          
           <div className="mb-6 p-3 bg-gray-50 dark:bg-gray-700/50 rounded border border-gray-200 dark:border-gray-600">
             <p className="text-sm text-gray-600 dark:text-gray-400 italic">
               <strong>Disclaimer:</strong> This tool focuses on "upstream" heart postures that may be traced to downstream violations. Because internal motivations are broad and deeply personal, the light shedder may not flag every possible violation. It is intended as a guide for self-reflection.
