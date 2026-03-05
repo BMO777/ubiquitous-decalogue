@@ -45,8 +45,8 @@ if (process.env.NODE_ENV === 'production') {
 // Use the routes router for all /api calls
 app.use('/api', routes);
 
-// Apply rate limit specifically to the analyze endpoint
-app.use('/api/analyze', analyzeLimiter);
+// Apply rate limit specifically to the versioned analyze endpoint
+app.use('/api/v1/analyze', analyzeLimiter);
 
 if (process.env.NODE_ENV === 'production') {
   app.get('*', (req, res) => {

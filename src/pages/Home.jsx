@@ -16,13 +16,13 @@ export default function Home({ onNavigateToEducation }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isUsingFallback, setIsUsingFallback] = useState(false);
-  const [isPrivateMode, setIsPrivateMode] = useState(true); // Changed default to true
+  const [isPrivateMode, setIsPrivateMode] = useState(true);
   const [history, setHistory] = useLocalStorage('analysisHistory', []);
 
   useEffect(() => {
     const fetchModels = async () => {
       try {
-        const response = await fetch('/api/models');
+        const response = await fetch('/api/v1/models');
         if (response.ok) {
           const models = await response.json();
           setAvailableModels(models);
@@ -50,7 +50,7 @@ export default function Home({ onNavigateToEducation }) {
     setIsUsingFallback(false);
     
     try {
-      const response = await fetch('/api/analyze', {
+      const response = await fetch('/api/v1/analyze', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
