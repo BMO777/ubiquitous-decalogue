@@ -44,6 +44,7 @@ export default function InputSection({
               <li>Sabbath analysis focuses on Friday evening through Saturday evening activities</li>
               <li>Work and worldly concerns during Sabbath hours are flagged (exceptions: necessity, mercy, good works)</li>
               <li>Christ's example of doing good on Sabbath (including meeting immediate needs) is considered</li>
+              <li><strong>Disclaimer:</strong> This tool focuses on "upstream" heart postures. Because internal motivations are broad and deeply personal, the light shedder may not flag every possible violation. It is intended as a guide for self-reflection.</li>
             </ul>
           </div>
 
@@ -102,7 +103,7 @@ export default function InputSection({
               value={value}
               onChange={onChange}
               onKeyDown={handleKeyDown}
-              placeholder="Example: 'I lied to my boss about why I was late'"
+              placeholder="Example: 'I felt bitter and resentful when my friend succeeded, and I've been dwelling on their flaws to feel better about myself.'"
               className="form-input h-40 text-lg"
               disabled={loading}
             />
