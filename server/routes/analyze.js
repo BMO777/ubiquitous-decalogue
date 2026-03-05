@@ -3,8 +3,22 @@ import OpenAI from "openai";
 export default async function analyzeHandler(req, res) {
   const { action, commandments } = req.body;
 
-  if (!action) {
-    return res.status(400).json({ error: "Action is required" });
+  // Input Validation
+  if (!action || typeof action !== 'string' || action.trim().length === 0) {
+    return res.status(400).json({ error: "A valid action description is required" });
+  }
+
+  if (!Array.isArray(commandments) || commandments.length === 0) {
+    return res.status(400).json({ error: "Commandments list is required for analysis" });
+  }
+
+  // Validate each commandment object
+  const isValidCommandments = commandments.every(c => 
+    c.id && c.text && c.keyPoints
+  );
+
+  if (!isValidCommandments) {
+    return res.status(400).json({ error: "Invalid commandment data format" });
   }
 
   const apiKey = process.env.OPENAI_API_KEY;
@@ -16,7 +30,7 @@ export default async function analyzeHandler(req, res) {
 
   const openai = new OpenAI({
     apiKey: apiKey,
-    timeout: 30000, // 30 second timeout
+    timeout: 30000,
   });
 
   const prompt = `

@@ -1,5 +1,6 @@
 import express from 'express';
 import helmet from 'helmet';
+import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -10,13 +11,16 @@ dotenv.config();
 
 const app = express();
 
+// Enable CORS with default settings
+app.use(cors());
+
 // Use helmet for security headers
 app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       ...helmet.contentSecurityPolicy.getDefaultDirectives(),
       "img-src": ["'self'", "data:", "https:"],
-      "script-src": ["'self'", "'unsafe-inline'"], // Allow inline scripts for Vite/PWA
+      "script-src": ["'self'", "'unsafe-inline'"],
     },
   },
 }));
@@ -25,7 +29,7 @@ app.use(express.json());
 
 const analyzeLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 10, // Increased slightly for better UX
+  max: 10,
   message: { error: "Too many requests, please try again after 15 minutes." },
   standardHeaders: true,
   legacyHeaders: false,
@@ -41,7 +45,7 @@ if (process.env.NODE_ENV === 'production') {
 // Use the routes router for all /api calls
 app.use('/api', routes);
 
-// Apply rate limit specifically to the analyze endpoint within the router
+// Apply rate limit specifically to the analyze endpoint
 app.use('/api/analyze', analyzeLimiter);
 
 if (process.env.NODE_ENV === 'production') {
