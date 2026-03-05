@@ -192,6 +192,45 @@ export default function Home({ onNavigateToEducation }) {
             />
           </form>
           
+          {/* History section next to Private Mode toggle */}
+          {history.length > 0 && (
+            <section className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Analysis History</h2>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                    {history.length} saved {history.length === 1 ? 'analysis' : 'analyses'} (up to 20 stored)
+                  </p>
+                </div>
+                <button 
+                  onClick={clearHistory}
+                  className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-red-500"
+                >
+                  Clear All History
+                </button>
+              </div>
+              
+              <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2">
+                {history.map((item, idx) => (
+                  <HistoryCard 
+                    key={idx} 
+                    item={item} 
+                    index={idx}
+                    onRestore={restoreHistoryItem}
+                    onDelete={deleteHistoryItem}
+                  />
+                ))}
+              </div>
+              
+              <div className="mt-4 p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg border border-gray-200 dark:border-gray-600">
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <strong>💡 Tip:</strong> Click "View" to restore any past analysis. History is stored locally in your browser and is not synced across devices. 
+                  {isPrivateMode && " Turn off Private Mode to automatically save your analyses."}
+                </p>
+              </div>
+            </section>
+          )}
+          
           {isLoading && <LoadingSpinner />}
           
           {error && <ErrorFallback onRetry={analyzeAction} />}
@@ -217,44 +256,6 @@ export default function Home({ onNavigateToEducation }) {
                 {analysis.results.map(cmd => (
                   <ResultCard key={cmd.id} cmd={cmd} />
                 ))}
-              </div>
-            </section>
-          )}
-          
-          {history.length > 0 && (
-            <section className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Analysis History</h2>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    {history.length} saved {history.length === 1 ? 'analysis' : 'analyses'} (up to 20 stored)
-                  </p>
-                </div>
-                <button 
-                  onClick={clearHistory}
-                  className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-red-500"
-                >
-                  Clear All History
-                </button>
-              </div>
-              
-              <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
-                {history.map((item, idx) => (
-                  <HistoryCard 
-                    key={idx} 
-                    item={item} 
-                    index={idx}
-                    onRestore={restoreHistoryItem}
-                    onDelete={deleteHistoryItem}
-                  />
-                ))}
-              </div>
-              
-              <div className="mt-4 p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg border border-gray-200 dark:border-gray-600">
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  <strong>💡 Tip:</strong> Click "View" to restore any past analysis. History is stored locally in your browser and is not synced across devices. 
-                  {isPrivateMode && " Turn off Private Mode to automatically save your analyses."}
-                </p>
               </div>
             </section>
           )}
