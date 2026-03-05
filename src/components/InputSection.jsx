@@ -44,7 +44,7 @@ export default function InputSection({
               <li>Sabbath analysis focuses on Friday evening through Saturday evening activities</li>
               <li>Work and worldly concerns during Sabbath hours are flagged (exceptions: necessity, mercy, good works)</li>
               <li>Christ's example of doing good on Sabbath (including meeting immediate needs) is considered</li>
-              <li className="italic"><strong>Disclaimer:</strong> This tool focuses on "upstream" heart postures that may be traced to downstream violations. Because internal motivations are broad and deeply personal, the light shedder may not flag every possible violation. It is intended as a guide for self-reflection.</li>
+              <li className="italic"><strong>Disclaimer:</strong> The law of God is broad in its requirements, reaching to the very thoughts and intents of the heart. This tool focuses on "upstream" heart postures that may be traced to downstream violations. Because internal motivations are broad and deeply personal, the light shedder may not flag every possible violation. It is intended as a guide for self-reflection.</li>
             </ul>
           </div>
 
