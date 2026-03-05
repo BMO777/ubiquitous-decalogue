@@ -18,6 +18,10 @@ body {
   background-color: #2563eb;
 }
 
+.bg-advent-primary:hover {
+  background-color: #1d4ed8; /* Darker shade for hover */
+}
+
 .bg-advent-secondary {
   background-color: #f7f8fa;
 }
@@ -131,7 +135,7 @@ section {
 }
 
 .btn-primary {
-  @apply bg-advent-primary text-white hover:bg-advent-primary/90 focus:ring-advent-primary;
+  @apply bg-advent-primary text-white hover:bg-advent-primary focus:ring-advent-primary;
 }
 
 .btn-secondary {
