@@ -108,12 +108,6 @@ export default function InputSection({
             />
           </div>
           
-          <div className="mb-6 p-3 bg-gray-50 dark:bg-gray-700/50 rounded border border-gray-200 dark:border-gray-600">
-            <p className="text-sm text-gray-600 dark:text-gray-400 italic">
-              <strong>Disclaimer:</strong> This tool focuses on "upstream" heart postures that may be traced to downstream violations. Because internal motivations are broad and deeply personal, the light shedder may not flag every possible violation. It is intended as a guide for self-reflection.
-            </p>
-          </div>
-          
           <button 
             type="submit" 
             disabled={loading || !value.trim()}
