@@ -17,12 +17,19 @@ export default function Home({ onNavigateToEducation }) {
   const [error, setError] = useState(null);
   const [isUsingFallback, setIsUsingFallback] = useState(false);
   const [isPrivateMode, setIsPrivateMode] = useState(true);
-  const [history, setHistory] = useLocalStorage('analysisHistory', []);
+  const [historyPassword, setHistoryPassword] = useState('');
+  
+  // Pass historyPassword to useLocalStorage for encryption
+  const [history, setHistory] = useLocalStorage('analysisHistory', [], historyPassword);
 
   useEffect(() => {
     const fetchModels = async () => {
       try {
-        const response = await fetch('/api/v1/models');
+        const response = await fetch('/api/v1/models', {
+          headers: {
+            'X-App-Source': 'ten-commandments-app' // Simple App Check
+          }
+        });
         if (response.ok) {
           const models = await response.json();
           setAvailableModels(models);
@@ -54,6 +61,7 @@ export default function Home({ onNavigateToEducation }) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'X-App-Source': 'ten-commandments-app' // Simple App Check
         },
         body: JSON.stringify({
           action: inputText,
@@ -90,6 +98,7 @@ export default function Home({ onNavigateToEducation }) {
         action: inputText,
         results: finalResults,
         anyViolated: anyViolatedByAI,
+        timestamp: new Date().toISOString(),
         principleOfLove: anyViolatedByAI 
           ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). Love, defined as self-sacrifice for the best of others, is not possible without rejoicing in the absence of the cherished sinful thought processes that lead to the transgressions the Ten Commandments forbid. When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.' True transformation begins with renewing our minds (Romans 12:2) - changing our upstream thinking and attention - before our downstream actions can align with God's will. Follow Christ's example in all things."
           : "The action aligns with all commandments, reflecting a heart that loves God and neighbor. Remember, love as self-sacrifice for the best of others is only possible when we rejoice in the absence of the cherished sinful thought processes that lead to the transgressions the Ten Commandments forbid. Maintaining this alignment requires continuous attention to our thoughts and intentions, as they determine our actions. Continue to imitate Christ in all things."
@@ -98,7 +107,7 @@ export default function Home({ onNavigateToEducation }) {
       setAnalysis(analysisResult);
       
       if (!isPrivateMode) {
-        setHistory(prev => [analysisResult, ...prev.slice(0, 9)]);
+        setHistory([analysisResult, ...history.slice(0, 9)]);
       }
     } catch (err) {
       console.error('Analysis error:', err);
@@ -139,6 +148,7 @@ export default function Home({ onNavigateToEducation }) {
         action: inputText,
         results: finalResults,
         anyViolated: anyViolatedByFallback,
+        timestamp: new Date().toISOString(),
         principleOfLove: anyViolatedByFallback 
           ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). Love, defined as self-sacrifice for the best of others, is not possible without rejoicing in the absence of the cherished sinful thought processes that lead to the transgressions the Ten Commandments forbid. When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.' True transformation begins with renewing our minds (Romans 12:2) - changing our upstream thinking and attention - before our downstream actions can align with God's will. Follow Christ's example in all things."
           : "The action aligns with all commandments, reflecting a heart that loves God and neighbor. Remember, love as self-sacrifice for the best of others is only possible when we rejoice in the absence of the cherished sinful thought processes that lead to the transgressions the Ten Commandments forbid. Maintaining this alignment requires continuous attention to our thoughts and intentions, as they determine our actions. Continue to imitate Christ in all things."
@@ -147,7 +157,7 @@ export default function Home({ onNavigateToEducation }) {
       setAnalysis(fallbackResult);
       
       if (!isPrivateMode) {
-        setHistory(prev => [fallbackResult, ...prev.slice(0, 9)]);
+        setHistory([fallbackResult, ...history.slice(0, 9)]);
       }
     }
     
@@ -177,7 +187,15 @@ export default function Home({ onNavigateToEducation }) {
               onModelChange={setSelectedModel}
               availableModels={availableModels}
               isPrivateMode={isPrivateMode}
-              onTogglePrivateMode={() => setIsPrivateMode(!isPrivateMode)}
+              onTogglePrivateMode={() => {
+                setIsPrivateMode(!isPrivateMode);
+                if (isPrivateMode) {
+                  // When turning OFF private mode, we'll need a password
+                  setHistoryPassword('');
+                }
+              }}
+              historyPassword={historyPassword}
+              onPasswordChange={setHistoryPassword}
             />
           </form>
           
@@ -210,7 +228,7 @@ export default function Home({ onNavigateToEducation }) {
             </section>
           )}
           
-          {history.length > 0 && (
+          {!isPrivateMode && history.length > 0 && (
             <section className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Analysis History</h2>
@@ -241,6 +259,12 @@ export default function Home({ onNavigateToEducation }) {
                 ))}
               </ul>
             </section>
+          )}
+          
+          {!isPrivateMode && history.length === 0 && historyPassword && (
+            <p className="mt-8 text-center text-gray-500 dark:text-gray-400 italic">
+              No history found for this password.
+            </p>
           )}
         </main>
       </div>

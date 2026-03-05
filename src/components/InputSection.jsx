@@ -11,7 +11,9 @@ export default function InputSection({
   onModelChange, 
   availableModels = [],
   isPrivateMode,
-  onTogglePrivateMode
+  onTogglePrivateMode,
+  historyPassword,
+  onPasswordChange
 }) {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -51,10 +53,10 @@ export default function InputSection({
           <div className="bg-yellow-50 dark:bg-yellow-900/30 p-4 rounded-lg mb-6 border-l-4 border-yellow-400">
             <div className="flex items-center gap-2 text-yellow-800 dark:text-yellow-200 mb-2">
               <Shield className="w-5 h-5" />
-              <span className="font-bold">Privacy Notice:</span>
+              <span className="font-bold">Privacy & Security:</span>
             </div>
             <p className="text-sm text-yellow-700 dark:text-yellow-300">
-              By default, Private Mode is enabled and your analysis history is NOT saved. If you wish to save your history locally on this device, you can disable Private Mode. Note that local history is not encrypted.
+              <strong>Private Mode</strong> is recommended for sensitive reflections. If disabled, your history is <strong>encrypted</strong> using your provided password and stored locally. Your password is never sent to our servers.
             </p>
           </div>
 
@@ -93,6 +95,26 @@ export default function InputSection({
               </label>
             </div>
           </div>
+
+          {!isPrivateMode && (
+            <div className="form-group animate-fade-in">
+              <label htmlFor="historyPassword" className="form-label text-lg">
+                History Encryption Password:
+              </label>
+              <input
+                type="password"
+                id="historyPassword"
+                value={historyPassword}
+                onChange={(e) => onPasswordChange(e.target.value)}
+                placeholder="Enter a password to encrypt/decrypt your history"
+                className="form-input text-lg"
+                disabled={loading}
+              />
+              <p className="text-xs text-gray-500 mt-2">
+                This password is required to view or save your history. If you forget it, your history cannot be recovered.
+              </p>
+            </div>
+          )}
           
           <div className="form-group">
             <label htmlFor="actionInput" className="form-label text-lg">
@@ -111,7 +133,7 @@ export default function InputSection({
           
           <button 
             type="submit" 
-            disabled={loading || !value.trim()}
+            disabled={loading || !value.trim() || (!isPrivateMode && !historyPassword)}
             className="btn btn-primary text-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? "Shedding Light..." : "Shed Light"}

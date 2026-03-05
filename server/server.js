@@ -27,6 +27,15 @@ app.use(helmet({
 
 app.use(express.json());
 
+// Simple App Check Middleware
+const appCheck = (req, res, next) => {
+  const appSource = req.header('X-App-Source');
+  if (appSource !== 'ten-commandments-app') {
+    return res.status(403).json({ error: "Unauthorized access: Invalid app source." });
+  }
+  next();
+};
+
 const analyzeLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 10,
@@ -42,8 +51,8 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../dist')));
 }
 
-// Use the routes router for all /api calls
-app.use('/api', routes);
+// Apply App Check to all API routes
+app.use('/api', appCheck, routes);
 
 // Apply rate limit specifically to the versioned analyze endpoint
 app.use('/api/v1/analyze', analyzeLimiter);
