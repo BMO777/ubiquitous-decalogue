@@ -13,7 +13,13 @@ export default function Education({ onNavigateToLightshedder }) {
         <main className="max-w-4xl mx-auto px-4 py-8">
           <div className="card bg-white dark:bg-gray-800">
             <div className="flex flex-col lg:flex-row justify-center items-center gap-8 mb-8">
-              <img src={tenCommandmentsImage} alt="Ten Commandments" className="w-28 h-28 sm:w-36 sm:h-36 object-contain rounded-lg" />
+              <a href={tenCommandmentsImage} className="flex-shrink-0">
+                <img 
+                  src={tenCommandmentsImage} 
+                  alt="Ten Commandments" 
+                  className="w-28 h-28 sm:w-36 sm:h-36 object-contain rounded-lg hover:opacity-80 transition-opacity" 
+                />
+              </a>
             </div>
             <h1 className="text-3xl sm:text-4xl text-center mb-8 text-gray-900 dark:text-white">
               Understanding the Ten Commandments

@@ -32,11 +32,13 @@ export default function InputSection({
   return (
     <div className="card bg-white dark:bg-gray-800">
       <div className="flex flex-col md:flex-row items-start gap-6">
-        <img 
-          src={tenCommandmentsImage} 
-          alt="Ten Commandments" 
-          className="w-14 h-14 object-contain bg-blue-100 dark:bg-blue-900 p-3 rounded-lg flex-shrink-0"
-        />
+        <a href={tenCommandmentsImage} className="flex-shrink-0">
+          <img 
+            src={tenCommandmentsImage} 
+            alt="Ten Commandments" 
+            className="w-14 h-14 object-contain bg-blue-100 dark:bg-blue-900 p-3 rounded-lg hover:opacity-80 transition-opacity"
+          />
+        </a>
         <div className="flex-1 w-full">
           <h2 className="text-2xl sm:text-3xl mb-4 text-advent-primary dark:text-advent-secondary">
             Shed Light on an Action

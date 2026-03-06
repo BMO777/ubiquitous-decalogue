@@ -38,11 +38,13 @@ export default function ResultCard({ cmd, isSummary = false }) {
   return (
     <div className={`p-6 rounded-xl border ${bgClass} mb-6`}>
       <div className="flex items-start gap-4">
-        <img 
-          src={tenCommandmentsImage} 
-          alt="Commandment" 
-          className={`w-10 h-10 object-contain flex-shrink-0 mt-1 opacity-80`} 
-        />
+        <a href={tenCommandmentsImage} className="flex-shrink-0 mt-1">
+          <img 
+            src={tenCommandmentsImage} 
+            alt="Commandment" 
+            className={`w-10 h-10 object-contain opacity-80 hover:opacity-100 transition-opacity`} 
+          />
+        </a>
         <div className="flex-1">
           <h3 className={`text-xl font-bold mb-3 ${isSummary ? 'text-advent-primary dark:text-advent-secondary' : statusColor}`}>
             {cmd.text}

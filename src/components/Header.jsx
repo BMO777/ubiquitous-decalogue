@@ -8,11 +8,13 @@ export default function Header({ activeTab, onToggleTab }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-6">
           <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4 text-center sm:text-left">
-            <img 
-              src={tenCommandmentsImage} 
-              alt="Ten Commandments" 
-              className="w-16 h-16 sm:w-20 sm:h-20 object-contain rounded-lg"
-            />
+            <a href={tenCommandmentsImage} className="flex-shrink-0">
+              <img 
+                src={tenCommandmentsImage} 
+                alt="Ten Commandments" 
+                className="w-16 h-16 sm:w-20 sm:h-20 object-contain rounded-lg hover:opacity-80 transition-opacity"
+              />
+            </a>
             <div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl text-advent-primary dark:text-advent-secondary">
                 Ten Commandments Light Shedder

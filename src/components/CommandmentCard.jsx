@@ -16,11 +16,13 @@ export default function CommandmentCard({ cmd }) {
 
   return (
     <div className={`p-6 rounded-lg border ${bgClass} mb-4 flex items-center`}>
-      <img 
-        src={tenCommandmentsImage} 
-        alt="Commandment" 
-        className="w-10 h-10 object-contain mr-3 opacity-80"
-      />
+      <a href={tenCommandmentsImage} className="flex-shrink-0 mr-3">
+        <img 
+          src={tenCommandmentsImage} 
+          alt="Commandment" 
+          className="w-10 h-10 object-contain opacity-80 hover:opacity-100 transition-opacity"
+        />
+      </a>
       <div>
         <div className="font-semibold">{cmd.text}</div>
         <div className="text-sm text-gray-700">{cmd.explanation}</div>
