@@ -51,6 +51,7 @@ export default function HistoryCard({ item, index, onRestore, onDelete }) {
         </div>
         <div className="flex gap-2 flex-shrink-0">
           <button
+            type="button"
             onClick={() => onRestore(item)}
             className="px-3 py-1.5 text-sm bg-advent-primary text-white rounded hover:bg-advent-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-advent-primary"
             title="View this analysis"
@@ -58,6 +59,7 @@ export default function HistoryCard({ item, index, onRestore, onDelete }) {
             View
           </button>
           <button
+            type="button"
             onClick={() => onDelete(index)}
             className="px-3 py-1.5 text-sm bg-red-600 text-white rounded hover:bg-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500"
             title="Delete this analysis"
