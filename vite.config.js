@@ -96,10 +96,11 @@ export default defineConfig({
   base: process.env.VITE_APP_BASE_PATH || '/',
   server: {
     proxy: {
-      '/api': 'http://localhost:5000'
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        secure: false
+      }
     }
-  },
-  define: {
-    'process.env': {}
   }
 });
