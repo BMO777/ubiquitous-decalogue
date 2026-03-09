@@ -246,7 +246,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **OpenAI** for providing the AI analysis capabilities
 - **Vercel** for excellent deployment platform
 - **Capacitor** for cross-platform mobile development
 - **The Bible** and biblical scholars for the theological foundation
