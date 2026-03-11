@@ -21,6 +21,9 @@ export default function Home({ onNavigateToEducation }) {
   const [historyPassword, setHistoryPassword] = useState("");
   const [isGuidedMode, setIsGuidedMode] = useState(false);
 
+  const THEOLOGY_NOTE =
+    "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). Love, defined as self-sacrifice for the best of others, is not possible without rejoicing in the absence of the cherished sinful thought processes that lead to the transgressions the Ten Commandments forbid. When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.' True transformation begins with renewing our minds (Romans 12:2) - changing our upstream thinking and attention - before our downstream actions can align with God's will. Follow Christ's example in all things.";
+
   const [history, setHistory] = useLocalStorage(
     "analysisHistory",
     [],
@@ -106,8 +109,7 @@ export default function Home({ onNavigateToEducation }) {
       })),
       anyViolated: anyViolatedLocally,
       timestamp: new Date().toISOString(),
-      principleOfLove:
-        "Local analysis complete. Fetching deeper AI insights...",
+      principleOfLove: THEOLOGY_NOTE,
       isLocalOnly: true,
     };
 
@@ -156,9 +158,7 @@ export default function Home({ onNavigateToEducation }) {
         results: finalResults,
         anyViolated: anyViolatedByAI,
         timestamp: new Date().toISOString(),
-        principleOfLove: anyViolatedByAI
-          ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). Love, defined as self-sacrifice for the best of others, is not possible without rejoicing in the absence of the cherished sinful thought processes that lead to the transgressions the Ten Commandments forbid. When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.' True transformation begins with renewing our minds (Romans 12:2) - changing our upstream thinking and attention - before our downstream actions can align with God's will. Follow Christ's example in all things."
-          : "The action aligns with all commandments, reflecting a heart that loves God and neighbor. Remember, love as self-sacrifice for the best of others is only possible when we rejoice in the absence of the cherished sinful thought processes that lead to the transgressions the Ten Commandments forbid. Maintaining this alignment requires continuous attention to our thoughts and intentions, as they determine our actions. Continue to imitate Christ in all things.",
+        principleOfLove: THEOLOGY_NOTE,
       };
 
       setAnalysis(analysisResult);
@@ -173,9 +173,7 @@ export default function Home({ onNavigateToEducation }) {
       // Keep the local results if AI fails
       setAnalysis({
         ...initialAnalysis,
-        principleOfLove: anyViolatedLocally
-          ? "AI analysis unavailable. Based on local principles: Love, defined as self-sacrifice for the best of others, is not possible without rejoicing in the absence of the cherished sinful thought processes that lead to the transgressions the Ten Commandments forbid."
-          : "AI analysis unavailable. Local analysis shows alignment with all commandments.",
+        principleOfLove: THEOLOGY_NOTE,
         isLocalOnly: false,
       });
     }
