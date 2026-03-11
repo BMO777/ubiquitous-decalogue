@@ -27,12 +27,12 @@ export const commandments = [
       return {
         violated,
         explanation: violated
-          ? "The analysis suggests a potential displacement of God as the primary priority in favor of temporal pursuits or 'idols' of the heart."
+          ? "The analysis suggests a potential displacement of God as the primary priority in favor of temporal pursuits or 'idols' of the heart. Anything we love, fear, or serve more than God becomes an idol."
           : "The heart posture appears to maintain God's rightful place as supreme.",
         biblicalReasoning:
-          "Exodus 20:3 - 'Thou shalt have no other gods before me.' God alone is entitled to supreme reverence and worship.",
+          "Exodus 20:3 - 'Thou shalt have no other gods before me.' God alone is entitled to supreme reverence and worship. Christ taught that we cannot serve two masters (Matthew 6:24).",
         guidance:
-          "Evaluate what occupies your thoughts and time most. Redirect your primary devotion back to the Creator.",
+          "Evaluate what occupies your thoughts and time most. Redirect your primary devotion back to the Creator. True transformation begins with renewing our minds (Romans 12:2) and changing our upstream thinking.",
       };
     },
   },
@@ -61,12 +61,12 @@ export const commandments = [
       return {
         violated,
         explanation: violated
-          ? "Using material objects to represent the Divine can limit and degrade our understanding of God's infinite character."
+          ? "Using material objects to represent the Divine can limit and degrade our understanding of God's infinite character. It risks substituting the creature for the Creator."
           : "The practice respects the spiritual and infinite nature of God.",
         biblicalReasoning:
-          "Exodus 20:4-5 - 'Thou shalt not make unto thee any graven image.' Material representations cannot capture the glory of the Eternal One.",
+          "Exodus 20:4-5 - 'Thou shalt not make unto thee any graven image.' Material representations cannot capture the glory of the Eternal One. God is Spirit, and those who worship Him must worship in spirit and truth (John 4:24).",
         guidance:
-          "Focus on worshiping God in spirit and truth, relying on His Word rather than physical aids.",
+          "Focus on worshiping God in spirit and truth, relying on His Word rather than physical aids. Guard your mind against low conceptions of God's character.",
       };
     },
   },
@@ -98,12 +98,12 @@ export const commandments = [
       return {
         violated,
         explanation: violated
-          ? "The use of holy names in a common or irreverent context diminishes the sanctity of God's character."
+          ? "The use of holy names in a common or irreverent context diminishes the sanctity of God's character. This includes not just speech, but representing His name poorly through our actions."
           : "The language used demonstrates appropriate reverence for the Divine.",
         biblicalReasoning:
-          "Exodus 20:7 - 'Thou shalt not take the name of the Lord thy God in vain.' His name represents His holy character.",
+          "Exodus 20:7 - 'Thou shalt not take the name of the Lord thy God in vain.' His name represents His holy character. Hallowed be Thy name (Matthew 6:9).",
         guidance:
-          "Practice mindful speech. Let your words reflect the high esteem in which you hold the Creator.",
+          "Practice mindful speech. Let your words and actions reflect the high esteem in which you hold the Creator. Remember that we represent Him to the world.",
       };
     },
   },
@@ -156,12 +156,12 @@ export const commandments = [
       return {
         violated,
         explanation: violated
-          ? "Engaging in secular work or worldly business during the sacred hours of the Sabbath (Friday sunset to Saturday sunset) deviates from the memorial of creation."
+          ? "Engaging in secular work or worldly business during the sacred hours of the Sabbath (Friday sunset to Saturday sunset) deviates from the memorial of creation and God's example of rest."
           : "The activity aligns with the spirit of Sabbath rest or falls under the category of necessity and mercy.",
         biblicalReasoning:
-          "Exodus 20:8-11 - 'Remember the Sabbath day, to keep it holy.' It is a day for rest and communion with the Creator.",
+          "Exodus 20:8-11 - 'Remember the Sabbath day, to keep it holy.' It is a day for rest and communion with the Creator. Jesus taught that the Sabbath was made for man, and it is lawful to do good on the Sabbath (Mark 2:27, Matthew 12:12).",
         guidance:
-          "Prepare for the Sabbath in advance so that your mind and body can fully enter into God's rest.",
+          "Prepare for the Sabbath in advance so that your mind and body can fully enter into God's rest. Use these hours for spiritual growth and acts of mercy.",
       };
     },
   },
@@ -190,12 +190,12 @@ export const commandments = [
       return {
         violated,
         explanation: violated
-          ? "The heart posture suggests a lack of honor or respect for the authority and care provided by parents."
+          ? "The heart posture suggests a lack of honor or respect for the authority and care provided by parents. This principle extends to all rightful authority and the care of the elderly."
           : "The action demonstrates proper respect for parental and family bonds.",
         biblicalReasoning:
-          "Exodus 20:12 - 'Honor thy father and thy mother.' This is the first commandment with a promise.",
+          "Exodus 20:12 - 'Honor thy father and thy mother.' This is the first commandment with a promise. Children, obey your parents in the Lord, for this is right (Ephesians 6:1).",
         guidance:
-          "Seek to understand and appreciate the role of those who have cared for you, showing love through service.",
+          "Seek to understand and appreciate the role of those who have cared for you. Show love through service and respect for the wisdom of those who have gone before you.",
       };
     },
   },
@@ -225,12 +225,12 @@ export const commandments = [
       return {
         violated,
         explanation: violated
-          ? "Harboring hatred or seeking harm against another violates the sanctity of life and the spirit of this commandment."
+          ? "Harboring hatred or seeking harm against another violates the sanctity of life. Christ taught that the spirit of murder begins with anger and contempt in the heart."
           : "The heart posture seeks to preserve and value human life.",
         biblicalReasoning:
-          "Exodus 20:13 - 'Thou shalt not kill.' Christ taught that even anger without cause is a violation of this principle.",
+          "Exodus 20:13 - 'Thou shalt not kill.' Christ taught that even anger without cause or speaking contemptuously of a brother is a violation of this principle (Matthew 5:21-22).",
         guidance:
-          "Replace anger with forgiveness and hatred with the love of Christ.",
+          "Replace anger with forgiveness and hatred with the love of Christ. Seek reconciliation and value every person as a child of God.",
       };
     },
   },
@@ -260,12 +260,12 @@ export const commandments = [
       return {
         violated,
         explanation: violated
-          ? "The internal desire or action compromises the purity and sacredness of the marriage covenant or family unit."
+          ? "The internal desire or action compromises the purity and sacredness of the marriage covenant. Christ emphasized that looking with lust is already committing adultery in the heart."
           : "The heart posture maintains purity and faithfulness in relationships.",
         biblicalReasoning:
-          "Exodus 20:14 - 'Thou shalt not commit adultery.' Purity begins in the mind and heart.",
+          "Exodus 20:14 - 'Thou shalt not commit adultery.' Purity begins in the mind and heart. Whosoever looketh on a woman to lust after her hath committed adultery with her already in his heart (Matthew 5:28).",
         guidance:
-          "Guard your senses and thoughts, focusing on the beauty of committed, holy relationships.",
+          "Guard your senses and thoughts. Focus on the beauty of committed, holy relationships and flee from youthful lusts (2 Timothy 2:22).",
       };
     },
   },
@@ -296,12 +296,12 @@ export const commandments = [
       return {
         violated,
         explanation: violated
-          ? "Taking what belongs to another, whether through force or deception, reflects a heart of greed."
+          ? "Taking what belongs to another, whether through force, deception, or unfair business practices, reflects a heart of greed and a lack of love for neighbor."
           : "The action demonstrates integrity and respect for the rights of others.",
         biblicalReasoning:
-          "Exodus 20:15 - 'Thou shalt not steal.' Integrity is required in all dealings, large and small.",
+          "Exodus 20:15 - 'Thou shalt not steal.' Integrity is required in all dealings. Let him that stole steal no more: but rather let him labor (Ephesians 4:28).",
         guidance:
-          "Be scrupulously honest in all transactions and respect the property of your neighbor.",
+          "Be scrupulously honest in all transactions. Respect the property and efforts of your neighbor as you would your own.",
       };
     },
   },
@@ -331,12 +331,12 @@ export const commandments = [
       return {
         violated,
         explanation: violated
-          ? "Deception or harmful speech about others violates the principle of truth and love for our neighbor."
+          ? "Deception, misrepresentation, or harmful speech about others violates the principle of truth. This includes subtle exaggerations and the suppression of truth."
           : "The communication is characterized by honesty and integrity.",
         biblicalReasoning:
-          "Exodus 20:16 - 'Thou shalt not bear false witness.' Truth is the foundation of a righteous life.",
+          "Exodus 20:16 - 'Thou shalt not bear false witness.' Truth is the foundation of a righteous life. Wherefore putting away lying, speak every man truth with his neighbor (Ephesians 4:25).",
         guidance:
-          "Let your 'yes' be 'yes' and your 'no' be 'no'. Speak only what is true and helpful.",
+          "Let your 'yes' be 'yes' and your 'no' be 'no'. Speak only what is true, kind, and helpful. Guard the reputation of others.",
       };
     },
   },
@@ -365,12 +365,12 @@ export const commandments = [
       return {
         violated,
         explanation: violated
-          ? "Selfish desire for what belongs to others strikes at the root of discontentment and sin."
+          ? "Selfish desire for what belongs to others strikes at the root of discontentment. It is the 'upstream' source of many other violations."
           : "The heart posture reflects contentment and joy in others' blessings.",
         biblicalReasoning:
-          "Exodus 20:17 - 'Thou shalt not covet.' Contentment is great gain when accompanied by godliness.",
+          "Exodus 20:17 - 'Thou shalt not covet.' Contentment is great gain when accompanied by godliness (1 Timothy 6:6). Be content with such things as ye have (Hebrews 13:5).",
         guidance:
-          "Cultivate a heart of gratitude for God's daily mercies and provisions.",
+          "Cultivate a heart of gratitude for God's daily mercies. Rejoice in the success and blessings of others rather than comparing yourself to them.",
       };
     },
   },
