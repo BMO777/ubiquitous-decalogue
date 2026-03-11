@@ -255,8 +255,10 @@ export default function Home({ onNavigateToEducation }) {
 
           {analysis && (
             <section className="mt-10">
-              {analysis.anyViolated && analysis.principleOfLove && (
-                <div className="my-6 p-5 rounded-lg bg-yellow-50 border-l-4 border-yellow-400 dark:bg-yellow-950 dark:border-yellow-700 text-yellow-800 dark:text-yellow-300">
+              {analysis.principleOfLove && (
+                <div
+                  className={`my-6 p-5 rounded-lg border-l-4 ${analysis.anyViolated ? "bg-yellow-50 border-yellow-400 dark:bg-yellow-950 dark:border-yellow-700 text-yellow-800 dark:text-yellow-300" : "bg-blue-50 border-blue-400 dark:bg-blue-950 dark:border-blue-700 text-blue-800 dark:text-blue-300"}`}
+                >
                   <h3 className="font-bold text-lg mb-2">Theology Note:</h3>
                   <p className="text-lg">{analysis.principleOfLove}</p>
                 </div>
