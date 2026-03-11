@@ -70,21 +70,28 @@ if (process.env.NODE_ENV === 'production') {
 
 const PORT = process.env.PORT || 5000;
 
-const startServer = (port) => {
-  const server = app.listen(port, () => {
-    console.log(`🚀 Server running on http://localhost:${port}`);
-  }).on('error', (err) => {
-    if (err.code === 'EADDRINUSE') {
-      console.error(`Port ${port} is already in use. Retrying in 1 second...`);
-      setTimeout(() => {
-        server.close();
-        startServer(port);
-      }, 1000);
-    } else {
-      console.error('Server error:', err);
-      process.exit(1);
-    }
-  });
-};
+function startServer(port, retries = 5) {
+  const server = app.listen(port)
+    .on('listening', () => {
+      console.log(`🚀 Server running on http://localhost:${port}`);
+    })
+    .on('error', (err) => {
+      if (err.code === 'EADDRINUSE') {
+        if (retries > 0) {
+          console.log(`Port ${port} is busy, retrying in 2s... (${retries} retries left)`);
+          setTimeout(() => {
+            server.close();
+            startServer(port, retries - 1);
+          }, 2000);
+        } else {
+          console.error(`Error: Port ${port} is already in use after multiple retries.`);
+          process.exit(1);
+        }
+      } else {
+        console.error('Server startup error:', err);
+        process.exit(1);
+      }
+    });
+}
 
 startServer(PORT);
