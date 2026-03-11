@@ -3,13 +3,14 @@ import tenCommandmentsImage from "../assets/images/Ten Commandments Fiery Handwr
 import Shield from "../assets/icons/Shield";
 import HistoryCard from "./HistoryCard";
 
-export default function InputSection({ 
-  value, 
-  onChange, 
-  onAnalyze, 
-  loading, 
-  selectedModel, 
-  onModelChange, 
+export default function InputSection({
+  value,
+  onChange,
+  onAnalyze,
+  onStartGuided,
+  loading,
+  selectedModel,
+  onModelChange,
   availableModels = [],
   isPrivateMode,
   onTogglePrivateMode,
@@ -18,10 +19,10 @@ export default function InputSection({
   history = [],
   onRestoreHistory,
   onDeleteHistory,
-  onClearHistory
+  onClearHistory,
 }) {
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       if (!loading && value.trim()) {
         onAnalyze();
@@ -33,27 +34,72 @@ export default function InputSection({
     <div className="card bg-white dark:bg-gray-800">
       <div className="flex flex-col md:flex-row items-start gap-6">
         <a href={tenCommandmentsImage} className="flex-shrink-0">
-          <img 
-            src={tenCommandmentsImage} 
-            alt="Ten Commandments" 
+          <img
+            src={tenCommandmentsImage}
+            alt="Ten Commandments"
             className="w-14 h-14 object-contain bg-blue-100 dark:bg-blue-900 p-3 rounded-lg hover:opacity-80 transition-opacity"
           />
         </a>
         <div className="flex-1 w-full">
-          <h2 className="text-2xl sm:text-3xl mb-4 text-advent-primary dark:text-advent-secondary">
-            Shed Light on an Action
-          </h2>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+            <h2 className="text-2xl sm:text-3xl text-advent-primary dark:text-advent-secondary">
+              Shed Light on an Action
+            </h2>
+            <button
+              type="button"
+              onClick={onStartGuided}
+              className="btn btn-secondary text-sm py-2 px-4 flex items-center gap-2"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                />
+              </svg>
+              Start Guided Reflection
+            </button>
+          </div>
+
           <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg">
-            Describe an action, decision, or situation you'd like to evaluate against the Ten Commandments. Our AI-powered light shedder will provide deep insights into how your described scenario aligns with biblical principles.
+            Describe an action, decision, or situation you'd like to evaluate
+            against the Ten Commandments. Our AI-powered light shedder will
+            provide deep insights into how your described scenario aligns with
+            biblical principles.
           </p>
-          
+
           <div className="bg-blue-50 dark:bg-blue-950 p-5 rounded-lg mb-6">
-            <h3 className="font-bold text-blue-800 dark:text-blue-200 text-lg mb-3">Important Analysis Notes:</h3>
+            <h3 className="font-bold text-blue-800 dark:text-blue-200 text-lg mb-3">
+              Important Analysis Notes:
+            </h3>
             <ul className="list-disc pl-5 text-blue-700 dark:text-blue-300 space-y-2">
-              <li>Sabbath analysis focuses on Friday evening through Saturday evening activities</li>
-              <li>Work and worldly concerns during Sabbath hours are flagged (exceptions: necessity, mercy, good works)</li>
-              <li>Christ's example of doing good on Sabbath (including meeting immediate needs) is considered</li>
-              <li className="italic"><strong>Disclaimer:</strong> The law of God is broad in its requirements, reaching to the very thoughts and intents of the heart. This tool focuses on "upstream" heart postures that may be traced to downstream violations. Because internal motivations are broad and deeply personal, the light shedder may not flag every possible violation. It is intended as a guide for self-reflection.</li>
+              <li>
+                Sabbath analysis focuses on Friday evening through Saturday
+                evening activities
+              </li>
+              <li>
+                Work and worldly concerns during Sabbath hours are flagged
+                (exceptions: necessity, mercy, good works)
+              </li>
+              <li>
+                Christ's example of doing good on Sabbath (including meeting
+                immediate needs) is considered
+              </li>
+              <li className="italic">
+                <strong>Disclaimer:</strong> The law of God is broad in its
+                requirements, reaching to the very thoughts and intents of the
+                heart. This tool focuses on "upstream" heart postures that may
+                be traced to downstream violations. Because internal motivations
+                are broad and deeply personal, the light shedder may not flag
+                every possible violation. It is intended as a guide for
+                self-reflection.
+              </li>
             </ul>
           </div>
 
@@ -63,7 +109,10 @@ export default function InputSection({
               <span className="font-bold">Privacy & Security:</span>
             </div>
             <p className="text-sm text-yellow-700 dark:text-yellow-300">
-              <strong>Private Mode</strong> is recommended for sensitive reflections. If disabled, your history is <strong>encrypted</strong> using your provided password and stored locally. Your password is never sent to our servers.
+              <strong>Private Mode</strong> is recommended for sensitive
+              reflections. If disabled, your history is{" "}
+              <strong>encrypted</strong> using your provided password and stored
+              locally. Your password is never sent to our servers.
             </p>
           </div>
 
@@ -80,7 +129,7 @@ export default function InputSection({
                   className="form-input text-lg"
                   disabled={loading}
                 >
-                  {availableModels.map(model => (
+                  {availableModels.map((model) => (
                     <option key={model.id} value={model.id}>
                       {model.name}
                     </option>
@@ -91,14 +140,16 @@ export default function InputSection({
 
             <div className="flex items-center gap-3 pt-6">
               <label className="relative inline-flex items-center cursor-pointer">
-                <input 
-                  type="checkbox" 
-                  className="sr-only peer" 
+                <input
+                  type="checkbox"
+                  className="sr-only peer"
                   checked={isPrivateMode}
                   onChange={onTogglePrivateMode}
                 />
                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                <span className="ml-3 text-lg font-medium text-gray-900 dark:text-gray-300">Private Mode</span>
+                <span className="ml-3 text-lg font-medium text-gray-900 dark:text-gray-300">
+                  Private Mode
+                </span>
               </label>
             </div>
           </div>
@@ -119,35 +170,48 @@ export default function InputSection({
                   disabled={loading}
                 />
                 <p className="text-xs text-gray-500 mt-2">
-                  This password is required to view or save your history. If you forget it, your history cannot be recovered.
+                  This password is required to view or save your history. If you
+                  forget it, your history cannot be recovered.
                 </p>
               </div>
 
-              {/* Analysis History Section moved here */}
               <div className="mt-6 mb-8 pt-6 border-t border-gray-200 dark:border-gray-700 animate-fade-in">
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Analysis History</h3>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    Analysis History
+                  </h3>
                   {history.length > 0 && (
-                    <button 
+                    <button
                       type="button"
                       onClick={onClearHistory}
                       className="text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 text-sm font-medium flex items-center gap-1"
                     >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                        />
                       </svg>
                       Clear History
                     </button>
                   )}
                 </div>
-                
+
                 {history.length > 0 ? (
                   <div className="space-y-4 max-h-96 overflow-y-auto pr-2 custom-scrollbar">
                     {history.map((item, idx) => (
-                      <HistoryCard 
-                        key={idx} 
-                        item={item} 
-                        index={idx} 
+                      <HistoryCard
+                        key={idx}
+                        item={item}
+                        index={idx}
                         onRestore={onRestoreHistory}
                         onDelete={onDeleteHistory}
                       />
@@ -156,8 +220,8 @@ export default function InputSection({
                 ) : (
                   <div className="text-center py-8 bg-gray-50 dark:bg-gray-800/50 rounded-xl border-2 border-dashed border-gray-200 dark:border-gray-700">
                     <p className="text-gray-500 dark:text-gray-400 text-base">
-                      {historyPassword 
-                        ? "No history found for this password." 
+                      {historyPassword
+                        ? "No history found for this password."
                         : "Enter your password above to view your encrypted history."}
                     </p>
                   </div>
@@ -165,7 +229,7 @@ export default function InputSection({
               </div>
             </>
           )}
-          
+
           <div className="form-group">
             <label htmlFor="actionInput" className="form-label text-lg">
               Describe your action or situation:
@@ -180,17 +244,31 @@ export default function InputSection({
               disabled={loading}
             />
           </div>
-          
-          <button 
-            type="submit" 
-            disabled={loading || !value.trim() || (!isPrivateMode && !historyPassword)}
+
+          <button
+            type="submit"
+            disabled={
+              loading || !value.trim() || (!isPrivateMode && !historyPassword)
+            }
             className="btn btn-primary text-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? "Shedding Light..." : "Shed Light"}
           </button>
-          
+
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
-            Tip: Press <kbd className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600">Enter</kbd> to submit or <kbd className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600">Shift</kbd> + <kbd className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600">Enter</kbd> for a new line
+            Tip: Press{" "}
+            <kbd className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600">
+              Enter
+            </kbd>{" "}
+            to submit or{" "}
+            <kbd className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600">
+              Shift
+            </kbd>{" "}
+            +{" "}
+            <kbd className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded border dark:border-gray-600">
+              Enter
+            </kbd>{" "}
+            for a new line
           </p>
         </div>
       </div>

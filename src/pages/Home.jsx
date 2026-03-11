@@ -4,6 +4,7 @@ import InputSection from "../components/InputSection";
 import ResultCard from "../components/ResultCard";
 import LoadingSpinner from "../components/LoadingSpinner";
 import ErrorFallback from "../components/ErrorFallback";
+import GuidedReflection from "../components/GuidedReflection";
 import { commandments } from "../utils/commandments";
 import useLocalStorage from "../hooks/useLocalStorage";
 import OfflineIndicator from "../components/OfflineIndicator";
@@ -18,6 +19,7 @@ export default function Home({ onNavigateToEducation }) {
   const [isUsingFallback, setIsUsingFallback] = useState(false);
   const [isPrivateMode, setIsPrivateMode] = useState(true);
   const [historyPassword, setHistoryPassword] = useState("");
+  const [isGuidedMode, setIsGuidedMode] = useState(false);
 
   const [history, setHistory] = useLocalStorage(
     "analysisHistory",
@@ -68,11 +70,48 @@ export default function Home({ onNavigateToEducation }) {
     }
   };
 
-  const analyzeAction = async () => {
-    if (!inputText.trim()) return;
+  const analyzeAction = async (
+    textToAnalyze = inputText,
+    userReflections = null,
+  ) => {
+    const text = textToAnalyze || inputText;
+    if (!text.trim()) return;
+
     setIsLoading(true);
     setError(null);
     setIsUsingFallback(false);
+
+    // Local 1st Analysis
+    const localResults = commandments.map((cmd) => {
+      const result = cmd.analyze(text);
+      // If user explicitly flagged this in guided mode, mark it as violated
+      const userFlagged = userReflections && userReflections[cmd.id];
+      return {
+        ...cmd,
+        ...result,
+        violated: result.violated || userFlagged,
+        heartPosture: userFlagged
+          ? "User identified connection during reflection"
+          : null,
+      };
+    });
+
+    const anyViolatedLocally = localResults.some((r) => r.violated);
+    const initialAnalysis = {
+      action: text,
+      results: localResults.map((r) => ({
+        ...r,
+        isPrimaryViolation: r.violated,
+        isSecondaryViolation: anyViolatedLocally && !r.violated,
+      })),
+      anyViolated: anyViolatedLocally,
+      timestamp: new Date().toISOString(),
+      principleOfLove:
+        "Local analysis complete. Fetching deeper AI insights...",
+      isLocalOnly: true,
+    };
+
+    setAnalysis(initialAnalysis);
 
     try {
       const response = await fetch("/api/v1/analyze", {
@@ -82,7 +121,7 @@ export default function Home({ onNavigateToEducation }) {
           "X-App-Source": "ten-commandments-app",
         },
         body: JSON.stringify({
-          action: inputText,
+          action: text,
           model: selectedModel,
           commandments: commandments.map((c) => ({
             id: c.id,
@@ -113,7 +152,7 @@ export default function Home({ onNavigateToEducation }) {
       });
 
       const analysisResult = {
-        action: inputText,
+        action: text,
         results: finalResults,
         anyViolated: anyViolatedByAI,
         timestamp: new Date().toISOString(),
@@ -129,57 +168,16 @@ export default function Home({ onNavigateToEducation }) {
       }
     } catch (err) {
       console.error("Analysis error:", err);
+      setIsUsingFallback(true);
 
-      if (
-        err.message.includes("API Key") ||
-        err.message.includes("configuration")
-      ) {
-        setError(err.message);
-      } else {
-        setIsUsingFallback(true);
-      }
-
-      const mockResults = commandments.map((cmd) => {
-        if (typeof cmd.analyze === "function") {
-          const result = cmd.analyze(inputText);
-          return { ...cmd, ...result };
-        }
-        return {
-          ...cmd,
-          violated: false,
-          explanation: "No AI result available.",
-          biblicalReasoning: "",
-          guidance: "",
-        };
+      // Keep the local results if AI fails
+      setAnalysis({
+        ...initialAnalysis,
+        principleOfLove: anyViolatedLocally
+          ? "AI analysis unavailable. Based on local principles: Love, defined as self-sacrifice for the best of others, is not possible without rejoicing in the absence of the cherished sinful thought processes that lead to the transgressions the Ten Commandments forbid."
+          : "AI analysis unavailable. Local analysis shows alignment with all commandments.",
+        isLocalOnly: false,
       });
-
-      const anyViolatedByFallback = mockResults.some((cmd) => cmd.violated);
-      const finalResults = mockResults.map((cmd) => {
-        const isPrimary = cmd.violated;
-        const isSecondary = anyViolatedByFallback && !isPrimary;
-        return {
-          ...cmd,
-          violated: isPrimary || isSecondary,
-          isPrimaryViolation: isPrimary,
-          isSecondaryViolation: isSecondary,
-        };
-      });
-
-      const fallbackResult = {
-        action: inputText,
-        results: finalResults,
-        anyViolated: anyViolatedByFallback,
-        timestamp: new Date().toISOString(),
-        principleOfLove: anyViolatedByFallback
-          ? "As Jesus taught, 'On these two commandments hang all the law and the prophets' (Matthew 22:40). Love, defined as self-sacrifice for the best of others, is not possible without rejoicing in the absence of the cherished sinful thought processes that lead to the transgressions the Ten Commandments forbid. When we violate any commandment, we break the law of love that underlies all of God's precepts. James 2:10 reminds us: 'Whoever keeps the whole law but fails in one point has become guilty of all of it.' True transformation begins with renewing our minds (Romans 12:2) - changing our upstream thinking and attention - before our downstream actions can align with God's will. Follow Christ's example in all things."
-          : "The action aligns with all commandments, reflecting a heart that loves God and neighbor. Remember, love as self-sacrifice for the best of others is only possible when we rejoice in the absence of the cherished sinful thought processes that lead to the transgressions the Ten Commandments forbid. Maintaining this alignment requires continuous attention to our thoughts and intentions, as they determine our actions. Continue to imitate Christ in all things.",
-      };
-
-      setAnalysis(fallbackResult);
-
-      if (!isPrivateMode) {
-        setHistory([fallbackResult, ...history.slice(0, 9)]);
-      }
     }
 
     setIsLoading(false);
@@ -198,36 +196,48 @@ export default function Home({ onNavigateToEducation }) {
         <Header activeTab="lightshedder" onToggleTab={onNavigateToEducation} />
 
         <main className="max-w-4xl mx-auto px-4 py-8">
-          <form onSubmit={handleAnalyze}>
-            <InputSection
-              value={inputText}
-              onChange={handleInputChange}
-              onAnalyze={analyzeAction}
-              loading={isLoading}
-              selectedModel={selectedModel}
-              onModelChange={setSelectedModel}
-              availableModels={availableModels}
-              isPrivateMode={isPrivateMode}
-              onTogglePrivateMode={() => {
-                setIsPrivateMode(!isPrivateMode);
-                if (isPrivateMode) {
-                  setHistoryPassword("");
-                }
+          {isGuidedMode ? (
+            <GuidedReflection
+              onComplete={(action, reflections) => {
+                setIsGuidedMode(false);
+                setInputText(action);
+                analyzeAction(action, reflections);
               }}
-              historyPassword={historyPassword}
-              onPasswordChange={setHistoryPassword}
-              history={history}
-              onRestoreHistory={(restored) => {
-                setAnalysis(restored);
-                setInputText(restored.action);
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-              onDeleteHistory={deleteHistoryItem}
-              onClearHistory={clearHistory}
+              onCancel={() => setIsGuidedMode(false)}
             />
-          </form>
+          ) : (
+            <form onSubmit={handleAnalyze}>
+              <InputSection
+                value={inputText}
+                onChange={handleInputChange}
+                onAnalyze={analyzeAction}
+                onStartGuided={() => setIsGuidedMode(true)}
+                loading={isLoading}
+                selectedModel={selectedModel}
+                onModelChange={setSelectedModel}
+                availableModels={availableModels}
+                isPrivateMode={isPrivateMode}
+                onTogglePrivateMode={() => {
+                  setIsPrivateMode(!isPrivateMode);
+                  if (isPrivateMode) {
+                    setHistoryPassword("");
+                  }
+                }}
+                historyPassword={historyPassword}
+                onPasswordChange={setHistoryPassword}
+                history={history}
+                onRestoreHistory={(restored) => {
+                  setAnalysis(restored);
+                  setInputText(restored.action);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                onDeleteHistory={deleteHistoryItem}
+                onClearHistory={clearHistory}
+              />
+            </form>
+          )}
 
-          {isLoading && <LoadingSpinner />}
+          {isLoading && !analysis?.isLocalOnly && <LoadingSpinner />}
 
           {error && <ErrorFallback onRetry={analyzeAction} />}
 
