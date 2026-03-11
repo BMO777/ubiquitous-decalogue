@@ -10,9 +10,9 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "start": "npm start --workspace=server",
-    "server": "npm start --workspace=server",
-    "dev:server": "npm run dev --workspace=server",
+    "start": "pnpm --filter server start",
+    "server": "pnpm --filter server start",
+    "dev:server": "pnpm --filter server dev",
     "prepare": "husky"
   },
   "dependencies": {
