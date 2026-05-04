@@ -7,12 +7,21 @@ export const commandments = [
       "Exclusive worship of God, avoiding anything that takes precedence over God in our affections or service",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      const violated =
-        lowerInput.includes("money") ||
-        lowerInput.includes("wealth") ||
-        lowerInput.includes("career") ||
-        lowerInput.includes("success") ||
-        lowerInput.includes("idol");
+      const keywords = [
+        "money",
+        "wealth",
+        "career",
+        "success",
+        "idol",
+        "priority",
+        "obsession",
+        "devotion",
+        "focus",
+        "ambition",
+        "status",
+        "fame",
+      ];
+      const violated = keywords.some((word) => lowerInput.includes(word));
       return {
         violated,
         explanation: violated
@@ -32,11 +41,19 @@ export const commandments = [
       "No worship of God through images or similitudes, avoiding anything that lowers our conception of God",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      const violated =
-        lowerInput.includes("image") ||
-        lowerInput.includes("statue") ||
-        lowerInput.includes("worship") ||
-        lowerInput.includes("idol");
+      const keywords = [
+        "image",
+        "statue",
+        "worship",
+        "idol",
+        "representation",
+        "physical",
+        "material",
+        "substitute",
+        "shrine",
+        "icon",
+      ];
+      const violated = keywords.some((word) => lowerInput.includes(word));
       return {
         violated,
         explanation: violated
@@ -56,15 +73,36 @@ export const commandments = [
       "Respectful and reverent use of God's name, avoiding careless or trivial mention",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      const violated =
-        (lowerInput.includes("god") || lowerInput.includes("lord")) &&
-        (lowerInput.includes("curse") ||
-          lowerInput.includes("swear") ||
-          lowerInput.includes("swore") ||
-          lowerInput.includes("sworn") ||
-          lowerInput.includes("casual") ||
-          lowerInput.includes("damn") ||
-          lowerInput.includes("hell"));
+      const godNames = [
+        "god",
+        "lord",
+        "jesus",
+        "christ",
+        "holy spirit",
+        "almighty",
+      ];
+      const irreverentWords = [
+        "curse",
+        "swear",
+        "swore",
+        "sworn",
+        "casual",
+        "damn",
+        "hell",
+        "disrespect",
+        "profanity",
+        "blasphemy",
+        "irreverence",
+        "trivial",
+        "joke",
+      ];
+
+      const mentionsGod = godNames.some((name) => lowerInput.includes(name));
+      const isIrreverent = irreverentWords.some((word) =>
+        lowerInput.includes(word),
+      );
+
+      const violated = mentionsGod && isIrreverent;
       return {
         violated,
         explanation: violated
@@ -84,60 +122,70 @@ export const commandments = [
       "Observing the seventh day (Friday evening through Saturday evening) as a memorial of creation, following God's example at creation, avoiding all work and worldly concerns except for acts of necessity and mercy",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      const mentionsFridayNight =
-        lowerInput.includes("friday night") ||
-        lowerInput.includes("friday evening") ||
-        lowerInput.includes("friday sundown") ||
-        lowerInput.includes("saturday morning");
-      const mentionsSaturday = lowerInput.includes("saturday");
-      const mentionsSabbathTime = mentionsFridayNight || mentionsSaturday;
-      const mentionsWork =
-        lowerInput.includes("work") ||
-        lowerInput.includes("business") ||
-        lowerInput.includes("shopping") ||
-        lowerInput.includes("shop") ||
-        lowerInput.includes("plans") ||
-        lowerInput.includes("plan") ||
-        lowerInput.includes("transaction") ||
-        lowerInput.includes("deal") ||
-        lowerInput.includes("dealt") ||
-        lowerInput.includes("meeting") ||
-        lowerInput.includes("project");
-      const mentionsWorldlyConcerns =
-        lowerInput.includes("worldly") ||
-        lowerInput.includes("secular") ||
-        lowerInput.includes("material") ||
-        lowerInput.includes("money") ||
-        lowerInput.includes("career") ||
-        lowerInput.includes("job");
-      const mentionsNecessityOrMercy =
-        lowerInput.includes("necessity") ||
-        lowerInput.includes("mercy") ||
-        lowerInput.includes("sick") ||
-        lowerInput.includes("suffering") ||
-        lowerInput.includes("emergency") ||
-        lowerInput.includes("help") ||
-        lowerInput.includes("heal") ||
-        lowerInput.includes("food") ||
-        lowerInput.includes("eat") ||
-        lowerInput.includes("ate") ||
-        lowerInput.includes("eaten") ||
-        lowerInput.includes("hunger");
-      const mentionsGoodWorks =
-        lowerInput.includes("worship") ||
-        lowerInput.includes("service") ||
-        lowerInput.includes("pray") ||
-        lowerInput.includes("bible") ||
-        lowerInput.includes("scripture") ||
-        lowerInput.includes("good") ||
-        lowerInput.includes("righteous") ||
-        lowerInput.includes("kind") ||
-        lowerInput.includes("help");
-      const violated =
-        mentionsSabbathTime &&
-        (mentionsWork || mentionsWorldlyConcerns) &&
-        !mentionsNecessityOrMercy &&
-        !mentionsGoodWorks;
+      const timeKeywords = [
+        "friday night",
+        "friday evening",
+        "friday sundown",
+        "saturday morning",
+        "saturday",
+        "sabbath",
+        "seventh day",
+      ];
+      const workKeywords = [
+        "work",
+        "business",
+        "shopping",
+        "shop",
+        "plans",
+        "plan",
+        "transaction",
+        "deal",
+        "dealt",
+        "meeting",
+        "project",
+        "worldly",
+        "secular",
+        "material",
+        "money",
+        "career",
+        "job",
+        "office",
+        "labor",
+      ];
+      const mercyKeywords = [
+        "necessity",
+        "mercy",
+        "sick",
+        "suffering",
+        "emergency",
+        "help",
+        "heal",
+        "food",
+        "eat",
+        "ate",
+        "eaten",
+        "hunger",
+        "worship",
+        "service",
+        "pray",
+        "bible",
+        "scripture",
+        "good",
+        "righteous",
+        "kind",
+      ];
+
+      const mentionsTime = timeKeywords.some((word) =>
+        lowerInput.includes(word),
+      );
+      const mentionsWork = workKeywords.some((word) =>
+        lowerInput.includes(word),
+      );
+      const mentionsMercy = mercyKeywords.some((word) =>
+        lowerInput.includes(word),
+      );
+
+      const violated = mentionsTime && mentionsWork && !mentionsMercy;
       return {
         violated,
         explanation: violated
@@ -157,12 +205,20 @@ export const commandments = [
       "Respecting and caring for parents, extending to all delegated authority",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      const violated =
-        lowerInput.includes("parent") ||
-        lowerInput.includes("father") ||
-        lowerInput.includes("mother") ||
-        lowerInput.includes("disrespect") ||
-        lowerInput.includes("ignore");
+      const keywords = [
+        "parent",
+        "father",
+        "mother",
+        "disrespect",
+        "ignore",
+        "authority",
+        "elders",
+        "respect",
+        "honor",
+        "disobey",
+        "rebel",
+      ];
+      const violated = keywords.some((word) => lowerInput.includes(word));
       return {
         violated,
         explanation: violated
@@ -182,13 +238,22 @@ export const commandments = [
       "Preserving life, avoiding hatred, revenge, and actions that harm others physically or emotionally",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      const violated =
-        lowerInput.includes("kill") ||
-        lowerInput.includes("murder") ||
-        lowerInput.includes("harm") ||
-        lowerInput.includes("hatred") ||
-        lowerInput.includes("anger") ||
-        lowerInput.includes("abuse");
+      const keywords = [
+        "kill",
+        "murder",
+        "harm",
+        "hatred",
+        "anger",
+        "abuse",
+        "rage",
+        "violence",
+        "injury",
+        "malice",
+        "revenge",
+        "assault",
+        "threat",
+      ];
+      const violated = keywords.some((word) => lowerInput.includes(word));
       return {
         violated,
         explanation: violated
@@ -208,29 +273,35 @@ export const commandments = [
       "Maintaining purity in thoughts, desires, and actions regarding marriage relationships. This commandment forbids not only acts of impurity, but sensual thoughts and desires, or any practice that tends to excite them. Also anything that is fatal to the sacredness and peace of the family relation.",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      const violated =
-        lowerInput.includes("adultery") ||
-        lowerInput.includes("lust") ||
-        lowerInput.includes("divorce") ||
-        lowerInput.includes("unfaithful") ||
-        lowerInput.includes("sensual") ||
-        lowerInput.includes("impure") ||
-        lowerInput.includes("porn") ||
-        lowerInput.includes("fornication") ||
-        lowerInput.includes("incest") ||
-        lowerInput.includes("prostitution") ||
-        lowerInput.includes("seduce") ||
-        lowerInput.includes("seduction") ||
-        lowerInput.includes("harlot") ||
-        lowerInput.includes("whore") ||
-        lowerInput.includes("immoral") ||
-        lowerInput.includes("lewd") ||
-        lowerInput.includes("indecent") ||
-        lowerInput.includes("family discord") ||
-        lowerInput.includes("family conflict") ||
-        lowerInput.includes("marital strife") ||
-        lowerInput.includes("neglect family") ||
-        lowerInput.includes("abandon family");
+      const keywords = [
+        "adultery",
+        "lust",
+        "divorce",
+        "unfaithful",
+        "sensual",
+        "impure",
+        "porn",
+        "fornication",
+        "incest",
+        "prostitution",
+        "seduce",
+        "seduction",
+        "harlot",
+        "whore",
+        "immoral",
+        "lewd",
+        "indecent",
+        "family discord",
+        "family conflict",
+        "marital strife",
+        "neglect family",
+        "abandon family",
+        "purity",
+        "desire",
+        "fidelity",
+        "marriage",
+      ];
+      const violated = keywords.some((word) => lowerInput.includes(word));
       return {
         violated,
         explanation: violated
@@ -250,16 +321,24 @@ export const commandments = [
       "Respecting others' property, avoiding fraud, deception, and exploitation in all forms. This includes manstealing, slave dealing, wars of conquest, theft, robbery, overreaching in trade, and non-payment of just debts or wages.",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      const violated =
-        lowerInput.includes("steal") ||
-        lowerInput.includes("stole") ||
-        lowerInput.includes("stolen") ||
-        lowerInput.includes("take") ||
-        lowerInput.includes("took") ||
-        lowerInput.includes("taken") ||
-        lowerInput.includes("fraud") ||
-        lowerInput.includes("deceive") ||
-        lowerInput.includes("cheat");
+      const keywords = [
+        "steal",
+        "stole",
+        "stolen",
+        "take",
+        "took",
+        "taken",
+        "fraud",
+        "deceive",
+        "cheat",
+        "theft",
+        "robbery",
+        "dishonesty",
+        "exploit",
+        "embezzle",
+        "piracy",
+      ];
+      const violated = keywords.some((word) => lowerInput.includes(word));
       return {
         violated,
         explanation: violated
@@ -279,13 +358,21 @@ export const commandments = [
       "Truthfulness in all dealings, avoiding deception, slander, and misrepresentation",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      const violated =
-        lowerInput.includes("lie") ||
-        lowerInput.includes("lied") ||
-        lowerInput.includes("false") ||
-        lowerInput.includes("deceive") ||
-        lowerInput.includes("slander") ||
-        lowerInput.includes("gossip");
+      const keywords = [
+        "lie",
+        "lied",
+        "false",
+        "deceive",
+        "slander",
+        "gossip",
+        "deception",
+        "misrepresentation",
+        "perjury",
+        "rumor",
+        "backbite",
+        "dishonest",
+      ];
+      const violated = keywords.some((word) => lowerInput.includes(word));
       return {
         violated,
         explanation: violated
@@ -305,14 +392,21 @@ export const commandments = [
       "Avoiding selfish desire for others' possessions, guarding the heart against envy",
     analyze(inputText) {
       const lowerInput = inputText.toLowerCase();
-      const violated =
-        lowerInput.includes("want") ||
-        lowerInput.includes("wanted") ||
-        lowerInput.includes("envy") ||
-        lowerInput.includes("envied") ||
-        lowerInput.includes("desire") ||
-        lowerInput.includes("jealous") ||
-        lowerInput.includes("covet");
+      const keywords = [
+        "want",
+        "wanted",
+        "envy",
+        "envied",
+        "desire",
+        "jealous",
+        "covet",
+        "greed",
+        "longing",
+        "discontent",
+        "comparison",
+        "craving",
+      ];
+      const violated = keywords.some((word) => lowerInput.includes(word));
       return {
         violated,
         explanation: violated
