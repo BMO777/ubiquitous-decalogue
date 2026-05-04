@@ -20,6 +20,14 @@ export const commandments = [
         "ambition",
         "status",
         "fame",
+        "self-reliance",
+        "independence",
+        "autonomy",
+        "ego",
+        "self-sufficiency",
+        "humanism",
+        "pride",
+        "control",
       ];
       const violated = keywords.some((word) => lowerInput.includes(word));
       return {
@@ -52,6 +60,14 @@ export const commandments = [
         "substitute",
         "shrine",
         "icon",
+        "visual",
+        "tangible",
+        "object",
+        "artifact",
+        "symbol",
+        "relic",
+        "talisman",
+        "superstition",
       ];
       const violated = keywords.some((word) => lowerInput.includes(word));
       return {
@@ -80,6 +96,8 @@ export const commandments = [
         "christ",
         "holy spirit",
         "almighty",
+        "yahweh",
+        "jehovah",
       ];
       const irreverentWords = [
         "curse",
@@ -95,6 +113,12 @@ export const commandments = [
         "irreverence",
         "trivial",
         "joke",
+        "slang",
+        "flippant",
+        "careless",
+        "thoughtless",
+        "mockery",
+        "insult",
       ];
 
       const mentionsGod = godNames.some((name) => lowerInput.includes(name));
@@ -130,6 +154,9 @@ export const commandments = [
         "saturday",
         "sabbath",
         "seventh day",
+        "weekend",
+        "holy day",
+        "rest day",
       ];
       const workKeywords = [
         "work",
@@ -151,6 +178,15 @@ export const commandments = [
         "job",
         "office",
         "labor",
+        "productivity",
+        "striving",
+        "busy",
+        "hurry",
+        "exhaustion",
+        "burnout",
+        "overwhelmed",
+        "stress",
+        "anxiety",
       ];
       const mercyKeywords = [
         "necessity",
@@ -173,6 +209,10 @@ export const commandments = [
         "good",
         "righteous",
         "kind",
+        "compassion",
+        "charity",
+        "ministry",
+        "fellowship",
       ];
 
       const mentionsTime = timeKeywords.some((word) =>
@@ -217,6 +257,12 @@ export const commandments = [
         "honor",
         "disobey",
         "rebel",
+        "defiance",
+        "contempt",
+        "neglect",
+        "ingratitude",
+        "resentment",
+        "bitterness",
       ];
       const violated = keywords.some((word) => lowerInput.includes(word));
       return {
@@ -252,6 +298,13 @@ export const commandments = [
         "revenge",
         "assault",
         "threat",
+        "hostility",
+        "enmity",
+        "grudge",
+        "unforgiveness",
+        "cruelty",
+        "bullying",
+        "slander",
       ];
       const violated = keywords.some((word) => lowerInput.includes(word));
       return {
@@ -300,6 +353,13 @@ export const commandments = [
         "desire",
         "fidelity",
         "marriage",
+        "infidelity",
+        "betrayal",
+        "fantasy",
+        "impropriety",
+        "flirtation",
+        "unholy",
+        "defilement",
       ];
       const violated = keywords.some((word) => lowerInput.includes(word));
       return {
@@ -337,6 +397,15 @@ export const commandments = [
         "exploit",
         "embezzle",
         "piracy",
+        "greed",
+        "avarice",
+        "selfishness",
+        "laziness",
+        "waste",
+        "negligence",
+        "underpayment",
+        "overcharging",
+        "scam",
       ];
       const violated = keywords.some((word) => lowerInput.includes(word));
       return {
@@ -371,6 +440,14 @@ export const commandments = [
         "rumor",
         "backbite",
         "dishonest",
+        "half-truth",
+        "omission",
+        "spin",
+        "flattery",
+        "exaggeration",
+        "hypocrisy",
+        "pretense",
+        "guile",
       ];
       const violated = keywords.some((word) => lowerInput.includes(word));
       return {
@@ -405,6 +482,13 @@ export const commandments = [
         "discontent",
         "comparison",
         "craving",
+        "striving",
+        "lack",
+        "dissatisfaction",
+        "yearning",
+        "lusting",
+        "materialism",
+        "consumerism",
       ];
       const violated = keywords.some((word) => lowerInput.includes(word));
       return {

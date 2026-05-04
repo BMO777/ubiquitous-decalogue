@@ -210,6 +210,40 @@ export default function Education({ onNavigateToLightshedder }) {
                   perfectly embodied these divine principles.
                 </p>
               </section>
+              <section className="mt-16">
+                <h2 className="text-2xl sm:text-3xl mb-6 text-gray-900 dark:text-white">
+                  The Law as a Mirror of the Soul
+                </h2>
+                <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
+                  The Ten Commandments serve as a divine mirror, reflecting the
+                  true condition of our hearts. When we look into this mirror,
+                  we see not just our outward actions, but the hidden motives
+                  and secret desires that drive them. This reflection is not
+                  meant to discourage us, but to lead us to a place of honest
+                  self-examination and a deeper reliance on God's grace for
+                  transformation.
+                </p>
+                <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
+                  By examining our lives through the lens of the Decalogue, we
+                  can identify the "upstream" thought patterns that lead to
+                  "downstream" violations. This awareness is the first step
+                  toward a renewed mind and a heart that beats in harmony with
+                  God's will.
+                </p>
+                <div className="bg-green-50 dark:bg-green-950 p-6 rounded-xl mb-8 border-l-4 border-green-500">
+                  <h3 className="text-xl font-bold text-green-800 dark:text-green-200 mb-4">
+                    The Law as a Protective Hedge
+                  </h3>
+                  <p className="text-green-700 dark:text-green-300 text-lg">
+                    God's law is not a restrictive fence but a protective hedge.
+                    It is designed to keep us within the boundaries of His love
+                    and protection, shielding us from the destructive
+                    consequences of sin. When we walk within these boundaries,
+                    we find true freedom, peace, and the fullness of life that
+                    God intends for every one of His children.
+                  </p>
+                </div>
+              </section>
             </div>
           </div>
         </main>
