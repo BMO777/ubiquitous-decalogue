@@ -33,9 +33,10 @@ export default function Education({ onNavigateToLightshedder }) {
                   spoken out loud for multitudes to hear
                 </span>{" "}
                 directly from the Creator before being given by God to Moses on
-                Mount Sinai. This awe-inspiring event underscores their supreme
-                importance and universal relevance. Based on timeless principles
-                for the heart's posture, the 10 commandments are worthy of human
+                Mount Sinai as a copy from a template in the heavenly sanctuary.
+                This awe-inspiring event underscores their supreme importance
+                and universal relevance. Based on timeless principles for the
+                heart's posture, the 10 commandments are worthy of human
                 attention and form the foundation of moral and spiritual life
                 through reason, tradition, or the written word. Obedience to its
                 principles involves the happiness of all, and with it the
@@ -263,7 +264,7 @@ export default function Education({ onNavigateToLightshedder }) {
                   says, "Keep your heart with all vigilance, for from it flow
                   the springs of life."
                 </p>
-                <p className="text-lg text-gray-700 dark:text-gray-300">
+                <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
                   As you use this light shedder, remember that its purpose is
                   not to condemn but to help us understand how our actions align
                   with God's perfect standard, leading us to a deeper
