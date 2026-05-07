@@ -142,9 +142,9 @@ export default function Education({ onNavigateToLightshedder }) {
                     about pretending to be perfect or following rules blindly.
                     It’s about trusting God’s guidance, even when life feels
                     unfair or painful. When we make choices that reflect what we
-                    know is right—whether through common sense, the Bible, or
-                    the wisdom available—we begin to mirror the character of our
-                    Creator.
+                    know is right—whether through common sense, the Bible,
+                    reason, or the wisdom available—we begin to mirror the
+                    character of our Creator.
                   </p>
                   <p className="text-emerald-700 dark:text-emerald-300 text-lg">
                     When we align our lives with these principles, we reflect
