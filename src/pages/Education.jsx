@@ -103,10 +103,10 @@ export default function Education({ onNavigateToLightshedder }) {
                     demonstrates a heart ready for moral restoration under
                     Christ's guidance. This recognition of divine authority in
                     the midst of suffering shows that God's moral image is shown
-                    to be restorable. The thief’s story reminds us that God’s
-                    love and moral standards are always available to us, no
-                    matter our past. By choosing to follow Him, we allow His
-                    image to be restored in us—heart, mind, and spirit.
+                    to be restorable. It reminds us that God’s love and moral
+                    standards are always available to us, no matter our past. By
+                    choosing to follow Him, we allow His image to be restored in
+                    us—heart, mind, and spirit.
                   </p>
                   <p className="text-emerald-700 dark:text-emerald-300 text-lg">
                     The story of the thief on the cross who called Jesus
