@@ -133,7 +133,16 @@ export default function Education({ onNavigateToLightshedder }) {
                     ultimate act of love. His example shows that moral
                     restoration is not about avoiding pain but about aligning
                     our hearts with God’s truth, even when the path is steep and
-                    the cost is high.
+                    the cost is high. God’s moral character—His goodness,
+                    justice, and love—is not something we can “fix” on our own.
+                    Instead, it’s something we can restore in our lives by
+                    aligning our hearts with God’s truth. This restoration isn’t
+                    about pretending to be perfect or following rules blindly.
+                    It’s about trusting God’s guidance, even when life feels
+                    unfair or painful. When we make choices that reflect what we
+                    know is right—whether through common sense, the Bible, or
+                    the wisdom of others—we begin to mirror the character of our
+                    Creator.
                   </p>
                   <p className="text-emerald-700 dark:text-emerald-300 text-lg">
                     When we align our lives with these principles, we reflect
