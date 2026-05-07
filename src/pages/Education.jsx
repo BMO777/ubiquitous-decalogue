@@ -106,12 +106,14 @@ export default function Education({ onNavigateToLightshedder }) {
                     to be restorable. The thief’s story reminds us that God’s
                     love and moral standards are always available to us, no
                     matter our past. By choosing to follow Him, we allow His
-                    image to be restored in us—heart, mind, and spirit. The
-                    story of the thief on the cross who called Jesus “Master”
-                    while He was brutally humiliated and agonizingly tortured is
-                    a testament to the courage of faith that transcends
-                    suffering. Jesus, stripped of His dignity, nailed to a
-                    cross, and mocked by crowds, endured the full weight of
+                    image to be restored in us—heart, mind, and spirit.
+                  </p>
+                  <p className="text-emerald-700 dark:text-emerald-300 text-lg">
+                    The story of the thief on the cross who called Jesus
+                    “Master” while He was brutally humiliated and agonizingly
+                    tortured is a testament to the courage of faith that
+                    transcends suffering. Jesus, stripped of His dignity, nailed
+                    to a cross, and mocked by crowds, endured the full weight of
                     human cruelty—physical agony, emotional despair, and the
                     weight of the world’s sin. Yet, in that moment of
                     unimaginable suffering, the thief, facing his own death,
@@ -122,24 +124,27 @@ export default function Education({ onNavigateToLightshedder }) {
                     conviction—a recognition that even in the midst of Jesus’
                     humiliation, His lordship was absolute. It took
                     extraordinary trust to call someone “Lord” who was being
-                    treated as a criminal, mocked, and dying in public. This
-                    story challenges us to reflect: What does it mean to submit
-                    to God’s authority when the world offers only humiliation
-                    and trial? The thief’s faith was not about avoiding
-                    suffering but about choosing redemption through trust in a
-                    God who, in His own suffering, demonstrated the ultimate act
-                    of love. His example shows that moral restoration is not
-                    about avoiding pain but about aligning our hearts with God’s
-                    truth, even when the path is steep and the cost is high.
-                    God’s moral character—His goodness, justice, and love—is not
-                    something we can “fix” on our own. Instead, it’s something
-                    we can restore in our lives by aligning our hearts with
-                    God’s truth. This restoration isn’t about pretending to be
-                    perfect or following rules blindly. It’s about trusting
-                    God’s guidance, even when life feels unfair or painful. When
-                    we make choices that reflect what we know is right—whether
-                    through common sense, the Bible, or the wisdom available—we
-                    begin to mirror the character of our Creator.
+                    treated as a criminal, mocked, and dying in public.
+                  </p>
+                  <p className="text-emerald-700 dark:text-emerald-300 text-lg">
+                    This story challenges us to reflect: What does it mean to
+                    submit to God’s authority when the world offers only
+                    humiliation and trial? The thief’s faith was not about
+                    avoiding suffering but about choosing redemption through
+                    trust in a God who, in His own suffering, demonstrated the
+                    ultimate act of love. His example shows that moral
+                    restoration is not about avoiding pain but about aligning
+                    our hearts with God’s truth, even when the path is steep and
+                    the cost is high. God’s moral character—His goodness,
+                    justice, and love—is not something we can “fix” on our own.
+                    Instead, it’s something we can restore in our lives by
+                    aligning our hearts with God’s truth. This restoration isn’t
+                    about pretending to be perfect or following rules blindly.
+                    It’s about trusting God’s guidance, even when life feels
+                    unfair or painful. When we make choices that reflect what we
+                    know is right—whether through common sense, the Bible, or
+                    the wisdom available—we begin to mirror the character of our
+                    Creator.
                   </p>
                   <p className="text-emerald-700 dark:text-emerald-300 text-lg">
                     When we align our lives with these principles, we reflect
