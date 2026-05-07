@@ -92,6 +92,30 @@ export default function Education({ onNavigateToLightshedder }) {
                     steps."
                   </p>
                 </div>
+
+                <div className="bg-emerald-50 dark:bg-emerald-950 p-6 rounded-xl mb-8 border-l-4 border-emerald-500">
+                  <h3 className="text-xl font-bold text-emerald-800 dark:text-emerald-200 mb-4">
+                    Moral Restoration and the Image of God
+                  </h3>
+                  <p className="text-emerald-700 dark:text-emerald-300 text-lg mb-4">
+                    The willingness of the thief on the cross to call Jesus
+                    "Master" while He was humiliated and tortured demonstrates a
+                    heart ready for moral restoration under Christ's guidance.
+                    This recognition of divine authority in the midst of
+                    suffering shows that God's moral image is shown to be intact
+                    when we are in harmony with God's commands in the decalogue
+                    as much as possible based on the availability of good
+                    tradition, intellect, or written word to us.
+                  </p>
+                  <p className="text-emerald-700 dark:text-emerald-300 text-lg">
+                    When we align our lives with these principles, we reflect
+                    the character of our Creator. This restoration is not merely
+                    about outward compliance but about a heart that recognizes
+                    and submits to the sovereignty of God, even when the world
+                    offers only humiliation and trial.
+                  </p>
+                </div>
+
                 <div className="bg-indigo-50 dark:bg-indigo-950 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-indigo-800 dark:text-indigo-200 mb-4">
                     The Third Angel's Message: Revelation 14

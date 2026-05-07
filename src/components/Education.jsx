@@ -90,6 +90,30 @@ export default function Education({ onNavigateToLightshedder }) {
                     steps."
                   </p>
                 </div>
+
+                <div className="bg-emerald-50 dark:bg-emerald-950 p-6 rounded-xl mb-8 border-l-4 border-emerald-500">
+                  <h3 className="text-xl font-bold text-emerald-800 dark:text-emerald-200 mb-4">
+                    Moral Restoration and the Image of God
+                  </h3>
+                  <p className="text-emerald-700 dark:text-emerald-300 text-lg mb-4">
+                    The willingness of the thief on the cross to call Jesus
+                    "Master" while He was humiliated and tortured demonstrates a
+                    heart ready for moral restoration under Christ's guidance.
+                    This recognition of divine authority in the midst of
+                    suffering shows that God's moral image is shown to be
+                    restorable when we are in harmony with God's commands in the
+                    decalogue as much as possible based on the availability of
+                    good tradition, reason, or written word to us.
+                  </p>
+                  <p className="text-emerald-700 dark:text-emerald-300 text-lg">
+                    When we align our lives with these principles, we reflect
+                    the character of our Creator. This restoration is not merely
+                    about outward compliance but about a heart that recognizes
+                    and submits to the sovereignty of God, even when the world
+                    offers only humiliation and trial.
+                  </p>
+                </div>
+
                 <div className="bg-indigo-50 dark:bg-indigo-950 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-indigo-800 dark:text-indigo-200 mb-4">
                     The Third Angel's Message: Revelation 14
@@ -103,7 +127,7 @@ export default function Education({ onNavigateToLightshedder }) {
                     persevere in keeping all of God's commandments, especially
                     in the face of end-time challenges.
                   </p>
-                  <p className="text-indigo-700 dark:text-indigo-300 text-lg mb-4">
+                  <p className="text-indigo-700 dark:text-indigo-300 text-lg">
                     The third angel's message also warns against worshiping the
                     beast and receiving his mark, which represents a counterfeit
                     system that opposes God's law and changes the timing of the
@@ -216,6 +240,40 @@ export default function Education({ onNavigateToLightshedder }) {
                   God and His purposes, following the example of Christ who
                   perfectly embodied these divine principles.
                 </p>
+              </section>
+              <section className="mt-16">
+                <h2 className="text-2xl sm:text-3xl mb-6 text-advent-primary dark:text-advent-secondary">
+                  The Law as a Mirror of the Soul
+                </h2>
+                <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
+                  The Ten Commandments serve as a divine mirror, reflecting the
+                  true condition of our hearts. When we look into this mirror,
+                  we see not just our outward actions, but the hidden motives
+                  and secret desires that drive them. This reflection is not
+                  meant to discourage us, but to lead us to a place of honest
+                  self-examination and a deeper reliance on God's grace for
+                  transformation.
+                </p>
+                <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
+                  By examining our lives through the lens of the Decalogue, we
+                  can identify the "upstream" thought patterns that lead to
+                  "downstream" violations. This awareness is the first step
+                  toward a renewed mind and a heart that beats in harmony with
+                  God's will.
+                </p>
+                <div className="bg-green-50 dark:bg-green-950 p-6 rounded-xl mb-8 border-l-4 border-green-500">
+                  <h3 className="text-xl font-bold text-green-800 dark:text-green-200 mb-4">
+                    The Law as a Protective Hedge
+                  </h3>
+                  <p className="text-green-700 dark:text-green-300 text-lg">
+                    God's law is not a restrictive fence but a protective hedge.
+                    It is designed to keep us within the boundaries of His love
+                    and protection, shielding us from the destructive
+                    consequences of sin. When we walk within these boundaries,
+                    we find true freedom, peace, and the fullness of life that
+                    God intends for every one of His children.
+                  </p>
+                </div>
               </section>
             </div>
           </div>
