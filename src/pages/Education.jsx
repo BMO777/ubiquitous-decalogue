@@ -28,12 +28,12 @@ export default function Education({ onNavigateToLightshedder }) {
               <p className="text-lg mb-8 text-gray-700 dark:text-gray-300">
                 The Ten Commandments, also known as the Decalogue, are divine
                 principles that hold a unique place in history. It is profoundly
-                special that these laws were
+                special that these laws were{" "}
                 <span className="font-bold text-advent-primary dark:text-advent-secondary">
                   spoken out loud for multitudes to hear
-                </span>
+                </span>{" "}
                 directly from the Creator before being given by God to Moses on
-                Mount Sinai. This awe‑inspiring event underscores their supreme
+                Mount Sinai. This awe-inspiring event underscores their supreme
                 importance and universal relevance. Based on timeless principles
                 for the heart's posture, the 10 commandments are worthy of human
                 attention and form the foundation of moral and spiritual life
@@ -41,93 +41,174 @@ export default function Education({ onNavigateToLightshedder }) {
                 principles involves the happiness of all, and with it the
                 stability, the very foundation and framework, of human society.
               </p>
-
-              {/* ... other sections remain unchanged ... */}
-
-              {/* Moral Restoration and the Image of God */}
-              <section className="bg-emerald-50 dark:bg-emerald-950 p-6 rounded-xl mb-8 border-l-4 border-emerald-500">
-                <h3 className="text-xl font-bold text-emerald-800 dark:text-emerald-200 mb-4">
-                  Moral Restoration and the Image of God
-                </h3>
-                <p className="text-emerald-700 dark:text-emerald-300 mb-4">
-                  The story of the thief on the cross who called Jesus “Master”
-                  while He was{" "}
-                  <strong>brutally humiliated and agonizingly tortured</strong>{" "}
-                  is a powerful testimony to the courage of faith that can rise
-                  even in the darkest moments. Jesus, stripped of His dignity,
-                  nailed to a cross, mocked by crowds, and bearing the full
-                  weight of human cruelty—physical agony, emotional despair, and
-                  the sins of the world—still extended grace to a dying
-                  criminal. In that unimaginable suffering, the thief, facing
-                  his own death, chose to{" "}
-                  <strong>recognize Jesus’ divine authority</strong> and call
-                  Him “Lord.”
+              <section className="mb-12">
+                <h2 className="text-2xl sm:text-3xl mb-6 text-gray-900 dark:text-white">
+                  The Two Great Commandments
+                </h2>
+                <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
+                  Jesus summarized the 10 commandments in two commandments:
                 </p>
-                <p className="text-emerald-700 dark:text-emerald-300 mb-4">
-                  This was not a casual acknowledgment. It was a
-                  <strong>self‑sacrificial surrender</strong> to a Savior who
-                  was being treated as a criminal. The thief’s faith was not
-                  born of comfort or convenience but of deep conviction—a
-                  willingness to trust God’s lordship{" "}
-                  <strong>
-                    even when the world offers only humiliation and trial
-                  </strong>
-                  . This faith shows that moral restoration is not about
-                  avoiding pain but about choosing redemption through trust in a
-                  God who, in His own suffering, demonstrated the ultimate act
-                  of love.
-                </p>
-                <p className="text-emerald-700 dark:text-emerald-300 mb-4">
-                  From this encounter we learn that{" "}
-                  <strong>
-                    God’s moral character—His goodness, justice, and love—is not
-                    something we can “fix” on our own
-                  </strong>
-                  . Rather, it is something we can{" "}
-                  <strong>restore in our lives</strong> by aligning our hearts
-                  with God’s truth. Restoration is not about pretending to be
-                  perfect or following rules blindly; it is about{" "}
-                  <strong>trusting God’s guidance</strong> even when life feels
-                  unfair or painful. When we make choices that reflect what we
-                  know is right—whether through common sense, Scripture, or the
-                  wisdom of trusted tradition—we begin to{" "}
-                  <strong>mirror the character of our Creator</strong>.
-                </p>
-                <p className="text-emerald-700 dark:text-emerald-300 mb-4">
-                  True restoration goes beyond merely doing the right thing. It
-                  is a
-                  <strong>heart‑level submission to God’s sovereignty</strong>,
-                  even when the world offers only humiliation and trial. The
-                  thief’s story challenges us:{" "}
-                  <em>
-                    What does it mean to submit to God’s authority when
-                    everything around us seems to condemn Him?
-                  </em>{" "}
-                  His faith shows that moral restoration is not about avoiding
-                  pain but about{" "}
-                  <strong>
-                    choosing redemption through trust in a God who, in His own
-                    suffering, demonstrated the ultimate act of love
-                  </strong>
-                  .
-                </p>
-                <p className="text-emerald-700 dark:text-emerald-300 mb-4">
-                  When we align our lives with these principles, we allow{" "}
-                  <strong>
-                    God’s image to be restored in us—heart, mind, and spirit
-                  </strong>
-                  . This restoration is available to everyone, no matter our
-                  past, because{" "}
-                  <strong>
-                    God’s love and moral standards are always present
-                  </strong>
-                  . By choosing to follow Him, we participate in the renewal of
-                  the divine image within us, reflecting the character of our
-                  Creator even amid the harshest trials.
+                <ul className="list-disc pl-6 mb-8 text-lg space-y-3 text-gray-700 dark:text-gray-300">
+                  <li>
+                    Love the Lord your God with all your heart, soul, and mind
+                    (Matthew 22:37-38)
+                  </li>
+                  <li>Love your neighbor as yourself (Matthew 22:39)</li>
+                </ul>
+                <p className="text-lg text-gray-700 dark:text-gray-300">
+                  The first four commandments relate to our relationship with
+                  God, while the last six relate to our relationships with
+                  others. In all our dealings with others, we should follow the
+                  Golden Rule: "Therefore all things whatsoever ye would that
+                  men should do to you, do ye even so to them: for this is the
+                  law and the prophets" (Matthew 7:12).
                 </p>
               </section>
+              <section className="mb-12">
+                <div className="bg-blue-50 dark:bg-blue-950 p-6 rounded-xl mb-8">
+                  <h3 className="text-xl font-bold text-blue-800 dark:text-blue-200 mb-4">
+                    Transforming Actions Through Renewed Thinking
+                  </h3>
+                  <p className="text-blue-700 dark:text-blue-300 text-lg">
+                    True transformation begins with renewing our minds (Romans
+                    12:2). Before we can change our actions (downstream), we
+                    must first transform our thinking and attention (upstream).
+                    The condition of our heart determines our actions, and
+                    lasting change requires addressing the root issues of our
+                    thoughts, desires, and intentions.
+                  </p>
+                </div>
+                <div className="bg-purple-50 dark:bg-purple-950 p-6 rounded-xl mb-8">
+                  <h3 className="text-xl font-bold text-purple-800 dark:text-purple-200 mb-4">
+                    Imitating Christ: The Perfect Example
+                  </h3>
+                  <p className="text-purple-700 dark:text-purple-300 text-lg">
+                    Christ Jesus is the perfect embodiment of the Ten
+                    Commandments - He is the Word made flesh (John 1:14) who
+                    perfectly lived out every divine principle. To imitate Him
+                    is to make the most earnest effort to reflect His character
+                    in our thoughts, words, and deeds. As 1 Peter 2:21 says,
+                    "Christ... left us an example, that you should follow His
+                    steps."
+                  </p>
+                </div>
 
-              {/* ... remaining sections unchanged ... */}
+                <div className="bg-emerald-50 dark:bg-emerald-950 p-6 rounded-xl mb-8 border-l-4 border-emerald-500">
+                  <h3 className="text-xl font-bold text-emerald-800 dark:text-emerald-200 mb-4">
+                    Moral Restoration and the Image of God
+                  </h3>
+                  <p className="text-emerald-700 dark:text-emerald-300 text-lg mb-4">
+                    The willingness of the thief on the cross to call Jesus
+                    "Master" while Christ was humiliated and tortured
+                    demonstrates a heart ready for moral restoration under
+                    Christ's guidance. This recognition of divine authority in
+                    the midst of suffering shows that God's moral image is shown
+                    to be restorable when we are in harmony with God's commands
+                    in the decalogue as much as possible based on the
+                    availability of good tradition, reason, or written word to
+                    us. The thief’s story reminds us that God’s love and moral
+                    standards are always available to us, no matter our past. By
+                    choosing to follow Him, we allow His image to be restored in
+                    us—heart, mind, and spirit. The story of the thief on the
+                    cross who called Jesus “Master” while He was brutally
+                    humiliated and agonizingly tortured is a testament to the
+                    courage of faith that transcends suffering. Jesus, stripped
+                    of His dignity, nailed to a cross, and mocked by crowds,
+                    endured the full weight of human cruelty—physical agony,
+                    emotional despair, and the weight of the world’s sin. Yet,
+                    in that moment of unimaginable suffering, the thief, facing
+                    his own death, chose to recognize Jesus’ divine authority.
+                    This act was not a casual acknowledgment but a selfless
+                    surrender to a Savior who was himself being treated as a
+                    criminal. The thief’s faith was not born of comfort or
+                    convenience but of conviction—a recognition that even in the
+                    midst of Jesus’ humiliation, His lordship was absolute. It
+                    took extraordinary trust to call someone “Lord” who was
+                    being treated as a criminal, mocked, and dying in public.
+                    This story challenges us to reflect: What does it mean to
+                    submit to God’s authority when the world offers only
+                    humiliation and trial? The thief’s faith was not about
+                    avoiding suffering but about choosing redemption through
+                    trust in a God who, in His own suffering, demonstrated the
+                    ultimate act of love. His example shows that moral
+                    restoration is not about avoiding pain but about aligning
+                    our hearts with God’s truth, even when the path is steep and
+                    the cost is high. God’s moral character—His goodness,
+                    justice, and love—is not something we can “fix” on our own.
+                    Instead, it’s something we can restore in our lives by
+                    aligning our hearts with God’s truth. This restoration isn’t
+                    about pretending to be perfect or following rules blindly.
+                    It’s about trusting God’s guidance, even when life feels
+                    unfair or painful. When we make choices that reflect what we
+                    know is right—whether through common sense, the Bible, or
+                    the wisdom of others—we begin to mirror the character of our
+                    Creator.
+                  </p>
+                  <p className="text-emerald-700 dark:text-emerald-300 text-lg">
+                    When we align our lives with these principles, we reflect
+                    the character of our Creator. This restoration is not merely
+                    about outward compliance but about a heart that recognizes
+                    and submits to the sovereignty of God, even when the world
+                    offers only humiliation and trial.
+                  </p>
+                </div>
+
+                <div className="bg-indigo-50 dark:bg-indigo-950 p-6 rounded-xl">
+                  <h3 className="text-xl font-bold text-indigo-800 dark:text-indigo-200 mb-4">
+                    The Third Angel's Message: Revelation 14
+                  </h3>
+                  <p className="text-indigo-700 dark:text-indigo-300 text-lg mb-4">
+                    The third angel's message in Revelation 14 emphasizes the
+                    importance of keeping God's commandments like Christ.
+                    Revelation 14:12 says, "Here is the patience of the saints:
+                    here are they that keep the commandments of God, and the
+                    faith of Jesus." This message calls God's people to
+                    persevere in keeping all of God's commandments, especially
+                    in the face of end-time challenges.
+                  </p>
+                  <p className="text-indigo-700 dark:text-indigo-300 dark:text-indigo-300 text-lg">
+                    Bible prophecy also points to a time when laws in America
+                    (the lamb-like beast with two horns) will be used to
+                    pressure people into following man-made rules instead of
+                    God's original plan for the week. When human laws make it
+                    hard or impossible to follow the truth of Christ in God's
+                    law, we have to decide who we are really loyal to. Since
+                    every week we live is a copy of the very first week God
+                    created, staying true to His Sabbath is a way of showing our
+                    loyalty to Him. Soon, everyone will have to make a clear
+                    choice: will we follow the rules of men, or will we stay
+                    faithful to keeping God's commandments like Christ?
+                  </p>
+                </div>
+              </section>
+              <section>
+                <h2 className="text-2xl sm:text-3xl mb-8 text-gray-900 dark:text-white">
+                  The Ten Commandments
+                </h2>
+                <div className="space-y-8 mt-10">
+                  {commandments.map((cmd) => (
+                    <div
+                      key={cmd.id}
+                      className="border-l-4 border-blue-500 dark:border-blue-700 pl-6 py-4 bg-gray-50 dark:bg-gray-700 rounded-r-lg"
+                    >
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                        {cmd.id}. {cmd.text}
+                      </h3>
+                      <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg">
+                        <strong>Key Points:</strong> {cmd.keyPoints}
+                      </p>
+                      <div className="bg-white dark:bg-gray-800 p-5 rounded-lg">
+                        <h4 className="font-bold text-gray-900 dark:text-white mb-3 text-lg">
+                          Biblical Reasoning:
+                        </h4>
+                        <p className="text-gray-700 dark:text-gray-300">
+                          {cmd.analyze("").biblicalReasoning}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
               <section className="mt-16">
                 <h2 className="text-2xl sm:text-3xl mb-6 text-gray-900 dark:text-white">
                   The Unity of the Law
@@ -147,16 +228,16 @@ export default function Education({ onNavigateToLightshedder }) {
                 </p>
                 <div className="bg-red-50 dark:bg-red-950 p-6 rounded-xl mb-8 border-l-4 border-red-500">
                   <h3 className="text-xl font-bold text-red-800 dark:text-red-200 mb-4">
-                    Love and the Decalogue{" "}
+                    Love and the Decalogue
                   </h3>
                   <p className="text-red-700 dark:text-red-300 text-lg">
-                    Love, defined as self‑sacrifice for the best of others, is
+                    Love, defined as self-sacrifice for the best of others, is
                     not possible without rejoicing in the absence of the
                     cherished sinful thought processes that lead to the
                     transgressions the Ten Commandments forbid. True love does
-                    not rejoice in wrongdoing but rejoices with the truth
-                    (1 Corinthians 13:6). Therefore, to love truly is to uphold
-                    the moral standards God has set forth in His law.
+                    not rejoice in wrongdoing but rejoices with the truth (1
+                    Corinthians 13:6). Therefore, to love truly is to uphold the
+                    moral standards God has set forth in His law.
                   </p>
                 </div>
                 <h2 className="text-2xl sm:text-3xl mt-10 mb-6 text-gray-900 dark:text-white">
@@ -165,7 +246,7 @@ export default function Education({ onNavigateToLightshedder }) {
                 <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
                   Every commandment is an expression of love and mercy from God.
                   They flow as a saving power designed to protect us and secure
-                  our well‑being, both now and forever.
+                  our well-being, both now and forever.
                 </p>
                 <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
                   The Ten Commandments are not merely rules to follow but
@@ -175,8 +256,8 @@ export default function Education({ onNavigateToLightshedder }) {
                 </p>
                 <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
                   Remember that lasting change requires addressing upstream
-                  issues—our thoughts, desires, and intentions—before we can
-                  expect downstream changes in our actions. As Proverbs 4:23
+                  issues - our thoughts, desires, and intentions - before we can
+                  expect downstream changes in our actions. As Proverbs 4:23
                   says, "Keep your heart with all vigilance, for from it flow
                   the springs of life."
                 </p>
@@ -200,7 +281,7 @@ export default function Education({ onNavigateToLightshedder }) {
                   we see not just our outward actions, but the hidden motives
                   and secret desires that drive them. This reflection is not
                   meant to discourage us, but to lead us to a place of honest
-                  self‑examination and a deeper reliance on God's grace for
+                  self-examination and a deeper reliance on God's grace for
                   transformation.
                 </p>
                 <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
