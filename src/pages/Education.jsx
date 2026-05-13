@@ -83,7 +83,7 @@ export default function Education({ onNavigateToLightshedder }) {
                   <h3 className="text-xl font-bold text-purple-800 dark:text-purple-200 mb-4">
                     Imitating Christ: The Perfect Example
                   </h3>
-                  <p className="text-purple-700 dark:text-purple-300 text-lg">
+                  <p className="text-purple-700 dark:text-purple-300 text-lg mb-4">
                     Christ Jesus is the perfect embodiment of the Ten
                     Commandments - He is the Word made flesh (John 1:14) who
                     perfectly lived out every divine principle. To imitate Him
@@ -91,6 +91,15 @@ export default function Education({ onNavigateToLightshedder }) {
                     in our thoughts, words, and deeds. As 1 Peter 2:21 says,
                     "Christ... left us an example, that you should follow His
                     steps."
+                  </p>
+                  <p className="text-purple-700 dark:text-purple-300 text-lg">
+                    The glory of Christ is revealed in the law, which is a
+                    transcript of His character, and His transforming efficacy
+                    is felt upon the soul until men become changed into His
+                    likeness. They are made partakers of the divine nature, and
+                    grow more and more like their Saviour, advancing step by
+                    step in conformity to the will of God, till they reach
+                    perfection. The law and the gospel are in perfect harmony.
                   </p>
                 </div>
 
