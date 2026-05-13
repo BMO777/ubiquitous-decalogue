@@ -93,13 +93,7 @@ export default function Education({ onNavigateToLightshedder }) {
                     steps."
                   </p>
                   <p className="text-purple-700 dark:text-purple-300 text-lg">
-                    The glory of Christ is revealed in the law, which is a
-                    transcript of His character, and His transforming efficacy
-                    is felt upon the soul until men become changed into His
-                    likeness. They are made partakers of the divine nature, and
-                    grow more and more like their Saviour, advancing step by
-                    step in conformity to the will of God, till they reach
-                    perfection. The law and the gospel are in perfect harmony.
+                    The law reveals Christ's glory because it reflects His perfect character. As we study it, God's Spirit as words spoken by the pre-incarnate Christ transform us to become more like Jesus. We're invited to share in His divine nature and grow step by step to reflect His love and righteousness. The law and the gospel work together perfectly—the law shows us God's ideal, and the gospel shows us how to reach it through Christ.
                   </p>
                 </div>
 
