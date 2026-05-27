@@ -93,7 +93,7 @@ export default function Education({ onNavigateToLightshedder }) {
                     steps."
                   </p>
                   <p className="text-purple-700 dark:text-purple-300 text-lg">
-                    The law reveals Christ's glory because it reflects His perfect character. As we study it, God's Spirit as words spoken by the pre-incarnate Christ transform us to become more like Jesus. We're invited to share in His divine nature and grow step by step to reflect His love and righteousness. The law and the gospel work together perfectly—the law shows us God's ideal, and the gospel shows us how to reach it through Christ.
+                    The law reveals Christ's glory because it reflects His perfect character. As we study it, God's Spirit as words spoken by the pre-incarnate Christ transform us to become more like Jesus. We're invited to share in His divine nature and grow step by step to reflect His love and righteousness. The law and the gospel work together perfectly—Christ in the law is the ideal, and the gospel shows us how to reach it through Christ.
                   </p>
                 </div>
 
